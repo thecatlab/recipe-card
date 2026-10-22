@@ -16,18 +16,39 @@ window.initRecipeGenerator = function () {
       library = { selectedId: blank.id, recipes: [blank] };
     }
   }
-  // Each bundled recipe is added once per version, so a visitor's edits stay until the bundled copy changes.
-  for (const entry of bundled?.recipes || []) {
+  function normalize(entry) {
+    for (const field of ['prep', 'finish']) {
+      if (!Array.isArray(entry[field])) entry[field] = [{ ...M.instruction(), text: entry[field] || '' }];
+    }
+    return entry;
+  }
+  // A shared recipe (bundled with the site or saved on GitHub) is identified by its id and a hash of its content.
+  function versionToken(entry) {
     const text = JSON.stringify(entry);
     let hash = 5381;
     for (let index = 0; index < text.length; index++) hash = (hash * 33 + text.charCodeAt(index)) >>> 0;
-    const token = `bundled:${entry.id}:${hash.toString(36)}`;
-    if (library.importedSnapshots?.includes(token)) continue;
-    const existing = library.recipes.findIndex(item => item.id === entry.id);
-    if (existing < 0) library.recipes.push(JSON.parse(text));
-    else library.recipes[existing] = JSON.parse(text);
-    library.importedSnapshots = [...(library.importedSnapshots || []), token];
+    return `bundled:${entry.id}:${hash.toString(36)}`;
   }
+  function markImported(tokens) {
+    library.importedSnapshots = [...(library.importedSnapshots || []), ...tokens].slice(-1000);
+  }
+  // Adds each version of a shared recipe once, so local edits stay until the shared copy changes. Returns the recipes it changed.
+  function importRecipes(list) {
+    const imported = [];
+    for (const entry of list || []) {
+      if (!entry?.id) continue;
+      const token = versionToken(entry);
+      if (library.importedSnapshots?.includes(token)) continue;
+      const copy = normalize(structuredClone(entry));
+      const existing = library.recipes.findIndex(item => item.id === entry.id);
+      if (existing < 0) library.recipes.push(copy);
+      else library.recipes[existing] = copy;
+      markImported([token]);
+      imported.push(copy);
+    }
+    return imported;
+  }
+  importRecipes(bundled?.recipes);
   if (snapshot) {
     const token = embedded.dataset.snapshot || snapshot.id;
     if (!library.importedSnapshots?.includes(token)) {
@@ -38,11 +59,7 @@ window.initRecipeGenerator = function () {
     }
     library.selectedId = snapshot.id;
   }
-  library.recipes.forEach(entry => {
-    for (const field of ['prep', 'finish']) {
-      if (!Array.isArray(entry[field])) entry[field] = [{ ...M.instruction(), text: entry[field] || '' }];
-    }
-  });
+  library.recipes.forEach(normalize);
   let recipe = library.recipes.find(item => item.id === library.selectedId) || library.recipes[0];
   let servings = Number(recipe.baseServings) || 4;
   let units = 'main';
@@ -1210,10 +1227,149 @@ window.initRecipeGenerator = function () {
     if (key === 'y' || event.shiftKey) travel('future', 'past');
     else travel('past', 'future');
   });
+  // Saving to GitHub: writes the library to the repository set by main.js (window.recipeGitHub), which redeploys the site.
+  // Exported HTML files have no repository, so the button stays hidden there.
+  const repo = window.recipeGitHub;
+  const tokenKey = 'recipe-generator.github-token';
+  const readToken = () => { try { return localStorage.getItem(tokenKey) || ''; } catch { return ''; } };
+  const jakartaTime = time => new Date(time).toLocaleString('en-GB', { timeZone: 'Asia/Jakarta', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false });
+  const toBase64 = text => { let binary = ''; new TextEncoder().encode(text).forEach(byte => { binary += String.fromCharCode(byte); }); return btoa(binary); };
+  const fromBase64 = text => new TextDecoder().decode(Uint8Array.from(atob(text.replace(/\s/g, '')), character => character.charCodeAt(0)));
+  const recipeName = item => item.name || 'Untitled recipe';
+  // An untouched new recipe is not worth saving.
+  const isEmpty = item => !filled(item.name, item.description) && !item.ingredients?.some(entry => filled(entry.name)) && !item.procedures?.some(entry => filled(entry.title, entry.instructions));
+  async function github(token, path, options = {}) {
+    let response;
+    try {
+      response = await fetch(`https://api.github.com/repos/${repo.owner}/${repo.repo}${path}`, { ...options, cache: 'no-store', headers: { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28' } });
+    } catch {
+      throw new Error("Couldn't reach GitHub. Check your internet connection and try again.");
+    }
+    if (response.ok || (response.status === 404 && !options.method)) return response;
+    const detail = await response.json().catch(() => ({}));
+    if (response.status === 401) throw new Error("GitHub didn't accept the token. It may be mistyped, expired or deleted.");
+    if (response.status === 403 || response.status === 404) throw new Error(`The token can't write to ${repo.owner}/${repo.repo}. Check that it includes this repository and that Contents is set to Read and write.`);
+    if (response.status === 409 || response.status === 422) throw new Error('The recipes on GitHub changed while saving. Try saving again.');
+    throw new Error(`GitHub error ${response.status}${detail.message ? ': ' + detail.message : ''}.`);
+  }
+  async function readRemote(token) {
+    const response = await github(token, `/contents/${repo.path}?ref=${encodeURIComponent(repo.branch)}`);
+    if (response.status === 404) return { sha: null, data: { recipes: [] } };
+    const file = await response.json();
+    return { sha: file.sha, data: JSON.parse(fromBase64(file.content)) };
+  }
+  function markSynced(sha, recipes) {
+    library.github = { ...library.github, sha, ...(recipes ? { savedAt: Date.now() } : {}) };
+    if (recipes) markImported(recipes.map(versionToken));
+    save();
+  }
+  // Brings in recipes that were saved to GitHub from another browser or device.
+  async function pullFromGitHub() {
+    const remote = await readRemote(readToken());
+    const imported = importRecipes(remote.data.recipes);
+    if (imported.length) {
+      imported.forEach(item => histories.delete(item.id));
+      recipe = library.recipes.find(item => item.id === recipe.id) || recipe;
+      servings = Number(recipe.baseServings) || 4;
+      renderEditor();
+      renderCard();
+      notify('Loaded the latest from GitHub: ' + imported.map(recipeName).join(', ') + '.');
+    }
+    if (remote.sha) markSynced(remote.sha);
+    return imported;
+  }
+  function githubStatus(text) { $('github-status').textContent = text; }
+  function githubBusy(busy) {
+    ['github-connect-button', 'github-save', 'github-disconnect', 'github-token'].forEach(id => { $(id).disabled = busy; });
+  }
+  function renderGitHubDialog() {
+    const connected = Boolean(readToken());
+    $('github-connect').hidden = connected;
+    $('github-connected').hidden = !connected;
+    $('github-connect-button').hidden = connected;
+    $('github-save').hidden = !connected;
+    $('github-disconnect').hidden = !connected;
+    $('github-last').textContent = library.github?.savedAt ? 'Last saved from this browser on ' + jakartaTime(library.github.savedAt) + '.' : 'Nothing saved from this browser yet.';
+    $('github-token').value = '';
+  }
+  async function connectGitHub() {
+    const token = $('github-token').value.trim();
+    if (!token) { githubStatus('Paste a token first.'); $('github-token').focus(); return; }
+    githubBusy(true);
+    githubStatus('Checking the token…');
+    try {
+      await readRemote(token);
+      try { localStorage.setItem(tokenKey, token); } catch { throw new Error("This browser can't store the token. Private windows often block it."); }
+      renderGitHubDialog();
+      githubStatus('Connected. Loading the latest recipes…');
+      const imported = await pullFromGitHub();
+      githubStatus(imported.length ? 'Connected, and loaded the latest recipes from GitHub.' : 'Connected.');
+      $('github-save').focus();
+    } catch (error) {
+      githubStatus(error.message);
+    } finally {
+      githubBusy(false);
+    }
+  }
+  async function saveToGitHub() {
+    save();
+    const token = readToken();
+    githubBusy(true);
+    githubStatus('Checking GitHub…');
+    try {
+      const remote = await readRemote(token);
+      const recipes = library.recipes.filter(item => !isEmpty(item));
+      if (!recipes.length) { githubStatus('There are no recipes with content to save.'); return; }
+      const ids = new Set(recipes.map(item => item.id));
+      const before = new Map((remote.data.recipes || []).map(item => [item.id, item]));
+      const removed = [...before.values()].filter(item => !ids.has(item.id));
+      const added = recipes.filter(item => !before.has(item.id));
+      const updated = recipes.filter(item => before.has(item.id) && JSON.stringify(item) !== JSON.stringify(before.get(item.id)));
+      if (!added.length && !updated.length && !removed.length && remote.sha) {
+        markSynced(remote.sha, recipes);
+        githubStatus('GitHub already has these recipes. Nothing to save.');
+        return;
+      }
+      const warnings = [];
+      if (library.github?.sha && remote.sha && remote.sha !== library.github.sha) warnings.push('The recipes on GitHub were changed from another browser after this one last loaded them. Saving replaces that version with the recipes in this browser.');
+      if (removed.length) warnings.push('These recipes are on GitHub but not in this browser, so saving removes them from GitHub and the website: ' + removed.map(recipeName).join(', ') + '.');
+      if (warnings.length && !confirm(warnings.join('\n\n') + '\n\nSave anyway?')) { githubStatus('Not saved.'); return; }
+      githubStatus('Saving…');
+      const summary = [['Add', added], ['Update', updated], ['Remove', removed]].filter(([, list]) => list.length).map(([verb, list]) => verb + ' ' + list.map(recipeName).join(', ')).join('; ');
+      const data = { selectedId: ids.has(remote.data.selectedId) ? remote.data.selectedId : recipe.id, recipes };
+      const response = await github(token, `/contents/${repo.path}`, { method: 'PUT', body: JSON.stringify({ message: summary || 'Update recipes', content: toBase64(JSON.stringify(data, null, 2) + '\n'), branch: repo.branch, ...(remote.sha ? { sha: remote.sha } : {}) }) });
+      const result = await response.json();
+      markSynced(result.content.sha, recipes);
+      renderGitHubDialog();
+      githubStatus('Saved. The website updates in about a minute.');
+      notify('Saved to GitHub: ' + summary + '.');
+    } catch (error) {
+      githubStatus(error.message);
+    } finally {
+      githubBusy(false);
+    }
+  }
+  $('open-github').hidden = !repo;
+  if (repo) {
+    document.querySelectorAll('.github-repo').forEach(element => { element.textContent = `${repo.owner}/${repo.repo}`; });
+    document.querySelectorAll('.github-repo-name').forEach(element => { element.textContent = repo.repo; });
+    document.querySelectorAll('.github-file').forEach(element => { element.textContent = repo.path; });
+  }
+  $('open-github').addEventListener('click', () => { renderGitHubDialog(); githubStatus(''); $('github-dialog').showModal(); });
+  $('cancel-github').addEventListener('click', () => $('github-dialog').close());
+  $('github-connect-button').addEventListener('click', connectGitHub);
+  $('github-token').addEventListener('keydown', event => { if (event.key === 'Enter') connectGitHub(); });
+  $('github-save').addEventListener('click', saveToGitHub);
+  $('github-disconnect').addEventListener('click', () => {
+    try { localStorage.removeItem(tokenKey); } catch { /* Nothing stored. */ }
+    renderGitHubDialog();
+    githubStatus('Disconnected. The token is removed from this browser. You can also delete it on GitHub.');
+  });
   window.addEventListener('beforeunload', save);
   renderLibrary();
   renderEditor();
   renderCard();
   setView(true);
   save();
+  if (repo && readToken() && !snapshot) pullFromGitHub().catch(error => notify(error.message));
 };

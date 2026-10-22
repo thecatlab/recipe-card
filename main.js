@@ -28,4 +28,6 @@ window.recipeCaptureSource = captureSource;
 // The hosted site starts with the recipes in recipes/library.json. The dev server keeps
 // only the local library, so it never overwrites recipes being edited there.
 if (!import.meta.env.DEV) window.recipeCollection = bundledRecipes;
+// Where "Save to GitHub" writes the recipes. Each save redeploys the site.
+window.recipeGitHub = { owner: 'thecatlab', repo: 'recipe-card', branch: 'main', path: 'recipes/library.json' };
 window.initRecipeGenerator();

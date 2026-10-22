@@ -35,6 +35,18 @@ Recipes autosave to this browser. **Undo** and **Redo** (after Duplicate, or Ctr
 
 The save status shows the latest save time in Jakarta time. Click a fraction button (1/2, 1/4, 3/4, 1/3, 2/3) or **°** beside **+ Ingredient** in Edit table to insert it. Fractions go in as plain text such as `1/2`, with a space added after a whole number so `1` becomes `1 1/2`. They are inserted at the cursor in the last active text field, including procedure instructions and recipe notes.
 
+## Website and saving to GitHub
+
+The site is published at https://thecatlab.github.io/recipe-card/. Every push to `main` runs the tests, builds the site and deploys it (`.github/workflows/pages.yml`). Visitors start with the recipes in [recipes/library.json](recipes/library.json); their own edits stay in their browser.
+
+To save your recipes to the repository from the site (or from `npm run dev`):
+
+1. Create a [fine-grained token](https://github.com/settings/personal-access-tokens/new) with **Repository access → Only select repositories → recipe-card** and **Contents → Read and write**.
+2. Click the cloud button next to the undo/redo buttons, paste the token and choose **Connect**. The token is kept only in that browser; **Disconnect** removes it.
+3. **Save recipes** commits every recipe in the browser to `recipes/library.json`. The website updates about a minute later.
+
+While connected, the app also loads recipes saved from your other browsers or devices when it opens. If GitHub was changed somewhere else, or saving would remove recipes from it, the app asks first.
+
 ## Export
 
 - **Save HTML:** downloads a self-contained, editable generator with the current recipe, fonts, and export code. Open the file in a browser to continue editing, save it again, or export images. HTML preserves base quantities; display scaling remains a preview setting.
