@@ -7,9 +7,26 @@ window.initRecipeGenerator = function () {
   const snapshot = embedded ? JSON.parse(embedded.textContent) : null;
   let library;
   try { library = JSON.parse(localStorage.getItem(storageKey)); } catch { /* Storage may be unavailable for local files. */ }
+  // Recipes bundled with the hosted site (recipes/library.json, set by main.js in production builds).
+  const bundled = snapshot ? null : window.recipeCollection;
   if (!library?.recipes?.length) {
-    const blank = snapshot || M.blankRecipe();
-    library = { selectedId: blank.id, recipes: [blank] };
+    if (bundled?.recipes?.length) library = { selectedId: bundled.selectedId, recipes: [] };
+    else {
+      const blank = snapshot || M.blankRecipe();
+      library = { selectedId: blank.id, recipes: [blank] };
+    }
+  }
+  // Each bundled recipe is added once per version, so a visitor's edits stay until the bundled copy changes.
+  for (const entry of bundled?.recipes || []) {
+    const text = JSON.stringify(entry);
+    let hash = 5381;
+    for (let index = 0; index < text.length; index++) hash = (hash * 33 + text.charCodeAt(index)) >>> 0;
+    const token = `bundled:${entry.id}:${hash.toString(36)}`;
+    if (library.importedSnapshots?.includes(token)) continue;
+    const existing = library.recipes.findIndex(item => item.id === entry.id);
+    if (existing < 0) library.recipes.push(JSON.parse(text));
+    else library.recipes[existing] = JSON.parse(text);
+    library.importedSnapshots = [...(library.importedSnapshots || []), token];
   }
   if (snapshot) {
     const token = embedded.dataset.snapshot || snapshot.id;

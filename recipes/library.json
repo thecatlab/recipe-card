@@ -1,0 +1,1611 @@
+{
+  "selectedId": "f4d68c31-f4d5-4ccc-b64b-d4e0da029653",
+  "recipes": [
+    {
+      "id": "44d70ce7-8aab-4ea8-934e-8d4492f3ca3a",
+      "name": "Beef Broth (RtP)",
+      "description": "Kaldu daging sapi dengan perbandingan 1:1 (1kg tulang dan 1 kg air).",
+      "eyebrow": "Base Recipe",
+      "baseServings": "1",
+      "active": "",
+      "total": "24 hr",
+      "vessel": "",
+      "prep": [
+        {
+          "id": "151ed755-3329-4023-b61a-ea4d1c136f55",
+          "text": "with room temp. water (1-2 min/kg). Pat dry or air dry to prevent uneven browning.",
+          "title": "Rinse"
+        }
+      ],
+      "finish": [
+        {
+          "id": "8573aef6-8278-4dfe-a913-26c1c4e34d73",
+          "title": "Strain",
+          "text": "using fine strainer or cheesecloth",
+          "tools": ""
+        },
+        {
+          "id": "1c3dcf22-cd72-4f74-9468-547776dfed8f",
+          "text": "Brix 7.0, Salt level 0.17",
+          "title": "QC"
+        },
+        {
+          "id": "e66464c8-97e1-44a1-9eca-ed5b30fb225f",
+          "text": "Immediately used?",
+          "options": [
+            {
+              "id": "7f764524-a5fd-4e98-b0fe-51742995d703",
+              "label": "Immediate use",
+              "text": "Scoop the beef broth and skim the beef tallow. Keep broth ≥ 60°C.",
+              "items": [],
+              "answer": "Yes,"
+            },
+            {
+              "id": "7670840f-3cdd-4b90-82c8-390ddcc65b47",
+              "label": "Store",
+              "text": "Immediately cool down until 21°C within 2 hr using ice bath, to 5°C within next 4 hr in the freezer. Label production date. Thaw in fridge before use.",
+              "tools": "Fridge ≤5°C (3-4 days), Freezer ≤-18°C (2 months)",
+              "items": [],
+              "answer": "No,"
+            }
+          ]
+        },
+        {
+          "id": "ba16aee2-216a-4ea5-969d-620a60657ecf",
+          "title": "Beef tallow",
+          "text": "After storing the broth in the fridge, a golden layer will be formed on top. Scrape this and store as Beef Tallow, useful later. When used immediately, skim the fat layer and store it.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "ingredients": [
+        {
+          "id": "ca890aa3-9289-4faa-8716-d7d8f8ed8cf0",
+          "name": "Knuckle/joint bones/femur",
+          "description": "Saw to smaller pieces if possible.",
+          "quantity": "500",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "f347da5b-26f2-409e-8dd5-0b72ded7e2ad",
+          "name": "Marrow bones",
+          "description": "Tulang sumsum. More is better. Saw to smaller pieces if possible.",
+          "quantity": "300",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b37287da-81fc-407f-a838-f55017b06825",
+          "name": "Neck bones",
+          "description": "Saw to smaller pieces if possible.",
+          "quantity": "200",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ec2715fc-b4fd-4598-addc-aedc9551f571",
+          "name": "Filtered Water",
+          "description": "For the base 1:1 ratio",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "0ba29963-51a0-4137-b6f2-530761c32de7",
+          "name": "Filtered Water",
+          "description": "Compensating evaporation during cooking process. 30% more.",
+          "quantity": "300",
+          "unit": "mL",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "f2e2182a-2771-4f13-9d67-dcddeba734e9",
+          "title": "Roasting",
+          "instructions": "200°C, 30-40 min, golden brown. Aluminum foil underneath. Turn once halfway.",
+          "inputs": [
+            "ca890aa3-9289-4faa-8716-d7d8f8ed8cf0",
+            "f347da5b-26f2-409e-8dd5-0b72ded7e2ad",
+            "b37287da-81fc-407f-a838-f55017b06825"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Could set to highest temp. with shorter time"
+        },
+        {
+          "id": "e50b2d58-ecf3-4327-bcf1-5790d4ea44e7",
+          "title": "Parboil",
+          "instructions": "Start boiling. Heat to 100°C, then 3-5 min, just enough water. Stir occationally. Dump water.",
+          "inputs": [
+            "ca890aa3-9289-4faa-8716-d7d8f8ed8cf0",
+            "f347da5b-26f2-409e-8dd5-0b72ded7e2ad",
+            "b37287da-81fc-407f-a838-f55017b06825",
+            "f2e2182a-2771-4f13-9d67-dcddeba734e9"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": ""
+        },
+        {
+          "id": "16652aa8-adc8-46f5-93a1-37b7d942768b",
+          "title": "Rinse",
+          "instructions": "40-50°C high-pressure water. Only clean surface briefly.",
+          "inputs": [
+            "ca890aa3-9289-4faa-8716-d7d8f8ed8cf0",
+            "f347da5b-26f2-409e-8dd5-0b72ded7e2ad",
+            "b37287da-81fc-407f-a838-f55017b06825",
+            "e50b2d58-ecf3-4327-bcf1-5790d4ea44e7"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": ""
+        },
+        {
+          "id": "178c8477-e9f1-43f4-a098-4fb4355f769f",
+          "title": "Simmer",
+          "instructions": "24 hrs. Start cold, heat to below simmering (92 C). Skim in first 30-60 mins. Slightly open the lid.",
+          "inputs": [
+            "ca890aa3-9289-4faa-8716-d7d8f8ed8cf0",
+            "f347da5b-26f2-409e-8dd5-0b72ded7e2ad",
+            "b37287da-81fc-407f-a838-f55017b06825",
+            "ec2715fc-b4fd-4598-addc-aedc9551f571",
+            "0ba29963-51a0-4137-b6f2-530761c32de7"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Clean stockpot, filtered water. Use induction or slow cooker if left alone."
+        }
+      ],
+      "notes": [
+        {
+          "id": "7e96f6d6-f3e3-4257-9df9-6772d0d5dbe1",
+          "title": "Shimmering durations",
+          "body": "Meaty flavor extraction and gelatin extraction has different timetable. "
+        },
+        {
+          "id": "a4be05c9-5c69-4b67-ae18-d71378158e97",
+          "title": "Narrow pot",
+          "body": "Narrow pot helps for small-scale production"
+        },
+        {
+          "id": "e994ace6-f442-4315-bbca-8bf58513bbec",
+          "title": "Reverse Osmosis Water",
+          "body": "Is the best quality water for this kind of food. Carbon filter is also fine."
+        },
+        {
+          "id": "61192891-35d6-49f0-86ff-1871bfc669b4",
+          "title": "Oil on roasting",
+          "body": "Unnecessary, burdening cost and potentially leaving greasy-film on the broth."
+        },
+        {
+          "id": "1dd876b5-f42e-4011-90b9-b58ce4f8a849",
+          "title": "Roasting liquids",
+          "body": "Pour on heatproof cup and let it sit for 2-3 mins. Strain golden top layer as a beef tallow. Discard black residue. Add darker juice to the broth. Deglaze brown bits (using the water for broth, do not add more) and add to broth (not when parboiling)."
+        },
+        {
+          "id": "804f04da-3531-4bce-b2c5-fde199c6f2e8",
+          "title": "Simmer temperature",
+          "body": "Should not see steam breaking the surface. Tony bubbles. Never rolling boil. Do not add too much water (max 12%)."
+        }
+      ],
+      "monochrome": false,
+      "yieldUnit": "L"
+    },
+    {
+      "id": "24ffe241-65d2-490d-a2ac-a50b96d18e86",
+      "name": "Beef Soto",
+      "description": "",
+      "eyebrow": "",
+      "baseServings": "3",
+      "yieldUnit": "Liters",
+      "active": "",
+      "total": "3 hours",
+      "vessel": "",
+      "prep": [
+        {
+          "id": "3f539650-b977-4ec6-8616-7f0adfc04977",
+          "title": "Rinse",
+          "text": "Brisket, Onions, Ginger",
+          "tools": ""
+        }
+      ],
+      "finish": [
+        {
+          "id": "aed4c10d-ecd4-4d62-9bb1-cc8d212c865f",
+          "text": "Mushroom note too strong?",
+          "options": [
+            {
+              "id": "bf38b3bb-2dcd-4f5f-843e-3aa709a00ebb",
+              "answer": "Yes",
+              "label": "Lift after 1 hr",
+              "text": "",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "cd84fc13-265b-4bf3-bc20-d966719298f5",
+              "answer": "No",
+              "label": "Continue",
+              "text": "",
+              "tools": "",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "dcf1aa87-6482-4889-ba91-66fc2abdd774",
+          "title": "Final Adjustment and X-Factor",
+          "ingredients": [
+            {
+              "id": "efc65bf0-e9ad-4e04-9995-0135f0cff7d2",
+              "name": "Beef Broth Mix",
+              "description": "",
+              "quantity": "",
+              "unit": "",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "99550e0c-4221-4b66-a89c-4699528286f3",
+              "name": "Beef Broth Base",
+              "description": "BRIX > 7.0, QC should look like jelly after storing process. For infusion process.",
+              "quantity": "350",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "6a2ccf77-d375-4a58-a96a-0dbadf57107b",
+              "name": "Optional Beef Broth Base",
+              "description": "Only if need to soften this, produce more volume",
+              "quantity": "500",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "42abef76-994c-4638-9886-93d65ca6589b",
+              "name": "Rock Sugar",
+              "description": "Adjust to taste",
+              "quantity": "15",
+              "unit": "gr",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "674e67d8-82ad-4542-9242-6bff71e634e3",
+              "name": "Fish sauce",
+              "description": "Max value, adjust to taste. Add per 5 ml.",
+              "quantity": "15",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "ef7b91b8-441d-42b9-9b6d-10441edf8887",
+              "name": "Oxtail concentrate",
+              "description": "An x-factor addition to add unique finish to the broth. Adjusted to taste. Start value.",
+              "quantity": "150",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "00725408-c7b1-40c4-9cfd-e5084d50f3a9",
+              "name": "White sugar",
+              "description": "Final adjustment, to taste",
+              "quantity": "",
+              "unit": "",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "0dbe5b15-bad6-4349-8291-ee12be10fb6e",
+              "name": "MSG",
+              "description": "Final adjustment, to taste",
+              "quantity": "",
+              "unit": "",
+              "metricQuantity": "",
+              "metricUnit": ""
+            }
+          ],
+          "procedures": [
+            {
+              "id": "7cedf2a7-45e7-468b-9334-21387cb49cd9",
+              "title": "Remove brisket",
+              "instructions": "After 3 hrs, remove brisket and set aside to cool",
+              "inputs": [
+                "efc65bf0-e9ad-4e04-9995-0135f0cff7d2"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "dad2135f-40de-425f-a212-ff5bac9b6b6a",
+              "title": "Strain",
+              "instructions": "Strain and discard the aromatics, spices, and mushrooms. Leave a little fat for flavour.",
+              "inputs": [
+                "efc65bf0-e9ad-4e04-9995-0135f0cff7d2"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "b6817bcb-1f19-4e7e-b6cf-d3d2199eb2c1",
+              "title": "Add beef stock",
+              "instructions": "Add broth base until broth reach 2.85L",
+              "inputs": [
+                "efc65bf0-e9ad-4e04-9995-0135f0cff7d2",
+                "99550e0c-4221-4b66-a89c-4699528286f3",
+                "6a2ccf77-d375-4a58-a96a-0dbadf57107b"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "7d8b131b-6da5-4ea3-8062-ea0bf1689ebf",
+              "title": "Add",
+              "instructions": "Last, as the final adjustment. Should still be salty.",
+              "inputs": [
+                "674e67d8-82ad-4542-9242-6bff71e634e3"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "554068c5-9a73-4e6e-a854-23953e5b0b81",
+              "title": "Add",
+              "instructions": "Before fish sauce.",
+              "inputs": [
+                "42abef76-994c-4638-9886-93d65ca6589b"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "Slightly sweeter before toned down by fish sauce.",
+              "parallel": true
+            },
+            {
+              "id": "8cd209f3-37b7-4a14-9276-169188e44489",
+              "title": "Add X-Factor",
+              "instructions": "Adding uniqueness to the broth. If not, reduce the fish sauce. Should still be slightly salty.",
+              "inputs": [
+                "ef7b91b8-441d-42b9-9b6d-10441edf8887"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "5e5de0ad-3d5d-47bc-a956-bc8d695a3775",
+              "title": "Corrections",
+              "instructions": "",
+              "inputs": [
+                "00725408-c7b1-40c4-9cfd-e5084d50f3a9",
+                "0dbe5b15-bad6-4349-8291-ee12be10fb6e"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            }
+          ]
+        },
+        {
+          "id": "f64bbfd4-dafd-4066-a08c-26cd27ac2460",
+          "text": "Taste",
+          "options": [
+            {
+              "id": "d39f1092-812d-49d3-bfcf-97fa9c74cddd",
+              "answer": "Too salty?",
+              "label": "Add more reserved broth base",
+              "text": "",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "cacb11a9-9b10-4d0c-ad62-64710b8d40d2",
+              "answer": "Flat, salty enough?",
+              "label": "Add MSG, not salt",
+              "text": "",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "085d6358-781d-491c-aea2-67a567139372",
+              "answer": "Not salty?",
+              "label": "Add salt",
+              "text": "",
+              "tools": "",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "e9915af1-c7f4-4744-8ee9-b5e5dc86553f",
+          "title": "QC",
+          "text": "BRIX 8.7, Salt level 1.51%, 3L of broth",
+          "tools": "Refractometer"
+        },
+        {
+          "id": "49446060-ee45-4a4b-811b-cccfaed898a3",
+          "title": "Serving",
+          "text": "Add drops of spiced tallow",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+          "name": "Brisket",
+          "description": "Alternatives: Flank, and Chuck for inexpensives",
+          "quantity": "0.5",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "26f64c02-dd1f-4ab5-abc6-9af1345ac27a",
+          "name": "Salt",
+          "description": "",
+          "quantity": "handful",
+          "unit": "",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+          "name": "Beef Tallow",
+          "description": "",
+          "quantity": "6",
+          "unit": "tbsp",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+          "name": "Jamur merang",
+          "description": "Jamur tiram. Both adjust to taste.",
+          "quantity": "150",
+          "unit": "gr",
+          "metricQuantity": "220",
+          "metricUnit": "gr"
+        },
+        {
+          "id": "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+          "name": "Shallots",
+          "description": "Bawang merah",
+          "quantity": "4",
+          "unit": "siung",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "3e615793-56b0-448e-954e-f3b926a62bc3",
+          "name": "Garlic",
+          "description": "Slice half",
+          "quantity": "50",
+          "unit": "gr",
+          "metricQuantity": "1/2",
+          "metricUnit": "bulb"
+        },
+        {
+          "id": "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+          "name": "Onions",
+          "description": "Peel, halve",
+          "quantity": "2",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+          "name": "Ginger",
+          "description": "Slice half",
+          "quantity": "50",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1414071c-92e4-480b-a336-8ce1175a0acf",
+          "name": "Cinnamon",
+          "description": "Kerinci cassia",
+          "quantity": "15",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "15625c86-c262-4280-8a97-94b2d0ae4765",
+          "name": "Cardamom",
+          "description": "Kapulaga hitam, bukan hijau atau putih",
+          "quantity": "20",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+          "name": "Star Anise",
+          "description": "Bunga lawang",
+          "quantity": "15",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "0d91c304-3fff-49e9-9d94-b42a645b8172",
+          "name": "Coriader seeds (optional)",
+          "description": "Lightly cracked",
+          "quantity": "5",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+          "name": "Cloves",
+          "description": "Cengkeh. Add last, burn easily",
+          "quantity": "1",
+          "unit": "gr",
+          "metricQuantity": "15",
+          "metricUnit": "pieces"
+        },
+        {
+          "id": "fdc5e764-5707-4ee6-bc20-5aa6598004c1",
+          "name": "Beef Broth Base",
+          "description": "BRIX > 7.0, QC should look like jelly after storing process. For infusion process.",
+          "quantity": "2.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b4f695d1-499e-41d8-80bb-0df524e80ee6",
+          "name": "Rock Salt",
+          "description": "Season to just on the edge of too salty",
+          "quantity": "35",
+          "unit": "gr",
+          "metricQuantity": "1.75",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "7e0c921f-e9d5-4c90-892c-c76ecfb931f6",
+          "name": "Rock sugar",
+          "description": "Adjust to taste",
+          "quantity": "40",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "cc641fc9-04ba-4b8f-8d25-f7b06dd49ecf",
+          "name": "Mushroom bouillon",
+          "description": "Totole",
+          "quantity": "19",
+          "unit": "gr",
+          "metricQuantity": "1.5",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "d109805a-bb20-434f-a235-32e26c9fda29",
+          "name": "Yeast extract powder",
+          "description": "Optional, for extra depth ",
+          "quantity": "0.6",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "69a81e63-4541-4d62-b46f-65bbc81da797",
+          "title": "Rinse & Season",
+          "instructions": "Salt all sides",
+          "inputs": [
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "899b521e-72f1-48db-a83d-75ed8a1161a8",
+          "title": "Clean",
+          "instructions": "",
+          "inputs": [
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": true
+        },
+        {
+          "id": "39854076-0303-44bf-a4ef-51193a4d8d0e",
+          "title": "Roast",
+          "instructions": "250°C, 20 mins. 220°C, 45 mins.",
+          "inputs": [
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Use external thermometer",
+          "parallel": false
+        },
+        {
+          "id": "61945e54-fc60-4254-ae41-09fd2dffa087",
+          "title": "Roast & Char",
+          "instructions": "Roast until half-brown, could prepare in advance, up to 2 days. 250°C, 30 mins. 220°C, 45 mins.\n\nEntry time:\n• 0 min: Onion\n• 5 min: Brisket, Ginger\n• 10 min: Garlic",
+          "inputs": [
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Store on fridge if in advance. Zip bags to prevent aroma dillutiing others.",
+          "parallel": true
+        },
+        {
+          "id": "eb9a7c61-c34f-434f-880f-614bb6ac9cc2",
+          "title": "Heat",
+          "instructions": "Heat over low-medium heat.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": true
+        },
+        {
+          "id": "f402dcb1-e705-48ed-af25-6026601d1889",
+          "title": "Sear",
+          "instructions": "Sear brisket on all sides, well-browned. Remove brisket.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "85fe7325-c0b7-47a0-a750-a2683d80222a",
+          "title": "Sautee",
+          "instructions": "Shallow fry in beef fat to activate.\n\nSaute shallots and mushroom until golden brown. Add roasted onion, ginger, and garlic for 1 min.\n\nTurn off heat and let them cool down for 1 min.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "5a88b496-bd18-414c-8aca-cec139d06d1e",
+          "title": "Sautee",
+          "instructions": "Add cardamom, cinnamon, and star anise. Stir 30 secs until fragrant.\n\nAdd coriander seed and cloves last, stir about 20 secs.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "1414071c-92e4-480b-a336-8ce1175a0acf",
+            "15625c86-c262-4280-8a97-94b2d0ae4765",
+            "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+            "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+            "0d91c304-3fff-49e9-9d94-b42a645b8172",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "66765e0a-a192-4993-b678-53c5bcff6522",
+          "title": "Pour and Pre-Season",
+          "instructions": "Pur broth. Add salt gradually. Taste, then Totole, yeast extract, and rock sugar. Stir until dissolved.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "1414071c-92e4-480b-a336-8ce1175a0acf",
+            "15625c86-c262-4280-8a97-94b2d0ae4765",
+            "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+            "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+            "fdc5e764-5707-4ee6-bc20-5aa6598004c1",
+            "0d91c304-3fff-49e9-9d94-b42a645b8172",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+            "b4f695d1-499e-41d8-80bb-0df524e80ee6",
+            "7e0c921f-e9d5-4c90-892c-c76ecfb931f6",
+            "cc641fc9-04ba-4b8f-8d25-f7b06dd49ecf",
+            "d109805a-bb20-434f-a235-32e26c9fda29"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Ideal cooking time for brisket and aromatics. More cooking time, aromatics will become bitter.",
+          "parallel": false
+        },
+        {
+          "id": "03a7ad11-f7ec-47de-8fac-3f5054694d8b",
+          "title": "Return, then Simmer",
+          "instructions": "Return brisket. \n\nBring to 90°C. Simmer for 3 hrs. Lid slightly open.",
+          "inputs": [
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a",
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "1414071c-92e4-480b-a336-8ce1175a0acf",
+            "15625c86-c262-4280-8a97-94b2d0ae4765",
+            "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+            "0d91c304-3fff-49e9-9d94-b42a645b8172",
+            "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+            "fdc5e764-5707-4ee6-bc20-5aa6598004c1",
+            "b4f695d1-499e-41d8-80bb-0df524e80ee6",
+            "7e0c921f-e9d5-4c90-892c-c76ecfb931f6",
+            "cc641fc9-04ba-4b8f-8d25-f7b06dd49ecf",
+            "d109805a-bb20-434f-a235-32e26c9fda29"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "20550fab-ab67-4af7-a91a-486e633ca478",
+          "title": "Local ingredients",
+          "body": "Could be added: Lemongrass, Galangal, Candlenut, Nutmeg, Cumin, Daun Salam, "
+        }
+      ]
+    },
+    {
+      "id": "f4d68c31-f4d5-4ccc-b64b-d4e0da029653",
+      "name": "Beef Soto (adapted)",
+      "description": "",
+      "eyebrow": "",
+      "baseServings": "3",
+      "yieldUnit": "Liters",
+      "active": "",
+      "total": "4.5 hours",
+      "vessel": "",
+      "prep": [
+        {
+          "id": "3f539650-b977-4ec6-8616-7f0adfc04977",
+          "title": "Rinse",
+          "text": "Brisket, onions, ginger, galangal, and turmeric",
+          "tools": "Optional, experiment: fully soak the bones with cold water and refrigate overnight"
+        }
+      ],
+      "finish": [
+        {
+          "id": "aed4c10d-ecd4-4d62-9bb1-cc8d212c865f",
+          "text": "Mushroom note too strong?",
+          "options": [
+            {
+              "id": "bf38b3bb-2dcd-4f5f-843e-3aa709a00ebb",
+              "answer": "Yes",
+              "label": "Lift after 1 hr",
+              "text": "",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "cd84fc13-265b-4bf3-bc20-d966719298f5",
+              "answer": "No",
+              "label": "Continue",
+              "text": "",
+              "tools": "",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "dcf1aa87-6482-4889-ba91-66fc2abdd774",
+          "title": "Final Adjustment and X-Factor",
+          "ingredients": [
+            {
+              "id": "efc65bf0-e9ad-4e04-9995-0135f0cff7d2",
+              "name": "Beef Broth Mix",
+              "description": "",
+              "quantity": "",
+              "unit": "",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "99550e0c-4221-4b66-a89c-4699528286f3",
+              "name": "Beef Broth Base (1:1)",
+              "description": "BRIX > 7.0, QC should look like jelly after storing process. For infusion process.",
+              "quantity": "350",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "6a2ccf77-d375-4a58-a96a-0dbadf57107b",
+              "name": "Optional Beef Broth Base",
+              "description": "Only if need to soften this, produce more volume",
+              "quantity": "500",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "42abef76-994c-4638-9886-93d65ca6589b",
+              "name": "Rock Sugar",
+              "description": "Adjust to taste",
+              "quantity": "15",
+              "unit": "gr",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "674e67d8-82ad-4542-9242-6bff71e634e3",
+              "name": "Fish sauce",
+              "description": "Max value, adjust to taste. Add per 5 ml. Must-be high quality.",
+              "quantity": "15",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "ef7b91b8-441d-42b9-9b6d-10441edf8887",
+              "name": "Oxtail concentrate",
+              "description": "An x-factor addition to add unique finish to the broth. Adjusted to taste. Start value.",
+              "quantity": "150",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "00725408-c7b1-40c4-9cfd-e5084d50f3a9",
+              "name": "White sugar",
+              "description": "Final adjustment, to taste",
+              "quantity": "",
+              "unit": "",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "0dbe5b15-bad6-4349-8291-ee12be10fb6e",
+              "name": "MSG",
+              "description": "Final adjustment, to taste",
+              "quantity": "",
+              "unit": "",
+              "metricQuantity": "",
+              "metricUnit": ""
+            }
+          ],
+          "procedures": [
+            {
+              "id": "7cedf2a7-45e7-468b-9334-21387cb49cd9",
+              "title": "Remove brisket",
+              "instructions": "After 3 hrs, remove brisket and set aside to cool",
+              "inputs": [
+                "efc65bf0-e9ad-4e04-9995-0135f0cff7d2"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "dad2135f-40de-425f-a212-ff5bac9b6b6a",
+              "title": "Strain",
+              "instructions": "Strain and discard the aromatics, spices, and mushrooms. Leave a little fat for flavour.",
+              "inputs": [
+                "efc65bf0-e9ad-4e04-9995-0135f0cff7d2"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "b6817bcb-1f19-4e7e-b6cf-d3d2199eb2c1",
+              "title": "Add beef stock",
+              "instructions": "Add broth base until broth reach 2.85L",
+              "inputs": [
+                "efc65bf0-e9ad-4e04-9995-0135f0cff7d2",
+                "99550e0c-4221-4b66-a89c-4699528286f3",
+                "6a2ccf77-d375-4a58-a96a-0dbadf57107b"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "7d8b131b-6da5-4ea3-8062-ea0bf1689ebf",
+              "title": "Add",
+              "instructions": "Last, as the final adjustment. Should still be salty.",
+              "inputs": [
+                "674e67d8-82ad-4542-9242-6bff71e634e3"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "554068c5-9a73-4e6e-a854-23953e5b0b81",
+              "title": "Add",
+              "instructions": "Before fish sauce.",
+              "inputs": [
+                "42abef76-994c-4638-9886-93d65ca6589b"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "Slightly sweeter before toned down by fish sauce.",
+              "parallel": true
+            },
+            {
+              "id": "8cd209f3-37b7-4a14-9276-169188e44489",
+              "title": "Add X-Factor",
+              "instructions": "Adding uniqueness to the broth. If not, reduce the fish sauce. Should still be slightly salty.",
+              "inputs": [
+                "ef7b91b8-441d-42b9-9b6d-10441edf8887"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            },
+            {
+              "id": "5e5de0ad-3d5d-47bc-a956-bc8d695a3775",
+              "title": "Corrections",
+              "instructions": "",
+              "inputs": [
+                "00725408-c7b1-40c4-9cfd-e5084d50f3a9",
+                "0dbe5b15-bad6-4349-8291-ee12be10fb6e"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            }
+          ]
+        },
+        {
+          "id": "f64bbfd4-dafd-4066-a08c-26cd27ac2460",
+          "text": "Taste",
+          "options": [
+            {
+              "id": "d39f1092-812d-49d3-bfcf-97fa9c74cddd",
+              "answer": "Too salty?",
+              "label": "Add more reserved broth base",
+              "text": "",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "cacb11a9-9b10-4d0c-ad62-64710b8d40d2",
+              "answer": "Flat, salty enough?",
+              "label": "Add MSG, not salt",
+              "text": "",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "085d6358-781d-491c-aea2-67a567139372",
+              "answer": "Not salty?",
+              "label": "Add salt",
+              "text": "",
+              "tools": "",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "e9915af1-c7f4-4744-8ee9-b5e5dc86553f",
+          "title": "QC",
+          "text": "BRIX 8.7, Salt level 1.51%, 3L of broth",
+          "tools": "Refractometer"
+        },
+        {
+          "id": "49446060-ee45-4a4b-811b-cccfaed898a3",
+          "title": "Serving",
+          "text": "Add drops of spiced tallow (adapted version)",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+          "name": "Brisket",
+          "description": "Alternatives: Flank, and Chuck for inexpensives",
+          "quantity": "0.5",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "26f64c02-dd1f-4ab5-abc6-9af1345ac27a",
+          "name": "Salt",
+          "description": "",
+          "quantity": "handful",
+          "unit": "",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+          "name": "Beef Tallow",
+          "description": "Test amount",
+          "quantity": "6",
+          "unit": "tbsp",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+          "name": "Jamur merang (optional)",
+          "description": "Jamur tiram. Both adjust to taste.",
+          "quantity": "150",
+          "unit": "gr",
+          "metricQuantity": "220",
+          "metricUnit": "gr"
+        },
+        {
+          "id": "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+          "name": "Shallots",
+          "description": "Bawang merah",
+          "quantity": "20",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "3e615793-56b0-448e-954e-f3b926a62bc3",
+          "name": "Garlic",
+          "description": "Slice half",
+          "quantity": "35",
+          "unit": "gr",
+          "metricQuantity": "1/2",
+          "metricUnit": "bulb"
+        },
+        {
+          "id": "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+          "name": "Onions",
+          "description": "Peel, halve",
+          "quantity": "2",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+          "name": "Ginger",
+          "description": "Slice half",
+          "quantity": "35",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b61b9cd9-fc6a-4cca-941f-b348ec482ec2",
+          "name": "Galangal",
+          "description": "",
+          "quantity": "20",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d2201d7b-a6bb-4658-8fc1-0e79df780206",
+          "name": "Turmeric (optional)",
+          "description": "If chasing for yellow color",
+          "quantity": "10",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1414071c-92e4-480b-a336-8ce1175a0acf",
+          "name": "Cinnamon",
+          "description": "Kerinci cassia",
+          "quantity": "15",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "15625c86-c262-4280-8a97-94b2d0ae4765",
+          "name": "Cardamom",
+          "description": "Kapulaga hitam, bukan hijau atau putih",
+          "quantity": "15",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+          "name": "Star Anise",
+          "description": "Bunga lawang",
+          "quantity": "10",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "0d91c304-3fff-49e9-9d94-b42a645b8172",
+          "name": "Coriander seeds",
+          "description": "Lightly cracked",
+          "quantity": "5",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+          "name": "Cloves",
+          "description": "Cengkeh. Add last, burn easily",
+          "quantity": "1",
+          "unit": "gr",
+          "metricQuantity": "15",
+          "metricUnit": "pieces"
+        },
+        {
+          "id": "6c236abd-3645-45fd-95db-3103f3921003",
+          "name": "White peppercorns",
+          "description": "Cracked",
+          "quantity": "1",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "fdc5e764-5707-4ee6-bc20-5aa6598004c1",
+          "name": "Beef Broth Base (1:1)",
+          "description": "BRIX > 7.0, QC should look like jelly after storing process. For infusion process.",
+          "quantity": "2.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b4f695d1-499e-41d8-80bb-0df524e80ee6",
+          "name": "Rock Salt",
+          "description": "Season to just on the edge of too salty",
+          "quantity": "35",
+          "unit": "gr",
+          "metricQuantity": "1.75",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "7e0c921f-e9d5-4c90-892c-c76ecfb931f6",
+          "name": "Rock sugar",
+          "description": "Adjust to taste",
+          "quantity": "40",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "cc641fc9-04ba-4b8f-8d25-f7b06dd49ecf",
+          "name": "Mushroom bouillon",
+          "description": "Totole",
+          "quantity": "19",
+          "unit": "gr",
+          "metricQuantity": "1.5",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "d109805a-bb20-434f-a235-32e26c9fda29",
+          "name": "Yeast extract powder",
+          "description": "Optional, for extra depth ",
+          "quantity": "0.6",
+          "unit": "gr",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "7795fb9e-d72d-4f06-9b4a-80efb38f3bf3",
+          "name": "Lemongrass",
+          "description": "Bruised and knotted, optionally char first",
+          "quantity": "1",
+          "unit": "stalks",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "8925610e-cb98-474b-b8a8-6a0f379bd5d7",
+          "name": "Daun Salam",
+          "description": "Tear slightly",
+          "quantity": "1",
+          "unit": "leaves",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1b5b3a0a-2813-4593-9697-a9476ae473e0",
+          "name": "Daun Jeruk",
+          "description": "Torn",
+          "quantity": "3",
+          "unit": "leaves",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "69a81e63-4541-4d62-b46f-65bbc81da797",
+          "title": "Rinse & Season",
+          "instructions": "Salt all sides",
+          "inputs": [
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "899b521e-72f1-48db-a83d-75ed8a1161a8",
+          "title": "Clean",
+          "instructions": "",
+          "inputs": [
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": true
+        },
+        {
+          "id": "39854076-0303-44bf-a4ef-51193a4d8d0e",
+          "title": "Roast",
+          "instructions": "250°C, 20 mins. 220°C, 45 mins.",
+          "inputs": [
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Use external thermometer",
+          "parallel": false
+        },
+        {
+          "id": "61945e54-fc60-4254-ae41-09fd2dffa087",
+          "title": "Roast & Char",
+          "instructions": "Roast until half-brown, could prepare in advance, up to 2 days. 250°C, 30 mins. 220°C, 45 mins.\n\nEntry time:\n• 0 min: Onion\n• 5 min: Brisket, Ginger, Galangal\n• 10 min: Garlic",
+          "inputs": [
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "b61b9cd9-fc6a-4cca-941f-b348ec482ec2"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Store on fridge if in advance. Zip bags to prevent aroma dillutiing others.",
+          "parallel": true
+        },
+        {
+          "id": "eb9a7c61-c34f-434f-880f-614bb6ac9cc2",
+          "title": "Heat",
+          "instructions": "Heat over low-medium heat.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": true
+        },
+        {
+          "id": "f402dcb1-e705-48ed-af25-6026601d1889",
+          "title": "Sear",
+          "instructions": "Sear brisket on all sides, well-browned. Remove brisket.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "85fe7325-c0b7-47a0-a750-a2683d80222a",
+          "title": "Sautee",
+          "instructions": "Shallow fry in beef fat to activate.\n\nSaute shallots and mushroom until golden brown. Add roasted onion, ginger, turmeric, and garlic for 1 min.\n\nTurn off heat and let them cool down for 1 min.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+            "b61b9cd9-fc6a-4cca-941f-b348ec482ec2",
+            "d2201d7b-a6bb-4658-8fc1-0e79df780206"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Low-moderate heat",
+          "parallel": false
+        },
+        {
+          "id": "5a88b496-bd18-414c-8aca-cec139d06d1e",
+          "title": "Sautee",
+          "instructions": "Add cardamom, cinnamon, and star anise. Stir 30 secs until fragrant.\n\nAdd white pepper, coriander seed, and cloves last, stir about 20 secs.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "1414071c-92e4-480b-a336-8ce1175a0acf",
+            "15625c86-c262-4280-8a97-94b2d0ae4765",
+            "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+            "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+            "0d91c304-3fff-49e9-9d94-b42a645b8172",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+            "b61b9cd9-fc6a-4cca-941f-b348ec482ec2",
+            "6c236abd-3645-45fd-95db-3103f3921003",
+            "d2201d7b-a6bb-4658-8fc1-0e79df780206"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "66765e0a-a192-4993-b678-53c5bcff6522",
+          "title": "Pour and Pre-Season",
+          "instructions": "Pur broth. Add salt gradually. Taste, then Totole, yeast extract, and rock sugar. Stir until dissolved.",
+          "inputs": [
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "1414071c-92e4-480b-a336-8ce1175a0acf",
+            "15625c86-c262-4280-8a97-94b2d0ae4765",
+            "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+            "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+            "fdc5e764-5707-4ee6-bc20-5aa6598004c1",
+            "0d91c304-3fff-49e9-9d94-b42a645b8172",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+            "b4f695d1-499e-41d8-80bb-0df524e80ee6",
+            "7e0c921f-e9d5-4c90-892c-c76ecfb931f6",
+            "cc641fc9-04ba-4b8f-8d25-f7b06dd49ecf",
+            "d109805a-bb20-434f-a235-32e26c9fda29",
+            "b61b9cd9-fc6a-4cca-941f-b348ec482ec2",
+            "6c236abd-3645-45fd-95db-3103f3921003",
+            "d2201d7b-a6bb-4658-8fc1-0e79df780206"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Ideal cooking time for brisket and aromatics. More cooking time, aromatics will become bitter.",
+          "parallel": false
+        },
+        {
+          "id": "03a7ad11-f7ec-47de-8fac-3f5054694d8b",
+          "title": "Return, then Simmer",
+          "instructions": "Return brisket. \n\nBring to 90°C. Simmer for 3 hrs. Lid slightly open.",
+          "inputs": [
+            "d780a497-71a6-4f8e-93bf-0cf3d4e3aaba",
+            "26f64c02-dd1f-4ab5-abc6-9af1345ac27a",
+            "97e774c5-f40e-49ea-ae8b-f3527ed36e2a",
+            "77bd432e-a91b-4806-8f87-4f91c8ef4957",
+            "be6c6c43-38d1-4165-8877-50ec750e5fb6",
+            "3e615793-56b0-448e-954e-f3b926a62bc3",
+            "ecee2b05-0f03-4664-9fe0-ec2ea1577dfd",
+            "7e6da27d-3137-42f2-a44f-5a8dda049eb4",
+            "1414071c-92e4-480b-a336-8ce1175a0acf",
+            "15625c86-c262-4280-8a97-94b2d0ae4765",
+            "85400ee0-4a66-49c2-bc21-4fa62b74f0f1",
+            "0d91c304-3fff-49e9-9d94-b42a645b8172",
+            "ab619d45-23a3-4b9c-8d3d-5ee6b3fd4232",
+            "fdc5e764-5707-4ee6-bc20-5aa6598004c1",
+            "b4f695d1-499e-41d8-80bb-0df524e80ee6",
+            "7e0c921f-e9d5-4c90-892c-c76ecfb931f6",
+            "cc641fc9-04ba-4b8f-8d25-f7b06dd49ecf",
+            "d109805a-bb20-434f-a235-32e26c9fda29",
+            "b61b9cd9-fc6a-4cca-941f-b348ec482ec2",
+            "6c236abd-3645-45fd-95db-3103f3921003",
+            "d2201d7b-a6bb-4658-8fc1-0e79df780206"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "65eec97e-5eb5-49f5-b539-0400dfc56103",
+          "title": "Simmer Last 60",
+          "instructions": "Simmer on the last 60 mins",
+          "inputs": [
+            "7795fb9e-d72d-4f06-9b4a-80efb38f3bf3",
+            "8925610e-cb98-474b-b8a8-6a0f379bd5d7"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": true
+        },
+        {
+          "id": "e35e5a52-08ad-46e2-a9e9-4fd13fe48872",
+          "title": "Simmer Last 30",
+          "instructions": "Simmer on the last 30 mins",
+          "inputs": [
+            "1b5b3a0a-2813-4593-9697-a9476ae473e0"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": true
+        }
+      ],
+      "notes": [
+        {
+          "id": "20550fab-ab67-4af7-a91a-486e633ca478",
+          "title": "Local ingredients",
+          "body": "Could be added: Lemongrass, Galangal, Candlenut, Nutmeg, Cumin, Daun Salam, Turmeric"
+        }
+      ]
+    }
+  ]
+}

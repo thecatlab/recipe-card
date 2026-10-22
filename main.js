@@ -10,6 +10,7 @@ import monoBold from './fonts/space-mono-bold.woff2?inline';
 import bricolageLicense from './fonts/bricolagegrotesque-OFL.txt?raw';
 import instrumentLicense from './fonts/instrumentsans-OFL.txt?raw';
 import monoLicense from './fonts/spacemono-OFL.txt?raw';
+import bundledRecipes from './recipes/library.json';
 
 const fonts = document.createElement('style');
 fonts.textContent = '/* Bundled font licenses\n' + [bricolageLicense, instrumentLicense, monoLicense].join('\n') + '\n*/\n' + [
@@ -24,4 +25,7 @@ capture.textContent = captureSource;
 document.head.append(capture);
 window.recipeGeneratorSource = modelSource + '\n' + appSource;
 window.recipeCaptureSource = captureSource;
+// The hosted site starts with the recipes in recipes/library.json. The dev server keeps
+// only the local library, so it never overwrites recipes being edited there.
+if (!import.meta.env.DEV) window.recipeCollection = bundledRecipes;
 window.initRecipeGenerator();
