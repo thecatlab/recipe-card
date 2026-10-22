@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Stew — spiced chickpeas with coconut and turmeric</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF;
+  --card:#FFFFFF;
+  --ink:#1B221C;
+  --ink-soft:#5A6459;
+  --rule:#111111;
+  --turmeric:#185765;
+  --turmeric-wash:#E8F0E5;
+  --kale:#3F5F44;
+  --kale-wash:#D9E8D5;
+  --pepper:#2A2622;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Instrument Sans",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  padding:clamp(20px,4vw,56px) clamp(16px,4vw,40px) 72px;
+}
+.wrap{max-width:1080px;margin:0 auto}
+
+.eyebrow{
+  font-family:"Space Mono",monospace;
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--turmeric);margin:0 0 14px;
+}
+h1{
+  font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;
+  font-weight:800;font-size:clamp(44px,9vw,88px);
+  letter-spacing:-.045em;line-height:.88;margin:0;
+}
+h1 .tm{font-size:.28em;vertical-align:super;letter-spacing:0;font-weight:600}
+.deck{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:400;
+  font-size:clamp(17px,2.4vw,22px);line-height:1.35;
+  max-width:32ch;margin:18px 0 0;color:var(--ink-soft);
+}
+.meta{
+  display:flex;flex-wrap:wrap;gap:0 28px;
+  font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.04em;
+  color:var(--ink-soft);margin:26px 0 0;
+  border-top:1.5px solid var(--rule);padding-top:12px;
+}
+.meta b{color:var(--ink);font-weight:700}
+
+.controls{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;
+  margin:30px 0 22px;
+}
+.group{display:flex;align-items:center;gap:8px}
+.group>span{
+  font-family:"Space Mono",monospace;font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+}
+button{
+  font-family:"Space Mono",monospace;font-size:13px;
+  background:transparent;color:var(--ink);
+  border:1.5px solid var(--rule);border-radius:0;
+  padding:6px 13px;cursor:pointer;line-height:1.2;
+  transition:background .12s ease,color .12s ease;
+}
+button:hover{background:var(--kale-wash)}
+button:focus-visible{outline:2.5px solid var(--turmeric);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.go{margin-left:auto;background:var(--turmeric);border-color:var(--turmeric);color:#fff;font-weight:700}
+.go:hover{background:var(--pepper);border-color:var(--pepper)}
+
+.stage-bar{
+  display:none;align-items:center;gap:16px;flex-wrap:wrap;
+  border:1.5px solid var(--rule);background:var(--turmeric-wash);
+  padding:12px 16px;margin:0 0 18px;
+}
+.stage-bar.live{display:flex}
+.stage-n{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--pepper)}
+.stage-t{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:19px;letter-spacing:-.02em}
+.clock{
+  font-family:"Space Mono",monospace;font-weight:700;font-size:22px;
+  margin-left:auto;font-variant-numeric:tabular-nums;
+}
+.clock.ring{background:var(--ink);color:var(--turmeric-wash);padding:0 8px}
+
+.scroll{overflow-x:auto;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:940px;table-layout:fixed;border:1px solid var(--rule)}
+col.c0{width:34%}col.c1{width:11%}col.c2{width:11%}col.c3{width:14%}col.c4{width:14%}col.c5{width:9%}col.c6{width:7%}
+th.item-title{
+  border:1px solid var(--rule);background:var(--turmeric);color:#fff;
+  font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;
+  font-size:18px;font-weight:800;line-height:1.2;text-align:center;padding:7px 12px;
+}
+td{
+  border:1px solid var(--rule);
+  padding:10px 12px;vertical-align:middle;
+  transition:background .15s ease,opacity .15s ease;
+}
+td.prep{
+  text-align:center;background:var(--kale-wash);color:var(--ink);
+  font-family:"Instrument Sans",system-ui,sans-serif;font-size:17px;
+  font-weight:500;letter-spacing:0;text-transform:none;padding:9px 12px;
+}
+td.ing{
+  --measure-col:88px;
+  background:#fff;font-size:16px;line-height:1.2;cursor:pointer;
+  padding:10px 14px;
+}
+.ingredient-line,.detail-line{
+  display:grid;grid-template-columns:var(--measure-col) minmax(0,1fr);
+  column-gap:10px;align-items:baseline;
+}
+.ingredient-line.no-measure{grid-template-columns:1fr}
+.ingredient-line.no-measure .q{display:none}
+td.ing .q{
+  font-family:"Instrument Sans",system-ui,sans-serif;
+  font-weight:700;font-size:16px;text-align:right;white-space:nowrap;
+}
+td.ing .name{font-size:16px}
+td.ing .detail-line{
+  margin-top:2px;font-size:11.5px;line-height:1.25;font-style:italic;color:var(--ink);
+}
+td.ing .secondary-q{font-weight:600;text-align:right;white-space:nowrap}
+td.ing .note{font-size:11.5px}
+td.ing.off{opacity:.38;text-decoration:line-through}
+td.op{
+  text-align:center;font-size:14px;line-height:1.25;
+  background:var(--kale-wash);cursor:pointer;
+  padding:12px 8px;
+}
+td.op b{
+  display:block;font-family:"Instrument Sans",system-ui,sans-serif;
+  font-weight:700;font-size:16.5px;line-height:1.15;letter-spacing:-.01em;
+}
+td.op span{
+  display:block;margin-top:4px;font-family:"Instrument Sans",system-ui,sans-serif;
+  font-size:13px;line-height:1.25;color:var(--ink);letter-spacing:0;
+}
+td.finish{
+  background:var(--kale-wash);color:var(--ink);text-align:center;
+  font-family:"Instrument Sans",system-ui,sans-serif;font-size:16px;padding:9px 12px;
+}
+td.finish b{font-weight:700}
+td.op.hot{background:var(--turmeric);color:#fff}
+td.op.hot span{color:var(--turmeric-wash)}
+tr.hot td.ing{background:var(--turmeric-wash)}
+.dim td.op,.dim td.ing{opacity:.3}
+.dim td.op.hot,.dim tr.hot td.ing{opacity:1}
+
+.notes{margin-top:48px;border-top:1.5px solid var(--rule);padding-top:26px}
+.notes h2{
+  font-family:"Space Mono",monospace;font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--turmeric);margin:0 0 18px;
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px 34px}
+.note-item h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-.015em;margin:0 0 4px}
+.note-item p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
+.credit{
+  margin-top:40px;font-family:"Space Mono",monospace;font-size:11.5px;
+  color:var(--ink-soft);letter-spacing:.03em;line-height:1.7;
+}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+  body{background:#fff;padding:0}
+  .controls,.stage-bar{display:none!important}
+  .scroll{overflow:visible}
+  td.op{background:#f0f0f0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="eyebrow">One pot · vegetarian · reheats better than it cooks</p>
+<h1>The Stew<span class="tm">™</span></h1>
+<p class="deck">Spiced chickpeas with coconut, turmeric, and whatever greens you have.</p>
+<p class="meta">
+  <span>Serves <b id="m-serves">4</b></span>
+  <span>Active <b>20 min</b></span>
+  <span>Total <b>55 min</b></span>
+  <span>Vessel <b>Dutch oven</b></span>
+</p>
+
+<div class="controls">
+  <div class="group">
+    <span>Serves</span>
+    <button data-s="2" aria-pressed="false">2</button>
+    <button data-s="4" aria-pressed="true">4</button>
+    <button data-s="6" aria-pressed="false">6</button>
+  </div>
+  <div class="group">
+    <span>Units</span>
+    <button data-u="us" aria-pressed="true">US</button>
+    <button data-u="si" aria-pressed="false">Metric</button>
+  </div>
+  <button class="go" id="go">Start cooking</button>
+</div>
+
+<div class="stage-bar" id="bar">
+  <span class="stage-n" id="bar-n">Stage 1 of 6</span>
+  <span class="stage-t" id="bar-t">Soften the onion</span>
+  <button id="prev">Back</button>
+  <button id="next">Next</button>
+  <button id="stop">Exit</button>
+  <span class="clock" id="clock">5:30</span>
+</div>
+
+<div class="scroll">
+<table>
+<colgroup><col class="c0"><col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"><col class="c6"></colgroup>
+<tbody>
+<tr><th class="item-title" colspan="7">The Stew</th></tr>
+<tr><td class="prep" colspan="7">Set a large Dutch oven over medium-high heat</td></tr>
+
+<tr>
+  <td class="ing" data-r="0"></td>
+  <td class="op" id="s1" rowspan="2" data-rows="0,1"><b>Cook onion</b><span>5–6 min</span></td>
+  <td class="op" id="s2" rowspan="6" data-rows="0,1,2,3,4,5"><b>Toast spices</b><span>2 min<br>stir often</span></td>
+  <td class="op" id="s3" rowspan="7" data-rows="0,1,2,3,4,5,6"><b>Fry, then crush</b><span>8–10 min<br>reserve 1 cup</span></td>
+  <td class="op" id="s4" rowspan="11" data-rows="0,1,2,3,4,5,6,7,8,9,10"><b>Scrape, lid on,<br>simmer</b><span>Medium-low<br>25–30 min</span></td>
+  <td class="op" id="s5" rowspan="12" data-rows="0,1,2,3,4,5,6,7,8,9,10,11"><b>Wilt</b><span>5 min</span></td>
+  <td class="op" id="s6" rowspan="14" data-rows="0,1,2,3,4,5,6,7,8,9,10,11,12,13"><b>Ladle</b><span>Garnish<br>serve</span></td>
+</tr>
+<tr><td class="ing" data-r="1"></td></tr>
+<tr><td class="ing" data-r="2" colspan="2"></td></tr>
+<tr><td class="ing" data-r="3" colspan="2"></td></tr>
+<tr><td class="ing" data-r="4" colspan="2"></td></tr>
+<tr><td class="ing" data-r="5" colspan="2"></td></tr>
+<tr><td class="ing" data-r="6" colspan="3"></td></tr>
+<tr><td class="ing" data-r="7" colspan="4"></td></tr>
+<tr><td class="ing" data-r="8" colspan="4"></td></tr>
+<tr><td class="ing" data-r="9" colspan="4"></td></tr>
+<tr><td class="ing" data-r="10" colspan="4"></td></tr>
+<tr><td class="ing" data-r="11" colspan="5"></td></tr>
+<tr><td class="ing" data-r="12" colspan="6"></td></tr>
+<tr><td class="ing" data-r="13" colspan="6"></td></tr>
+<tr><td class="finish" colspan="7"><b>Serve</b> with yogurt and pita</td></tr>
+</tbody>
+</table>
+</div>
+
+<section class="notes">
+<h2>Notes from the pot</h2>
+<div class="grid">
+  <div class="note-item">
+    <h3>Crush the chickpeas</h3>
+    <p>Press a good third of them against the side of the pot with a wooden spoon. The released starch is the entire thickening mechanism — skip it and you have soup.</p>
+  </div>
+  <div class="note-item">
+    <h3>Season in layers</h3>
+    <p>Roman salts at every stage. This version front-loads less, so taste before serving. If you are not using Diamond Crystal, start with a third less.</p>
+  </div>
+  <div class="note-item">
+    <h3>Simmer to your thickness</h3>
+    <p>It starts soupy and tightens over about half an hour. Pull it early for brothy, push it longer for spoon-standing.</p>
+  </div>
+  <div class="note-item">
+    <h3>Full fat only</h3>
+    <p>Light coconut milk splits and thins out. Two cans of the real thing is what makes the body.</p>
+  </div>
+  <div class="note-item">
+    <h3>Make ahead</h3>
+    <p>Cook through the simmer, then stop. Add greens only when you reheat — they go grey and slack if they sit in the pot.</p>
+  </div>
+  <div class="note-item">
+    <h3>Keeping</h3>
+    <p>Five days in the fridge, two months frozen. Thaw overnight, reheat gently, add a splash of stock to loosen.</p>
+  </div>
+</div>
+<p class="credit">
+  Adapted from Alison Roman's spiced chickpea stew with coconut and turmeric.<br>
+  Laid out in the tabular style of Michael Chu's Cooking for Engineers, where the grid encodes what gets combined with what, and when.
+</p>
+</section>
+
+</div>
+
+<script>
+var ING=[
+ {u:0.25,U:"cup",m:60,M:"mL",n:"olive oil",d:"plus more for drizzling"},
+ {u:1,U:"large",m:300,M:"g",n:"yellow onion",d:"chopped"},
+ {u:1,U:"Tbs",m:15,M:"g",n:"fresh ginger",d:"finely chopped"},
+ {u:4,U:"cloves",m:12,M:"g",n:"garlic",d:"minced"},
+ {u:1.5,U:"tsp",m:5,M:"g",n:"ground turmeric",d:""},
+ {u:0.5,U:"tsp",m:1,M:"g",n:"crushed red pepper",d:"optional"},
+ {u:2,U:"cans",m:850,M:"g",n:"chickpeas",d:"15 oz each · drained and rinsed"},
+ {u:2,U:"cans",m:800,M:"mL",n:"full-fat coconut milk",d:"15 oz each"},
+ {u:2,U:"cups",m:480,M:"mL",n:"vegetable stock",d:""},
+ {u:1.5,U:"tsp",m:9,M:"g",n:"kosher salt",d:"then taste"},
+ {u:0.5,U:"tsp",m:1,M:"g",n:"black pepper",d:""},
+ {u:2,U:"cups",m:100,M:"g",n:"kale leaves",d:"torn · chard or collards work too"},
+ {u:1,U:"cup",m:25,M:"g",n:"mint leaves",d:"or cilantro"},
+ {u:0,U:"",m:0,M:"",n:"yogurt and pita",d:"to serve"}
+];
+var STAGE=[
+ {id:"s1",t:"Soften the onion",sec:330},
+ {id:"s2",t:"Toast ginger, garlic, turmeric, chili",sec:120},
+ {id:"s3",t:"Fry the chickpeas, then crush them",sec:540},
+ {id:"s4",t:"Simmer with the lid on",sec:1650},
+ {id:"s5",t:"Wilt the greens",sec:300},
+ {id:"s6",t:"Garnish and serve",sec:0}
+];
+var S=4,UN="us",cells=[],rows=[];
+
+function frac(x){
+  var w=Math.floor(x+1e-6),f=x-w,e=Math.round(f*8),
+      lab=["","1/8","1/4","3/8","1/2","5/8","3/4","7/8"];
+  if(e===8){w++;e=0}
+  var s=(w?w:"")+(w&&e?" ":"")+lab[e];
+  return s||"0";
+}
+function metric(v){return v>=10?Math.round(v):Math.round(v*10)/10}
+
+function measure(d,unit,k){
+  if(d.u<=0)return "";
+  return unit==="us"?frac(d.u*k)+" "+d.U:metric(d.m*k)+" "+d.M;
+}
+
+function render(){
+  var k=S/4;
+  cells.forEach(function(c){
+    var d=ING[+c.dataset.r],primary=measure(d,UN,k),secondary=measure(d,UN==="us"?"si":"us",k);
+    var main='<span class="ingredient-line'+(primary?'':' no-measure')+'">'+
+      '<span class="q">'+primary+'</span><span class="name">'+d.n+'</span></span>';
+    var detail=secondary||d.d?'<span class="detail-line">'+
+      '<span class="secondary-q">'+secondary+'</span><span class="note">'+d.d+'</span></span>':"";
+    c.innerHTML=main+detail;
+  });
+  document.getElementById("m-serves").textContent=S;
+}
+
+document.querySelectorAll("[data-s],[data-u]").forEach(function(b){
+  b.addEventListener("click",function(){
+    var key=b.dataset.s?"s":"u",sel="[data-"+key+"]";
+    document.querySelectorAll(sel).forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+    if(key==="s"){S=+b.dataset.s}else{UN=b.dataset.u}
+    render();
+  });
+});
+
+var tbl=document.querySelector("table"),bar=document.getElementById("bar"),
+    clock=document.getElementById("clock"),step=-1,tick=null;
+
+function light(idx){
+  document.querySelectorAll("td.op").forEach(function(x){x.classList.remove("hot")});
+  document.querySelectorAll("tr").forEach(function(x){x.classList.remove("hot")});
+  if(idx<0)return;
+  var c=document.getElementById(STAGE[idx].id);
+  c.classList.add("hot");
+  c.dataset.rows.split(",").forEach(function(i){
+    if(rows[+i])rows[+i].parentNode.classList.add("hot");
+  });
+}
+function fmt(n){return Math.floor(n/60)+":"+String(n%60).padStart(2,"0")}
+function runClock(sec){
+  if(tick){clearInterval(tick);tick=null}
+  clock.classList.remove("ring");
+  if(!sec){clock.textContent="no timer";return}
+  var n=sec;clock.textContent=fmt(n);
+  tick=setInterval(function(){
+    n--;
+    if(n<=0){clearInterval(tick);tick=null;clock.textContent="time";clock.classList.add("ring")}
+    else clock.textContent=fmt(n);
+  },1000);
+}
+function goTo(i){
+  step=Math.max(0,Math.min(STAGE.length-1,i));
+  document.getElementById("bar-n").textContent="Stage "+(step+1)+" of "+STAGE.length;
+  document.getElementById("bar-t").textContent=STAGE[step].t;
+  light(step);runClock(STAGE[step].sec);
+}
+document.getElementById("go").addEventListener("click",function(){
+  bar.classList.add("live");tbl.classList.add("dim");goTo(0);
+  bar.scrollIntoView({block:"nearest"});
+});
+document.getElementById("next").addEventListener("click",function(){goTo(step+1)});
+document.getElementById("prev").addEventListener("click",function(){goTo(step-1)});
+document.getElementById("stop").addEventListener("click",function(){
+  bar.classList.remove("live");tbl.classList.remove("dim");light(-1);
+  if(tick){clearInterval(tick);tick=null}
+  step=-1;
+});
+
+document.querySelectorAll("td.op").forEach(function(c){
+  c.addEventListener("click",function(){
+    var i=STAGE.findIndex(function(s){return s.id===c.id});
+    if(!bar.classList.contains("live")){bar.classList.add("live");tbl.classList.add("dim")}
+    goTo(i);
+  });
+});
+
+cells=[].slice.call(document.querySelectorAll("td.ing"));
+rows=cells;
+cells.forEach(function(c){
+  c.addEventListener("click",function(){c.classList.toggle("off")});
+});
+render();
+</script>
+</body>
+</html>

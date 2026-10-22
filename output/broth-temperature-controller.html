@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple visual product plan for a broth temperature monitor and proposed gas-stove knob controller.">
+  <title>Broth temperature controller — Product technical plan</title>
+  <style>
+    :root { --ink:#203746; --muted:#586b76; --line:#cad4da; --teal:#087f8c; --teal-pale:#edf7f6; --amber:#a76313; --amber-pale:#fff5e8; --paper:#fff; --ground:#e8ecee; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--ground); color:var(--ink); font:14px/1.5 Arial, Helvetica, sans-serif; }
+    a { color:var(--teal); text-underline-offset:3px; }
+    button { font:inherit; color:var(--ink); background:white; border:1px solid #9daeb8; border-radius:4px; padding:8px 15px; cursor:pointer; }
+    button:hover { background:var(--teal-pale); }
+    button:focus-visible, a:focus-visible { outline:3px solid var(--teal); outline-offset:4px; }
+    .toolbar { max-width:1240px; margin:20px auto 14px; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .toolbar p { margin:0; font-size:13px; color:var(--muted); }
+    .toolbar nav { display:flex; align-items:center; flex-wrap:wrap; gap:20px; }
+    main { max-width:1240px; margin:auto; padding:0 20px 32px; }
+    .sheet { background:var(--paper); border:1px solid #b9c7cf; margin:0 0 24px; padding:32px; box-shadow:0 5px 20px #2037460b; scroll-margin-top:16px; }
+    .masthead { display:flex; justify-content:space-between; gap:24px; border-bottom:2px solid var(--ink); padding-bottom:18px; }
+    .eyebrow { font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin:0 0 7px; color:var(--muted); }
+    h1 { font-size:30px; letter-spacing:-.025em; line-height:1.15; margin:0 0 9px; font-weight:600; }
+    .subtitle { margin:0; color:var(--muted); font-size:15px; }
+    .drawing-id { font-size:12px; white-space:nowrap; text-align:right; }
+    .drawing-id strong { display:block; font-size:15px; margin-bottom:5px; }
+    .legend { display:flex; gap:22px; flex-wrap:wrap; padding:14px 0; color:var(--muted); font-size:12px; }
+    .legend span { display:flex; align-items:center; gap:8px; }
+    .swatch { display:inline-block; width:25px; border-top:2px solid var(--teal); }
+    .swatch.future { border-color:var(--amber); border-top-style:dashed; }
+    .swatch.existing { border-color:var(--ink); }
+    .arrangement { display:grid; grid-template-columns:minmax(0,1.75fr) minmax(260px,1fr); gap:18px; }
+    .panel { border:1px solid var(--line); min-width:0; }
+    .panel-title { font-size:12px; letter-spacing:.035em; font-weight:600; margin:0; padding:12px 15px; border-bottom:1px solid var(--line); }
+    figure { margin:0; }
+    svg { display:block; width:100%; height:auto; }
+    .drawing { padding:8px; }
+    .drawing svg { color:var(--ink); }
+    .drawing svg .outline { fill:none; stroke:var(--ink); stroke-width:1.8; stroke-linejoin:round; stroke-linecap:round; }
+    .drawing svg .fine { fill:none; stroke:var(--line); stroke-width:1.1; }
+    .drawing svg .monitor { fill:none; stroke:var(--teal); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+    .drawing svg .wet { fill:var(--teal-pale); stroke:var(--teal); stroke-width:1.1; }
+    .drawing svg .future { fill:var(--amber-pale); stroke:var(--amber); stroke-width:1.8; stroke-dasharray:6 4; stroke-linejoin:round; }
+    .drawing svg .future-line { fill:none; stroke:var(--amber); stroke-width:1.8; stroke-dasharray:6 4; stroke-linejoin:round; }
+    .drawing svg .dim { fill:none; stroke:var(--muted); stroke-width:1; }
+    .drawing svg text { fill:var(--ink); font-family:Arial, Helvetica, sans-serif; font-size:15px; }
+    .drawing svg .label-small { fill:var(--muted); font-size:12px; }
+    .drawing svg .label-teal { fill:var(--teal); }
+    .drawing svg .label-amber { fill:var(--amber); }
+    .drawing svg .balloon { fill:white; stroke:var(--teal); stroke-width:1.7; }
+    .drawing svg .balloon-amber { fill:white; stroke:var(--amber); stroke-width:1.7; }
+    .drawing svg .balloon-text { fill:var(--teal); font-size:17px; text-anchor:middle; dominant-baseline:central; }
+    .drawing svg .balloon-text-amber { fill:var(--amber); font-size:17px; text-anchor:middle; dominant-baseline:central; }
+    figcaption { font-size:12px; color:var(--muted); padding:0 15px 12px; }
+    .parts { list-style:none; padding:4px 15px 4px; margin:0; }
+    .parts li { display:grid; grid-template-columns:28px 1fr; gap:10px; padding:11px 0; }
+    .part-number { border:1px solid var(--teal); color:var(--teal); width:26px; height:26px; border-radius:50%; font-size:11px; text-align:center; line-height:24px; }
+    .parts li.future-part .part-number { color:var(--amber); border-color:var(--amber); border-style:dashed; }
+    .parts strong { font-size:13px; display:block; margin-bottom:2px; }
+    .parts p { color:var(--muted); font-size:12px; line-height:1.45; margin:0; }
+    .details { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:18px; }
+    .detail-note { margin:0; padding:0 15px 14px; color:var(--muted); font-size:12px; }
+    .assumption { margin:16px 0; color:var(--muted); font-size:12px; }
+    .title-block { display:grid; grid-template-columns:1fr auto auto auto; border:1px solid var(--ink); margin-top:16px; font-size:11px; }
+    .title-block div { padding:9px 12px; border-right:1px solid var(--ink); }
+    .title-block div:last-child { border:0; }
+    .title-block strong { font-weight:600; }
+    .system { margin:20px 0 18px; }
+    .system-drawing { padding:18px; }
+    .system-drawing svg text { font-size:16px; }
+    .system-drawing svg .label-small { font-size:13px; }
+    .system-note { margin:0; border-top:1px solid var(--line); padding:11px 15px; color:var(--muted); font-size:12px; }
+    .spec-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .specs { margin:0; padding:3px 15px; }
+    .specs > div { display:grid; grid-template-columns:110px 1fr; gap:14px; padding:10px 0; border-bottom:1px solid #e1e7ea; }
+    .specs > div:last-child { border:0; }
+    dt { font-size:12px; font-weight:600; }
+    dd { font-size:12px; color:var(--muted); margin:0; }
+    .bottom-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+    .budget { border-collapse:collapse; width:calc(100% - 30px); margin:5px 15px 8px; font-size:12px; }
+    .budget th { text-align:left; font-weight:400; padding:8px 0; border-bottom:1px solid #e1e7ea; }
+    .budget td { text-align:right; padding:8px 0 8px 12px; white-space:nowrap; border-bottom:1px solid #e1e7ea; font-variant-numeric:tabular-nums; }
+    .budget tr:last-child th, .budget tr:last-child td { font-weight:600; color:var(--ink); border-bottom:0; }
+    .budget a { color:inherit; }
+    .checks { margin:0; padding:14px 18px 12px 35px; font-size:12px; color:var(--muted); }
+    .checks li { margin-bottom:9px; padding-left:4px; }
+    .checks strong { color:var(--ink); }
+    .references { margin-top:16px; border-top:1px solid var(--line); padding-top:10px; }
+    .references summary { font-size:12px; color:var(--muted); cursor:pointer; }
+    .source-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 22px; font-size:11px; color:var(--muted); margin-top:10px; }
+    .source-grid p { margin:0; }
+    .source-grid a { color:var(--muted); }
+    .source-context { font-size:11px; color:var(--muted); margin:10px 0 0; }
+    @media(max-width:900px) { .sheet { padding:24px; } .arrangement { grid-template-columns:1.4fr 1fr; } h1 { font-size:26px; } .specs > div { grid-template-columns:88px 1fr; gap:10px; } }
+    @media(max-width:720px) {
+      main { padding:0 10px 16px; } .sheet { padding:18px; margin-bottom:14px; } .toolbar { padding:0 14px; margin:14px auto; } .toolbar p { display:none; } .toolbar nav { gap:14px; font-size:12px; }
+      .masthead { gap:12px; } h1 { font-size:23px; } .subtitle { font-size:13px; } .drawing-id { font-size:10px; } .drawing-id strong { font-size:11px; } .eyebrow { font-size:10px; }
+      .arrangement,.details,.spec-grid,.bottom-grid { grid-template-columns:1fr; } .parts li { padding:9px 0; } .parts p,.parts strong,.detail-note,dd,dt,.checks,.budget { font-size:13px; }
+      .drawing svg .mobile-secondary { display:none; } .drawing svg .balloon-text,.drawing svg .balloon-text-amber { font-size:28px; }
+      .details .drawing { max-width:410px; margin:auto; } .title-block { grid-template-columns:1fr 1fr; } .title-block div:nth-child(2) { border-right:0; } .title-block div:nth-child(-n+2) { border-bottom:1px solid var(--ink); }
+      .system-drawing { overflow:auto; } .system-drawing svg { min-width:610px; } .source-grid { grid-template-columns:1fr; } .specs > div { grid-template-columns:95px 1fr; }
+    }
+    @media print {
+      @page { size:A3 landscape; margin:10mm; }
+      html { scroll-behavior:auto; } body { background:white; font-size:12px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .toolbar { display:none; } main { width:100%; max-width:none; padding:0; }
+      .sheet { margin:0; padding:5mm; width:100%; border:1px solid var(--line); box-shadow:none; break-after:page; }
+      .sheet:last-child { break-after:auto; } .masthead { padding-bottom:9px; } h1 { font-size:26px; }
+      .arrangement { grid-template-columns:1.75fr 1fr; } .details { grid-template-columns:repeat(3,1fr); }
+      .spec-grid,.bottom-grid { grid-template-columns:1fr 1fr; } .source-grid { grid-template-columns:1fr 1fr; }
+      .legend { padding:10px 0; } .panel-title { padding:9px 13px; } .parts li { padding:10px 0; }
+      .system { margin:10px 0; } .bottom-grid { margin-top:12px; }
+      .drawing,.system-drawing { padding:8px; } .system-drawing svg { min-width:0; }
+      .title-block { grid-template-columns:1fr auto auto auto; } .title-block div:nth-child(-n+2) { border-bottom:0; } .title-block div:nth-child(2) { border-right:1px solid var(--ink); }
+      .drawing svg .mobile-secondary { display:initial; } .drawing svg .balloon-text,.drawing svg .balloon-text-amber { font-size:17px; }
+      .references { margin-top:10px; } .references summary { display:none; } .source-grid { margin:0; } a { text-decoration:none; }
+      .panel,figure,.title-block { break-inside:avoid; }
+      .arrangement .drawing svg { height:320px; } .details .drawing svg { height:135px; }
+      .parts li { padding:8px 0; } .parts strong { font-size:12px; } .parts p { font-size:11px; line-height:1.4; }
+      .system-drawing svg { height:155px; } .specs > div { padding:4px 0; }
+      dt,dd,.checks,.budget,.detail-note,.system-note { font-size:11px; line-height:1.3; }
+      .budget th,.budget td { padding-top:4px; padding-bottom:4px; } .checks li { margin-bottom:7px; }
+      .source-grid,.source-context { line-height:1.2; } .source-context { margin-top:5px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <p>Product design plan · Single document · Revision A</p>
+    <nav aria-label="Document navigation">
+      <a href="#concept">Concept drawing</a>
+      <a href="#specification">Specification</a>
+      <button id="print-plan" type="button">Print plan</button>
+    </nav>
+  </div>
+  <main>
+    <section class="sheet" id="concept" aria-labelledby="concept-title">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Product technical plan / Gambar teknik konsep</p>
+          <h1 id="concept-title">Broth temperature controller</h1>
+          <p class="subtitle">Temperature sensing, phone alerts and a proposed removable gas-knob drive.</p>
+        </div>
+        <div class="drawing-id"><strong>BRC-001</strong>REV A · 05 OCT 2026<br>Sheet 01 / 02</div>
+      </header>
+      <div class="legend" aria-label="Drawing legend">
+        <span><i class="swatch" aria-hidden="true"></i>Phase 1 · Monitor + alerts</span>
+        <span><i class="swatch future" aria-hidden="true"></i>Phase 2 · Proposed actuator</span>
+        <span><i class="swatch existing" aria-hidden="true"></i>Existing stove + pot</span>
+      </div>
+      <div class="arrangement">
+        <figure class="panel">
+          <h2 class="panel-title">A / General arrangement · Front view</h2>
+          <div class="drawing">
+            <svg viewBox="0 0 730 405" role="img" aria-labelledby="assembly-title assembly-description">
+              <title id="assembly-title">Stove, pot, immersed probe, controller, proposed knob motor and phone</title>
+              <desc id="assembly-description">A closed probe sleeve clips to the pot rim and hangs in the broth, away from the base. Its cable leads to a separate controller on the worktop. A dashed removable motor assembly fits over the stove knob. The controller sends phone alerts over Wi-Fi.</desc>
+              <defs><marker id="main-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1 L7 4 L1 7" fill="none" stroke="#586b76" stroke-width="1"/></marker></defs>
+              <path class="outline" d="M68 82H337V239Q337 248 328 248H77Q68 248 68 239Z" fill="white"/>
+              <path class="wet" d="M74 128H331V238Q331 242 327 242H78Q74 242 74 238Z"/>
+              <ellipse class="outline" cx="202.5" cy="82" rx="134.5" ry="17" fill="white"/>
+              <ellipse class="fine" cx="202.5" cy="81" rx="127" ry="11"/>
+              <path class="outline" d="M68 108H46L38 116V146L46 154H68 M337 108H356L364 116V146L356 154H337"/>
+              <text x="93" y="180" class="label-teal mobile-secondary" font-size="18">BROTH</text>
+              <text x="93" y="201" class="label-small mobile-secondary">Existing stockpot</text>
+              <rect class="monitor" x="303" y="81" width="11" height="135" rx="5" fill="white"/>
+              <path class="monitor" d="M299 74H320V94H329 M308.5 81V42H476V322H507"/>
+              <rect class="wet" x="306" y="195" width="6" height="15" rx="2"/>
+              <text x="351" y="216" class="label-small mobile-secondary">Cable away from</text>
+              <text x="351" y="234" class="label-small mobile-secondary">flame + steam.</text>
+              <path class="outline" d="M93 253H314V261H93Z M103 246V263 M303 246V263"/>
+              <path d="M185 262l8-14 8 12 8-16 8 18" fill="none" stroke="#a76313" stroke-width="1.5"/>
+              <rect class="outline" x="61" y="268" width="361" height="80" rx="6"/>
+              <path class="fine" d="M61 284H422"/>
+              <text x="87" y="311" class="label-small mobile-secondary">EXISTING GAS STOVE</text>
+              <circle class="outline" cx="282" cy="312" r="21"/>
+              <path class="outline" d="M282 297V315"/>
+              <rect class="outline" x="83" y="348" width="31" height="11" rx="2"/>
+              <rect class="outline" x="374" y="348" width="31" height="11" rx="2"/>
+              <path class="outline" d="M25 363H707"/><path class="fine" d="M25 371H707"/>
+              <text x="34" y="393" class="label-small mobile-secondary">WORKTOP</text>
+              <rect class="future" x="256" y="283" width="55" height="60" rx="4"/>
+              <circle class="future-line" cx="282" cy="312" r="21"/>
+              <path class="future-line" d="M311 323H328V376H349V362"/>
+              <rect class="monitor" x="507" y="295" width="143" height="54" rx="5" fill="white"/>
+              <text x="523" y="322" class="label-teal mobile-secondary">CONTROLLER</text>
+              <circle cx="633" cy="306" r="3" fill="#087f8c"/>
+              <circle cx="524" cy="337" r="1.8" fill="#087f8c"/><circle cx="532" cy="337" r="1.8" fill="#087f8c"/><circle cx="540" cy="337" r="1.8" fill="#087f8c"/>
+              <text x="583" y="338" class="label-small mobile-secondary">USB 5 V</text>
+              <path class="fine" d="M650 334H668V359"/>
+              <rect class="outline" x="549" y="69" width="89" height="163" rx="11" fill="white"/>
+              <rect x="556" y="84" width="75" height="126" rx="3" fill="#edf7f6" stroke="#cad4da"/>
+              <path class="outline" d="M583 77H605"/><circle class="outline" cx="593.5" cy="221" r="3"/>
+              <text x="593.5" y="123" text-anchor="middle" class="label-teal mobile-secondary" style="font-size:27px">92°C</text>
+              <text x="593.5" y="144" text-anchor="middle" class="label-small mobile-secondary">EXAMPLE</text>
+              <rect x="562" y="160" width="63" height="34" rx="3" fill="white" stroke="#087f8c"/>
+              <text x="593.5" y="175" text-anchor="middle" class="label-teal mobile-secondary" style="font-size:11px">Heat alert</text>
+              <text x="593.5" y="189" text-anchor="middle" class="label-small mobile-secondary" style="font-size:10px">Telegram</text>
+              <path class="dim" d="M579 292L592 246" stroke-dasharray="4 4" marker-end="url(#main-arrow)"/>
+              <text x="612" y="264" text-anchor="middle" class="label-small mobile-secondary">Wi-Fi</text>
+              <path class="monitor" d="M379 186L313 206 M375 69L320 84 M682 313L641 321 M676 92L638 94"/>
+              <path class="future-line" d="M386 331L312 328"/>
+              <circle class="balloon" cx="395" cy="181" r="16"/><text class="balloon-text" x="395" y="181">01</text>
+              <circle class="balloon" cx="390" cy="64" r="16"/><text class="balloon-text" x="390" y="64">02</text>
+              <circle class="balloon" cx="690" cy="309" r="16"/><text class="balloon-text" x="690" y="309">03</text>
+              <circle class="balloon-amber" cx="401" cy="334" r="16"/><text class="balloon-text-amber" x="401" y="334">04</text>
+              <circle class="balloon" cx="692" cy="91" r="16"/><text class="balloon-text" x="692" y="91">05</text>
+            </svg>
+          </div>
+          <figcaption>Diagrammatic cutaway. Probe reads the broth at its tip. Stove, pot and phone are existing equipment.</figcaption>
+        </figure>
+        <section class="panel" aria-labelledby="parts-title">
+          <h2 class="panel-title" id="parts-title">Parts + function</h2>
+          <ol class="parts">
+            <li><span class="part-number">01</span><div><strong>Temperature probe</strong><p>DS18B20 inside a closed stainless sleeve. Verify food contact and continuous hot-immersion suitability.</p></div></li>
+            <li><span class="part-number">02</span><div><strong>Pot rim clip</strong><p>Holds the tip at mid-depth, clear of the base and walls. Cable and seals stay above the liquid.</p></div></li>
+            <li><span class="part-number">03</span><div><strong>Controller enclosure</strong><p>ESP32-C3, status LED and buzzer. Set the target in a local browser page. Keep the box dry and cool.</p></div></li>
+            <li class="future-part"><span class="part-number">04</span><div><strong>Removable knob drive · Phase 2</strong><p>Positional servo, knob collar and worktop clamp. Align with the knob shaft; allow quick removal for manual access.</p></div></li>
+            <li><span class="part-number">05</span><div><strong>Phone notification</strong><p>Telegram alerts over kitchen Wi-Fi and internet. The local buzzer works without internet.</p></div></li>
+          </ol>
+        </section>
+      </div>
+      <div class="details">
+        <figure class="panel">
+          <h2 class="panel-title">B / Controller enclosure</h2>
+          <div class="drawing">
+            <svg viewBox="0 0 350 175" role="img" aria-labelledby="case-title">
+              <title id="case-title">Proposed enclosure: 90 millimeters wide, 60 deep and 35 high</title>
+              <defs><marker id="dim-b" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M6 1L1 3.5L6 6" fill="none" stroke="#586b76" stroke-width=".8"/></marker></defs>
+              <text x="86" y="23" text-anchor="middle" class="label-small">FRONT</text><text x="253" y="23" text-anchor="middle" class="label-small">PLAN</text>
+              <rect class="monitor" x="35" y="61" width="103" height="43" rx="4"/>
+              <circle cx="121" cy="72" r="3" fill="#087f8c"/><circle cx="50" cy="91" r="1.5" fill="#087f8c"/><circle cx="58" cy="91" r="1.5" fill="#087f8c"/><circle cx="66" cy="91" r="1.5" fill="#087f8c"/>
+              <rect class="monitor" x="200" y="51" width="103" height="68" rx="4"/>
+              <rect class="wet" x="214" y="68" width="69" height="35"/>
+              <text x="248" y="90" text-anchor="middle" class="label-small">PCB</text>
+              <path class="dim" d="M35 106V142 M138 106V142 M33 133H140"/>
+              <path class="dim" d="M35 133H138" marker-start="url(#dim-b)" marker-end="url(#dim-b)"/>
+              <rect x="76" y="125" width="22" height="16" fill="white"/><text x="87" y="137" text-anchor="middle" class="label-small">90</text>
+              <path class="dim" d="M142 61H167 M142 104H167 M159 61V104" marker-end="url(#dim-b)"/>
+              <text x="168" y="87" class="label-small">35</text>
+              <path class="dim" d="M306 51H331 M306 119H331 M322 51V119"/>
+              <text x="331" y="90" class="label-small">60</text>
+              <text x="175" y="164" text-anchor="middle" class="label-small">Nominal envelope: 90 × 60 × 35 mm</text>
+            </svg>
+          </div>
+          <p class="detail-note">USB input, probe cable entry and strain relief. Final port locations follow the selected board.</p>
+        </figure>
+        <figure class="panel">
+          <h2 class="panel-title">C / Probe + rim clip</h2>
+          <div class="drawing">
+            <svg viewBox="0 0 350 175" role="img" aria-labelledby="probe-title">
+              <title id="probe-title">Proposed 8 millimeter diameter, 150 millimeter long closed sleeve attached to the pot rim</title>
+              <path class="outline" d="M64 47H256 M88 47V139"/>
+              <path class="monitor" d="M88 78H294" stroke-width="1"/>
+              <text x="105" y="98" class="label-small">Broth level</text>
+              <rect class="monitor" x="208" y="32" width="13" height="100" rx="6"/>
+              <path class="monitor" d="M214.5 32V14 M201 48V33H230V49"/>
+              <path class="fine" d="M214.5 44V111"/>
+              <rect class="wet" x="211" y="113" width="7" height="13" rx="2"/>
+              <path class="dim" d="M223 32H258 M223 132H258 M250 32V132"/>
+              <text x="259" y="100" class="label-small">150</text>
+              <path class="dim" d="M208 119L184 137H145"/>
+              <text x="105" y="141" class="label-small">Ø8</text>
+              <text x="175" y="164" text-anchor="middle" class="label-small">Closed end · Proposed dimensions, mm</text>
+            </svg>
+          </div>
+          <p class="detail-note">Select immersion depth to suit the pot. Waterproof electronics probes need a verified food-contact barrier.</p>
+        </figure>
+        <figure class="panel">
+          <h2 class="panel-title">D / Knob drive · Side concept</h2>
+          <div class="drawing">
+            <svg viewBox="0 0 350 175" role="img" aria-labelledby="drive-title">
+              <title id="drive-title">Servo shaft aligns with a removable collar around the stove knob, supported by a worktop clamp</title>
+              <rect class="outline" x="30" y="48" width="67" height="63"/>
+              <text x="63" y="73" text-anchor="middle" class="label-small">Stove</text>
+              <path class="outline" d="M97 79H113"/>
+              <rect class="outline" x="109" y="64" width="17" height="29" rx="3"/>
+              <rect class="future" x="127" y="61" width="21" height="35" rx="3"/>
+              <path class="future-line" d="M148 79H169"/>
+              <rect class="future" x="169" y="58" width="77" height="44" rx="4"/>
+              <text x="207" y="83" text-anchor="middle" class="label-amber">Servo</text>
+              <path class="future-line" d="M226 102V125H279V144H294V130"/>
+              <path class="outline" d="M22 130H328"/>
+              <path class="dim" d="M20 79H109 M246 79H319" stroke-dasharray="4 4"/>
+              <text x="105" y="25" class="label-small">Knob</text><path class="dim" d="M116 31V62"/>
+              <text x="158" y="25" class="label-small">Collar</text><path class="dim" d="M168 30L140 60"/>
+              <text x="284" y="115" class="label-small">Clamp</text>
+              <text x="175" y="164" text-anchor="middle" class="label-small">Fit dimensions + rotation stops: TBD</text>
+            </svg>
+          </div>
+          <p class="detail-note">External mounting concept. The collar turns the knob without holding it depressed. Gas safeguards are required.</p>
+        </figure>
+      </div>
+      <p class="assumption"><strong>Fit assumptions:</strong> single-burner countertop gas stove; existing pot and USB supply. Measure knob diameter, shaft height, usable turn range and torque before designing the mount. No stove measurements have been supplied.</p>
+      <footer class="title-block"><div><strong>CONCEPT DRAWING · NOT FOR FABRICATION</strong></div><div>Units: mm</div><div>Scale: NTS</div><div>Rev A · 01 / 02</div></footer>
+    </section>
+
+    <section class="sheet" id="specification" aria-labelledby="spec-title">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Product technical plan / Spesifikasi teknis</p>
+          <h1 id="spec-title">System + technical specification</h1>
+          <p class="subtitle">Build the monitor first. Validate automatic gas control as a separate development phase.</p>
+        </div>
+        <div class="drawing-id"><strong>BRC-001</strong>REV A · 05 OCT 2026<br>Sheet 02 / 02</div>
+      </header>
+      <figure class="panel system">
+        <h2 class="panel-title">E / System architecture</h2>
+        <div class="drawing system-drawing">
+          <svg viewBox="0 0 1080 187" role="img" aria-labelledby="system-title system-desc">
+            <title id="system-title">Probe to controller to phone, with future servo control and independent gas safeguards</title>
+            <desc id="system-desc">A three-wire powered temperature probe connects to an ESP32-C3. The controller operates a local buzzer and sends internet phone notifications. A future separately powered servo adjusts the knob. Independent gas protection is required for flame loss, low liquid and system faults.</desc>
+            <defs><marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#087f8c" stroke-width="1.4"/></marker><marker id="future-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#a76313" stroke-width="1.4"/></marker></defs>
+            <rect class="wet" x="6" y="17" width="269" height="66" rx="3"/>
+            <text x="140" y="44" text-anchor="middle" class="label-teal">BROTH PROBE</text>
+            <text x="140" y="65" text-anchor="middle" class="label-small">DS18B20 · 3-wire powered</text>
+            <rect class="wet" x="384" y="17" width="277" height="66" rx="3"/>
+            <text x="522" y="44" text-anchor="middle" class="label-teal">ESP32-C3 CONTROLLER</text>
+            <text x="522" y="65" text-anchor="middle" class="label-small">Read → compare → alert</text>
+            <rect class="wet" x="785" y="17" width="289" height="66" rx="3"/>
+            <text x="929" y="44" text-anchor="middle" class="label-teal">PHONE + LOCAL BUZZER</text>
+            <text x="929" y="65" text-anchor="middle" class="label-small">Telegram / audible alarm</text>
+            <path class="monitor" d="M275 50H380" marker-end="url(#flow-arrow)"/>
+            <path class="monitor" d="M661 50H781" marker-end="url(#flow-arrow)"/>
+            <text x="329" y="35" text-anchor="middle" class="label-small">1-Wire</text>
+            <text x="723" y="35" text-anchor="middle" class="label-small">Wi-Fi / internet*</text>
+            <rect class="future" x="6" y="119" width="347" height="54" rx="3"/>
+            <text x="179" y="142" text-anchor="middle" class="label-amber">Independent gas safeguards</text>
+            <text x="179" y="161" text-anchor="middle" class="label-small">Flame / low liquid / fault shutdown</text>
+            <rect class="future" x="785" y="119" width="289" height="54" rx="3"/>
+            <text x="929" y="142" text-anchor="middle" class="label-amber">SERVO + KNOB COLLAR</text>
+            <text x="929" y="161" text-anchor="middle" class="label-small">Separate supply · fit to actual stove</text>
+            <path class="future-line" d="M661 64H710V146H781" marker-end="url(#future-arrow)"/>
+            <text x="535" y="129" text-anchor="middle" class="label-small">PHASE 2 REQUIREMENTS</text>
+            <text x="535" y="150" text-anchor="middle" class="label-small">Qualified gas-safety design</text>
+            <text x="535" y="169" text-anchor="middle" class="label-small">Components + interfaces TBD</text>
+          </svg>
+        </div>
+        <p class="system-note">Electrical basis: probe VDD → 3.3 V; GND → ground; DQ → a chosen GPIO with a 4.7 kΩ pull-up to 3.3 V. *The buzzer connects locally; only phone delivery needs internet. Dashed blocks are development requirements.</p>
+      </figure>
+      <div class="spec-grid">
+        <section class="panel" aria-labelledby="hardware-title">
+          <h2 class="panel-title" id="hardware-title">01 / Hardware + software requirements</h2>
+          <dl class="specs">
+            <div><dt>Measurement</dt><dd>Genuine DS18B20: chip accuracy ±1°C up to 100°C <a href="#s1">[S1]</a>. Calibrate and verify the complete probe assembly.</dd></div>
+            <div><dt>Food contact</dt><dd>Verified closed food-contact sleeve and continuous hot-immersion rating of at least 100°C. Waterproof alone is insufficient <a href="#s2">[S2]</a>.</dd></div>
+            <div><dt>Example target</dt><dd>92°C with a ±2°C band, measured at the probe. Choose the final target for the recipe and local boiling point.</dd></div>
+            <div><dt>Sampling</dt><dd>A fresh conversion every 2 seconds; verify CRC and reject failed or stale reads. Median of 5 valid readings.</dd></div>
+            <div><dt>Power</dt><dd>Monitor: regulated USB 5 V / 1 A. Future positional servo: separate 5–6 V supply sized for stall current; never power it from 3.3 V.</dd></div>
+            <div><dt>Interface</dt><dd>Local browser page sets the target. Telegram sends notifications; LED and buzzer show status. No custom phone app is needed.</dd></div>
+          </dl>
+        </section>
+        <section class="panel" aria-labelledby="logic-title">
+          <h2 class="panel-title" id="logic-title">02 / Operating logic + limitations</h2>
+          <dl class="specs">
+            <div><dt>Start</dt><dd>User ignites the stove and warms the broth manually, then arms the system. Automatic ignition and re-ignition are outside this concept.</dd></div>
+            <div><dt>Heat alerts</dt><dd>Outside the chosen band for 60 seconds, or a drop greater than 2°C over 5 minutes. Proposed thresholds must be tuned in pot trials.</dd></div>
+            <div><dt>Phase 2 control</dt><dd>Small knob adjustments at least 30 seconds apart. Set travel limits from the actual stable flame range; alert if it cannot hold the target.</dd></div>
+            <div><dt>Fault response</dt><dd>Probe failure alarms immediately. Phase 2 requires fail-closed gas shutdown for flame loss, low liquid, and power / controller / probe faults; no automatic restart.</dd></div>
+            <div><dt>Internet loss</dt><dd>Local sensing, control and buzzer continue. Phone delivery becomes unavailable. Gas protection must operate independently of Wi-Fi.</dd></div>
+            <div><dt>Gas remaining</dt><dd>Cooling suggests lost heat; it cannot confirm an empty cylinder, predict remaining LPG or promptly detect an extinguished flame.</dd></div>
+          </dl>
+        </section>
+      </div>
+      <div class="bottom-grid">
+        <section class="panel" aria-labelledby="budget-title">
+          <h2 class="panel-title" id="budget-title">03 / Phase 1 budget · Indonesian rupiah</h2>
+          <table class="budget"><caption style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Estimated monitoring electronics cost, excluding food-contact sleeve and other extras</caption><tbody>
+            <tr><th scope="row">ESP32-C3 board <a href="#p1">[P1]</a></th><td>Rp60,000</td></tr>
+            <tr><th scope="row">Basic DS18B20 prototype probe <a href="#p2">[P2]</a></th><td>Rp19,000</td></tr>
+            <tr><th scope="row">Buzzer, wiring + enclosure · estimate</th><td>Rp35,000–60,000</td></tr>
+            <tr><th scope="row">Electronics subtotal</th><td>Rp114,000–139,000</td></tr>
+          </tbody></table>
+          <p class="detail-note">Food-contact sleeve, USB supply, shipping and labor are extra. A basic phase 2 servo is listed around Rp45,000 <a href="#p3">[P3]</a>; mounts, power and gas safeguards are additional. <strong>Complete automatic-control cost: TBD.</strong></p>
+        </section>
+        <section class="panel" aria-labelledby="checks-title">
+          <h2 class="panel-title" id="checks-title">04 / Prototype acceptance checks</h2>
+          <ol class="checks">
+            <li><strong>Temperature:</strong> compare the complete probe with a reference at 90–96°C. Assembly accuracy target: within ±1°C.</li>
+            <li><strong>Monitoring:</strong> run a supervised 24-hour water trial. Trigger high / low temperature, probe-disconnect and Wi-Fi-loss conditions.</li>
+            <li><strong>Actuation:</strong> first verify knob travel and removable mounting on an unlit stove. Validate independent shutdown before gas control trials.</li>
+            <li><strong>Control target:</strong> demonstrate the selected ±2°C band after settling. This is an unverified design goal, not guaranteed performance.</li>
+          </ol>
+        </section>
+      </div>
+      <details class="references" open>
+        <summary>Technical sources + component price references</summary>
+        <div class="source-grid">
+          <p id="s1">S1 · <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf">Analog Devices — DS18B20 datasheet, Rev. 6</a></p>
+          <p id="p1">P1 · <a href="https://www.blibli.com/p/esp32-c3-development-board-esp32-supermini-wifi-bluetooth-compatible-4mb-flash-400kb-for-arduino/ps--TOA-71158-00448">Blibli — ESP32-C3 SuperMini listing</a></p>
+          <p id="s2">S2 · <a href="https://learn.adafruit.com/elements/368907/assets/8981/exhibit">Adafruit — waterproof probe and food-contact guidance</a></p>
+          <p id="p2">P2 · <a href="https://www.blibli.com/p/ds18b20-waterproof-temperature-suhu-sensor-probe-arduino-uno-2-meter/ps--TOA-71158-00011">Blibli — DS18B20 waterproof probe listing</a></p>
+          <p>S3 · <a href="https://www.espressif.com/en/products/socs/esp32-c3">Espressif — ESP32-C3</a> · <a href="https://core.telegram.org/bots/api#sendmessage">Telegram — Bot API</a></p>
+          <p id="p3">P3 · <a href="https://www.brontoseno.com/product-category/servo-accesoris/">Brontoseno — MG996R servo listing</a></p>
+        </div>
+        <p class="source-context">Prepared 05 October 2026. Prices are indicative indexed listings, subject to stock and checkout changes. Dimensions and timing values are proposed design assumptions. This document specifies a concept; it does not certify gas safety.</p>
+      </details>
+      <footer class="title-block"><div><strong>TECHNICAL CONCEPT · AUTOMATION FIT + SAFETY TBD</strong></div><div>Units: °C / V / mm</div><div>BRC-001</div><div>Rev A · 02 / 02</div></footer>
+    </section>
+  </main>
+  <script>
+    document.getElementById('print-plan').addEventListener('click', () => window.print());
+    window.addEventListener('beforeprint', () => { document.querySelector('.references').open = true; });
+  </script>
+</body>
+</html>
