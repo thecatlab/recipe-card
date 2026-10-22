@@ -1,0 +1,525 @@
+{
+  "name": "Beef Soto (adapted)",
+  "baseServings": "3",
+  "yieldUnit": "Liters",
+  "total": "4.5 hours",
+  "prep": [
+    {
+      "title": "Rinse",
+      "text": "Brisket, onions, ginger, galangal, and turmeric",
+      "tools": "Optional, experiment: fully soak the bones with cold water and refrigate overnight"
+    }
+  ],
+  "ingredients": [
+    {
+      "key": "brisket",
+      "quantity": "0.5",
+      "unit": "kg",
+      "name": "Brisket",
+      "description": "Alternatives: Flank, and Chuck for inexpensives"
+    },
+    {
+      "key": "salt",
+      "quantity": "handful",
+      "name": "Salt"
+    },
+    {
+      "key": "beef-tallow",
+      "quantity": "6",
+      "unit": "tbsp",
+      "name": "Beef Tallow",
+      "description": "Test amount"
+    },
+    {
+      "key": "jamur-merang-optional",
+      "quantity": "150",
+      "unit": "gr",
+      "name": "Jamur merang (optional)",
+      "description": "Jamur tiram. Both adjust to taste.",
+      "metricQuantity": "220",
+      "metricUnit": "gr"
+    },
+    {
+      "key": "shallots",
+      "quantity": "20",
+      "unit": "gr",
+      "name": "Shallots",
+      "description": "Bawang merah"
+    },
+    {
+      "key": "garlic",
+      "quantity": "35",
+      "unit": "gr",
+      "name": "Garlic",
+      "description": "Slice half",
+      "metricQuantity": "1/2",
+      "metricUnit": "bulb"
+    },
+    {
+      "key": "onions",
+      "quantity": "2",
+      "unit": "pcs",
+      "name": "Onions",
+      "description": "Peel, halve"
+    },
+    {
+      "key": "ginger",
+      "quantity": "35",
+      "unit": "gr",
+      "name": "Ginger",
+      "description": "Slice half"
+    },
+    {
+      "key": "galangal",
+      "quantity": "20",
+      "unit": "gr",
+      "name": "Galangal"
+    },
+    {
+      "key": "turmeric-optional",
+      "quantity": "10",
+      "unit": "gr",
+      "name": "Turmeric (optional)",
+      "description": "If chasing for yellow color"
+    },
+    {
+      "key": "cinnamon",
+      "quantity": "15",
+      "unit": "gr",
+      "name": "Cinnamon",
+      "description": "Kerinci cassia"
+    },
+    {
+      "key": "cardamom",
+      "quantity": "15",
+      "unit": "gr",
+      "name": "Cardamom",
+      "description": "Kapulaga hitam, bukan hijau atau putih"
+    },
+    {
+      "key": "star-anise",
+      "quantity": "10",
+      "unit": "gr",
+      "name": "Star Anise",
+      "description": "Bunga lawang"
+    },
+    {
+      "key": "coriander-seeds",
+      "quantity": "5",
+      "unit": "gr",
+      "name": "Coriander seeds",
+      "description": "Lightly cracked"
+    },
+    {
+      "key": "cloves",
+      "quantity": "1",
+      "unit": "gr",
+      "name": "Cloves",
+      "description": "Cengkeh. Add last, burn easily",
+      "metricQuantity": "15",
+      "metricUnit": "pieces"
+    },
+    {
+      "key": "white-peppercorns",
+      "quantity": "1",
+      "unit": "gr",
+      "name": "White peppercorns",
+      "description": "Cracked"
+    },
+    {
+      "key": "beef-broth-base-1-1",
+      "quantity": "2.5",
+      "unit": "L",
+      "name": "Beef Broth Base (1:1)",
+      "description": "BRIX > 7.0, QC should look like jelly after storing process. For infusion process."
+    },
+    {
+      "key": "rock-salt",
+      "quantity": "35",
+      "unit": "gr",
+      "name": "Rock Salt",
+      "description": "Season to just on the edge of too salty",
+      "metricQuantity": "1.75",
+      "metricUnit": "tbsp"
+    },
+    {
+      "key": "rock-sugar",
+      "quantity": "40",
+      "unit": "gr",
+      "name": "Rock sugar",
+      "description": "Adjust to taste"
+    },
+    {
+      "key": "mushroom-bouillon",
+      "quantity": "19",
+      "unit": "gr",
+      "name": "Mushroom bouillon",
+      "description": "Totole",
+      "metricQuantity": "1.5",
+      "metricUnit": "tbsp"
+    },
+    {
+      "key": "yeast-extract-powder",
+      "quantity": "0.6",
+      "unit": "gr",
+      "name": "Yeast extract powder",
+      "description": "Optional, for extra depth "
+    },
+    {
+      "key": "lemongrass",
+      "quantity": "1",
+      "unit": "stalks",
+      "name": "Lemongrass",
+      "description": "Bruised and knotted, optionally char first"
+    },
+    {
+      "key": "daun-salam",
+      "quantity": "1",
+      "unit": "leaves",
+      "name": "Daun Salam",
+      "description": "Tear slightly"
+    },
+    {
+      "key": "daun-jeruk",
+      "quantity": "3",
+      "unit": "leaves",
+      "name": "Daun Jeruk",
+      "description": "Torn"
+    }
+  ],
+  "procedures": [
+    {
+      "key": "rinse-season",
+      "title": "Rinse & Season",
+      "instructions": "Salt all sides",
+      "inputs": [
+        "brisket",
+        "salt"
+      ]
+    },
+    {
+      "key": "clean",
+      "title": "Clean",
+      "inputs": [
+        "jamur-merang-optional"
+      ],
+      "parallel": true
+    },
+    {
+      "key": "roast",
+      "title": "Roast",
+      "instructions": "250°C, 20 mins. 220°C, 45 mins.",
+      "inputs": [
+        "brisket",
+        "salt"
+      ],
+      "tools": "Use external thermometer"
+    },
+    {
+      "key": "roast-char",
+      "title": "Roast & Char",
+      "instructions": "Roast until half-brown, could prepare in advance, up to 2 days. 250°C, 30 mins. 220°C, 45 mins.\n\nEntry time:\n• 0 min: Onion\n• 5 min: Brisket, Ginger, Galangal\n• 10 min: Garlic",
+      "inputs": [
+        "onions",
+        "ginger",
+        "garlic",
+        "galangal"
+      ],
+      "tools": "Store on fridge if in advance. Zip bags to prevent aroma dillutiing others.",
+      "parallel": true
+    },
+    {
+      "key": "heat",
+      "title": "Heat",
+      "instructions": "Heat over low-medium heat.",
+      "inputs": [
+        "beef-tallow"
+      ],
+      "parallel": true
+    },
+    {
+      "key": "sear",
+      "title": "Sear",
+      "instructions": "Sear brisket on all sides, well-browned. Remove brisket.",
+      "inputs": [
+        "beef-tallow",
+        "brisket",
+        "salt"
+      ]
+    },
+    {
+      "key": "sautee",
+      "title": "Sautee",
+      "instructions": "Shallow fry in beef fat to activate.\n\nSaute shallots and mushroom until golden brown. Add roasted onion, ginger, turmeric, and garlic for 1 min.\n\nTurn off heat and let them cool down for 1 min.",
+      "inputs": [
+        "beef-tallow",
+        "onions",
+        "ginger",
+        "garlic",
+        "shallots",
+        "jamur-merang-optional",
+        "galangal",
+        "turmeric-optional"
+      ],
+      "tools": "Low-moderate heat"
+    },
+    {
+      "key": "sautee-2",
+      "title": "Sautee",
+      "instructions": "Add cardamom, cinnamon, and star anise. Stir 30 secs until fragrant.\n\nAdd white pepper, coriander seed, and cloves last, stir about 20 secs.",
+      "inputs": [
+        "beef-tallow",
+        "onions",
+        "ginger",
+        "garlic",
+        "shallots",
+        "cinnamon",
+        "cardamom",
+        "star-anise",
+        "cloves",
+        "coriander-seeds",
+        "jamur-merang-optional",
+        "galangal",
+        "white-peppercorns",
+        "turmeric-optional"
+      ]
+    },
+    {
+      "key": "pour-and-pre-season",
+      "title": "Pour and Pre-Season",
+      "instructions": "Pur broth. Add salt gradually. Taste, then Totole, yeast extract, and rock sugar. Stir until dissolved.",
+      "inputs": [
+        "beef-tallow",
+        "onions",
+        "ginger",
+        "garlic",
+        "shallots",
+        "cinnamon",
+        "cardamom",
+        "star-anise",
+        "cloves",
+        "beef-broth-base-1-1",
+        "coriander-seeds",
+        "jamur-merang-optional",
+        "rock-salt",
+        "rock-sugar",
+        "mushroom-bouillon",
+        "yeast-extract-powder",
+        "galangal",
+        "white-peppercorns",
+        "turmeric-optional"
+      ],
+      "tools": "Ideal cooking time for brisket and aromatics. More cooking time, aromatics will become bitter."
+    },
+    {
+      "key": "return-then-simmer",
+      "title": "Return, then Simmer",
+      "instructions": "Return brisket. \n\nBring to 90°C. Simmer for 3 hrs. Lid slightly open.",
+      "inputs": [
+        "brisket",
+        "salt",
+        "beef-tallow",
+        "jamur-merang-optional",
+        "shallots",
+        "garlic",
+        "onions",
+        "ginger",
+        "cinnamon",
+        "cardamom",
+        "star-anise",
+        "coriander-seeds",
+        "cloves",
+        "beef-broth-base-1-1",
+        "rock-salt",
+        "rock-sugar",
+        "mushroom-bouillon",
+        "yeast-extract-powder",
+        "galangal",
+        "white-peppercorns",
+        "turmeric-optional"
+      ]
+    },
+    {
+      "key": "simmer-last-60",
+      "title": "Simmer Last 60",
+      "instructions": "Simmer on the last 60 mins",
+      "inputs": [
+        "lemongrass",
+        "daun-salam"
+      ],
+      "parallel": true
+    },
+    {
+      "key": "simmer-last-30",
+      "title": "Simmer Last 30",
+      "instructions": "Simmer on the last 30 mins",
+      "inputs": [
+        "daun-jeruk"
+      ],
+      "parallel": true
+    }
+  ],
+  "finish": [
+    {
+      "text": "Mushroom note too strong?",
+      "options": [
+        {
+          "answer": "Yes",
+          "label": "Lift after 1 hr"
+        },
+        {
+          "answer": "No",
+          "label": "Continue"
+        }
+      ]
+    },
+    {
+      "title": "Final Adjustment and X-Factor",
+      "ingredients": [
+        {
+          "key": "beef-broth-mix",
+          "name": "Beef Broth Mix"
+        },
+        {
+          "key": "beef-broth-base-1-1-2",
+          "quantity": "350",
+          "unit": "ml",
+          "name": "Beef Broth Base (1:1)",
+          "description": "BRIX > 7.0, QC should look like jelly after storing process. For infusion process."
+        },
+        {
+          "key": "optional-beef-broth-base",
+          "quantity": "500",
+          "unit": "ml",
+          "name": "Optional Beef Broth Base",
+          "description": "Only if need to soften this, produce more volume"
+        },
+        {
+          "key": "rock-sugar-2",
+          "quantity": "15",
+          "unit": "gr",
+          "name": "Rock Sugar",
+          "description": "Adjust to taste"
+        },
+        {
+          "key": "fish-sauce",
+          "quantity": "15",
+          "unit": "ml",
+          "name": "Fish sauce",
+          "description": "Max value, adjust to taste. Add per 5 ml. Must-be high quality."
+        },
+        {
+          "key": "oxtail-concentrate",
+          "quantity": "150",
+          "unit": "ml",
+          "name": "Oxtail concentrate",
+          "description": "An x-factor addition to add unique finish to the broth. Adjusted to taste. Start value."
+        },
+        {
+          "key": "white-sugar",
+          "name": "White sugar",
+          "description": "Final adjustment, to taste"
+        },
+        {
+          "key": "msg",
+          "name": "MSG",
+          "description": "Final adjustment, to taste"
+        }
+      ],
+      "procedures": [
+        {
+          "key": "remove-brisket",
+          "title": "Remove brisket",
+          "instructions": "After 3 hrs, remove brisket and set aside to cool",
+          "inputs": [
+            "beef-broth-mix"
+          ]
+        },
+        {
+          "key": "strain",
+          "title": "Strain",
+          "instructions": "Strain and discard the aromatics, spices, and mushrooms. Leave a little fat for flavour.",
+          "inputs": [
+            "beef-broth-mix"
+          ]
+        },
+        {
+          "key": "add-beef-stock",
+          "title": "Add beef stock",
+          "instructions": "Add broth base until broth reach 2.85L",
+          "inputs": [
+            "beef-broth-mix",
+            "beef-broth-base-1-1-2",
+            "optional-beef-broth-base"
+          ]
+        },
+        {
+          "key": "add",
+          "title": "Add",
+          "instructions": "Last, as the final adjustment. Should still be salty.",
+          "inputs": [
+            "fish-sauce"
+          ]
+        },
+        {
+          "key": "add-2",
+          "title": "Add",
+          "instructions": "Before fish sauce.",
+          "inputs": [
+            "rock-sugar-2"
+          ],
+          "tools": "Slightly sweeter before toned down by fish sauce.",
+          "parallel": true
+        },
+        {
+          "key": "add-x-factor",
+          "title": "Add X-Factor",
+          "instructions": "Adding uniqueness to the broth. If not, reduce the fish sauce. Should still be slightly salty.",
+          "inputs": [
+            "oxtail-concentrate"
+          ]
+        },
+        {
+          "key": "corrections",
+          "title": "Corrections",
+          "inputs": [
+            "white-sugar",
+            "msg"
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Taste",
+      "options": [
+        {
+          "answer": "Too salty?",
+          "label": "Add more reserved broth base"
+        },
+        {
+          "answer": "Flat, salty enough?",
+          "label": "Add MSG, not salt"
+        },
+        {
+          "answer": "Not salty?",
+          "label": "Add salt"
+        }
+      ]
+    },
+    {
+      "title": "QC",
+      "text": "BRIX 8.7, Salt level 1.51%, 3L of broth",
+      "tools": "Refractometer"
+    },
+    {
+      "title": "Serving",
+      "text": "Add drops of spiced tallow (adapted version)"
+    }
+  ],
+  "notes": [
+    {
+      "title": "Local ingredients",
+      "body": "Could be added: Lemongrass, Galangal, Candlenut, Nutmeg, Cumin, Daun Salam, Turmeric"
+    }
+  ]
+}

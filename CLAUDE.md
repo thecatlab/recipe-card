@@ -8,11 +8,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 npm install
 npm run dev       # Vite dev server (index.html → main.js)
 npm run build     # production build to dist/
-npm test          # node --test tests/*.test.mjs (model logic only)
+npm test          # node --test tests/*.test.mjs (model logic and the recipe-card skill)
 node --test --test-name-pattern="scaling" tests/model.test.mjs   # single test
+npm run generator # regenerate recipe-generator.html headlessly (Vite dev server + Playwright, clicks Save HTML)
+npm run skill     # regenerate, then package the recipe-card skill into dist-skill/ (zip for Claude apps)
+npm run card -- make <draft.json> --out <dir> --png   # recipe-card skill maker
 ```
 
 There is no linter or formatter configured.
+
+## Recipe-card skill
+
+`.claude/skills/recipe-card/` is a Claude skill that makes recipe cards from a JSON *draft* (ingredients and procedures named by `key`; `inputs` list keys). `scripts/card.mjs` converts the draft to the app's recipe format (`fromDraft`), reports layout problems with the same rules as `M.validLayout()` plus split-cell and unused-row warnings, and writes the card by putting the recipe into `recipe-generator.html`'s `recipe-data` script with `data-view="card"` (which makes `app.js` open on the card view). It loads `RecipeModel` from the template's embedded runtime, so it has no dependencies; `--png` drives the app's own HQ PNG export through Playwright when available. When changing the recipe data shape, update `fromDraft`/`toDraft`, the field lists in `card.mjs`, `SKILL.md` and `reference/format.md`, and the tests in `tests/skill.test.mjs`. The `examples/` drafts come from `recipes/library.json` via `card.mjs draft`.
 
 ## Architecture
 
@@ -33,7 +40,7 @@ A no-framework, browser-only recipe card generator. The original hand-made card 
 
 **Self-replicating HTML export.** "Save HTML" (`exportHTML` in `app.js`) clones the live DOM, strips the scripts, and appends `recipe-data` (recipe JSON), `capture-runtime`, `generator-runtime` and `generator-start` scripts. The resulting file runs fully offline and can export itself again. On load, `initRecipeGenerator` imports an embedded `recipe-data` snapshot into the library once, tracked by `data-snapshot` token in `library.importedSnapshots`.
 
-- `recipe-generator.html` (the standalone blank generator in the README) and the files in `output/` are **generated artifacts** of this export. Don't hand-edit them. After changing the source, regenerate `recipe-generator.html` by running the dev server, starting a blank recipe, and using Save HTML.
+- `recipe-generator.html` (the standalone blank generator in the README) and the files in `output/` are **generated artifacts** of this export. Don't hand-edit them. After changing the source, regenerate `recipe-generator.html` with `npm run generator` (it does Save HTML on a blank recipe in a headless browser).
 - Anything the exported page needs at runtime must live in the DOM, the CSS in `index.html`, or `model.js`/`app.js`. Vite-only features (imports, assets) don't survive the export.
 
 ## Conventions from the README

@@ -1369,7 +1369,8 @@ window.initRecipeGenerator = function () {
   renderLibrary();
   renderEditor();
   renderCard();
-  setView(true);
+  // Cards made outside the app (the recipe-card skill) open on the finished card.
+  setView(embedded?.dataset.view !== 'card');
   save();
   if (repo && readToken() && !snapshot) pullFromGitHub().catch(error => notify(error.message));
 };
