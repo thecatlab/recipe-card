@@ -1,0 +1,154 @@
+{
+  "name": "Beef Broth (RtP)",
+  "description": "Kaldu daging sapi dengan perbandingan 1:1 (1kg tulang dan 1 kg air).",
+  "baseServings": "1",
+  "yieldUnit": "L",
+  "total": "24 hr",
+  "prep": [
+    {
+      "title": "Rinse",
+      "text": "with room temp. water (1-2 min/kg). Pat dry or air dry to prevent uneven browning."
+    }
+  ],
+  "ingredients": [
+    {
+      "key": "knuckle-joint-bones-femur",
+      "quantity": "500",
+      "unit": "gr",
+      "name": "Knuckle/joint bones/femur",
+      "description": "Saw to smaller pieces if possible."
+    },
+    {
+      "key": "marrow-bones",
+      "quantity": "300",
+      "unit": "gr",
+      "name": "Marrow bones",
+      "description": "Tulang sumsum. More is better. Saw to smaller pieces if possible."
+    },
+    {
+      "key": "neck-bones",
+      "quantity": "200",
+      "unit": "gr",
+      "name": "Neck bones",
+      "description": "Saw to smaller pieces if possible."
+    },
+    {
+      "key": "filtered-water",
+      "quantity": "1",
+      "unit": "L",
+      "name": "Filtered Water",
+      "description": "For the base 1:1 ratio"
+    },
+    {
+      "key": "filtered-water-2",
+      "quantity": "300",
+      "unit": "mL",
+      "name": "Filtered Water",
+      "description": "Compensating evaporation during cooking process. 30% more."
+    }
+  ],
+  "procedures": [
+    {
+      "key": "roasting",
+      "title": "Roasting",
+      "instructions": "200°C, 30-40 min, golden brown. Aluminum foil underneath. Turn once halfway.",
+      "inputs": [
+        "knuckle-joint-bones-femur",
+        "marrow-bones",
+        "neck-bones"
+      ],
+      "tools": "Could set to highest temp. with shorter time"
+    },
+    {
+      "key": "parboil",
+      "title": "Parboil",
+      "instructions": "Start boiling. Heat to 100°C, then 3-5 min, just enough water. Stir occationally. Dump water.",
+      "inputs": [
+        "knuckle-joint-bones-femur",
+        "marrow-bones",
+        "neck-bones",
+        "roasting"
+      ]
+    },
+    {
+      "key": "rinse",
+      "title": "Rinse",
+      "instructions": "40-50°C high-pressure water. Only clean surface briefly.",
+      "inputs": [
+        "knuckle-joint-bones-femur",
+        "marrow-bones",
+        "neck-bones",
+        "parboil"
+      ]
+    },
+    {
+      "key": "simmer",
+      "title": "Simmer",
+      "instructions": "24 hrs. Start cold, heat to below simmering (92 C). Skim in first 30-60 mins. Slightly open the lid.",
+      "inputs": [
+        "knuckle-joint-bones-femur",
+        "marrow-bones",
+        "neck-bones",
+        "filtered-water",
+        "filtered-water-2"
+      ],
+      "tools": "Clean stockpot, filtered water. Use induction or slow cooker if left alone."
+    }
+  ],
+  "finish": [
+    {
+      "title": "Strain",
+      "text": "using fine strainer or cheesecloth"
+    },
+    {
+      "title": "QC",
+      "text": "Brix 7.0, Salt level 0.17"
+    },
+    {
+      "text": "Immediately used?",
+      "options": [
+        {
+          "answer": "Yes,",
+          "label": "Immediate use",
+          "text": "Scoop the beef broth and skim the beef tallow. Keep broth ≥ 60°C."
+        },
+        {
+          "answer": "No,",
+          "label": "Store",
+          "text": "Immediately cool down until 21°C within 2 hr using ice bath, to 5°C within next 4 hr in the freezer. Label production date. Thaw in fridge before use.",
+          "tools": "Fridge ≤5°C (3-4 days), Freezer ≤-18°C (2 months)"
+        }
+      ]
+    },
+    {
+      "title": "Beef tallow",
+      "text": "After storing the broth in the fridge, a golden layer will be formed on top. Scrape this and store as Beef Tallow, useful later. When used immediately, skim the fat layer and store it."
+    }
+  ],
+  "notes": [
+    {
+      "title": "Shimmering durations",
+      "body": "Meaty flavor extraction and gelatin extraction has different timetable. "
+    },
+    {
+      "title": "Narrow pot",
+      "body": "Narrow pot helps for small-scale production"
+    },
+    {
+      "title": "Reverse Osmosis Water",
+      "body": "Is the best quality water for this kind of food. Carbon filter is also fine."
+    },
+    {
+      "title": "Oil on roasting",
+      "body": "Unnecessary, burdening cost and potentially leaving greasy-film on the broth."
+    },
+    {
+      "title": "Roasting liquids",
+      "body": "Pour on heatproof cup and let it sit for 2-3 mins. Strain golden top layer as a beef tallow. Discard black residue. Add darker juice to the broth. Deglaze brown bits (using the water for broth, do not add more) and add to broth (not when parboiling)."
+    },
+    {
+      "title": "Simmer temperature",
+      "body": "Should not see steam breaking the surface. Tony bubbles. Never rolling boil. Do not add too much water (max 12%)."
+    }
+  ]
+}

@@ -11,7 +11,25 @@ npm install
 npm run dev
 ```
 
-`npm run build` creates the production build. `npm test` checks component dependencies and quantity scaling.
+`npm run build` creates the production build. `npm test` checks component dependencies, quantity scaling, and the recipe-card skill. `npm run generator` regenerates `recipe-generator.html` from the current source in a headless browser (instead of doing Save HTML by hand).
+
+## Ask Claude for a recipe card
+
+The **recipe-card skill** (`.claude/skills/recipe-card/`) lets Claude write recipes straight into this card format. Ask for "a recipe card for beef rendang, 6 portions", paste a recipe, or share a photo; Claude writes the recipe, checks it against the grid's layout rules, and hands you an editable HTML card (and a PNG where a browser is available). The card opens on the finished card and has all the usual editing and export controls.
+
+- **Claude Code in this repository:** nothing to install; the skill is picked up automatically.
+- **Claude Code everywhere:** `npm install && npm run skill:install` copies the skill to `~/.claude/skills/recipe-card`.
+- **Claude Desktop and claude.ai:** run `npm install && npm run skill`, then upload `dist-skill/recipe-card-skill.zip` in Settings → Capabilities → Skills (code execution must be on).
+
+Re-run the same command after changing the app so new cards use the latest version. The maker also works on its own:
+
+```bash
+npm run card -- make my-recipe.json --out output --png   # draft → card (.html, and .png with Playwright)
+npm run card -- check my-recipe.json                     # validate only
+npm run card -- draft recipes/library.json "Beef Soto"   # editable draft of an existing recipe
+```
+
+The draft format is documented in `.claude/skills/recipe-card/SKILL.md` and `reference/format.md`. Adding `--library recipes/library.json` to `make` puts the recipe in the website's library.
 
 ## Create a recipe
 

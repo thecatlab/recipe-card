@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+  
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Recipe builder</title>
@@ -11,10 +13,12 @@
   --ink:#1B221C;
   --ink-soft:#5A6459;
   --rule:#111111;
+  --control-h:38px;
   --turmeric:#185765;
   --turmeric-wash:#E8F0E5;
   --kale:#3F5F44;
   --kale-wash:#D9E8D5;
+  --decision-wash:#ECF4EA;
   --pepper:#2A2622;
 }
 *{box-sizing:border-box}
@@ -56,7 +60,7 @@ h1 .tm{font-size:.28em;vertical-align:super;letter-spacing:0;font-weight:600}
 
 .controls{
   display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;
-  margin:30px 0 22px;
+  margin:0 0 22px;
 }
 .group{display:flex;align-items:center;gap:8px}
 .group>span{
@@ -67,7 +71,8 @@ button{
   font-family:"Space Mono",monospace;font-size:13px;
   background:transparent;color:var(--ink);
   border:1.5px solid var(--rule);border-radius:0;
-  padding:6px 13px;cursor:pointer;line-height:1.2;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:var(--control-h);padding:0 16px;cursor:pointer;line-height:1.2;
   transition:background .12s ease,color .12s ease;
 }
 button:hover{background:var(--kale-wash)}
@@ -117,8 +122,6 @@ td.ing{
   display:grid;grid-template-columns:var(--measure-col) minmax(0,1fr);
   column-gap:10px;align-items:baseline;
 }
-.ingredient-line.no-measure{grid-template-columns:1fr}
-.ingredient-line.no-measure .q{display:none}
 td.ing .q{
   font-family:"Instrument Sans",system-ui,sans-serif;
   font-weight:700;font-size:16px;text-align:right;white-space:nowrap;
@@ -148,6 +151,27 @@ td.finish{
   font-family:"Instrument Sans",system-ui,sans-serif;font-size:16px;padding:9px 12px;
 }
 td.finish b{font-weight:700}
+td.decision{padding:0;background:var(--decision-wash)}
+ul.bullets,ol.bullets{width:fit-content;max-width:calc(100% - 12px);margin:2px auto;padding-left:1.1em;text-align:left}ol.bullets{padding-left:1.4em}ul.bullets li,ol.bullets li{margin:0;padding-left:0;overflow-wrap:anywhere}
+.entry-grid textarea.has-bullets[data-field]{text-align:left}
+.bullets.spaced,.rich-text.spaced{margin-top:1.25em}
+.has-tools{position:relative}
+.has-tools .tools,.has-tools .tools-space{display:block;font-size:11.5px;line-height:1.25;font-style:italic;font-weight:400;text-align:center;overflow-wrap:anywhere}
+.has-tools .tools-space{visibility:hidden;margin:4px 0}
+.has-tools .tools-space:first-child{margin-top:0}.has-tools .tools-space:nth-last-child(2){margin-bottom:0}
+.has-tools .tools{position:absolute;left:12px;right:12px;bottom:9px;color:var(--ink)}
+td.op.has-tools .tools{left:8px;right:8px;bottom:12px}
+td.op.hot .tools{color:var(--turmeric-wash)}
+.entry-grid input[data-field=tools][data-kind]{font-size:11.5px;font-style:italic;font-weight:400;text-align:center;min-height:26px;color:var(--ink)}
+.instruction-row input[data-field=tools]{grid-column:2}
+td.decision .decision-q{padding:9px 12px;font-weight:600}
+td.decision .decision-q .decision-tag{font-weight:400}
+.answer-pill{display:inline-block;font:11px/1.5 'Space Mono',monospace;border:1px solid var(--rule);border-radius:99px;padding:0 8px;margin-bottom:4px;background:#fff;color:var(--ink)}
+td.decision .branch-item{margin-top:8px;padding-top:8px;border-top:1px dashed var(--rule)}
+td.decision .branch-item:not(.branch-decision)>b{display:inline;margin:0}
+td.decision .branch-item.branch-decision{border:1px solid var(--rule);padding:0;background:var(--decision-wash)}
+td.decision .decision-options>div{padding:9px 12px}
+td.decision .decision-options b{display:block;margin-bottom:2px}
 td.op.hot{background:var(--turmeric);color:#fff}
 td.op.hot span{color:var(--turmeric-wash)}
 tr.hot td.ing{background:var(--turmeric-wash)}
@@ -178,15 +202,27 @@ tr.hot td.ing{background:var(--turmeric-wash)}
 [hidden]{display:none!important}
 .app-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
 .app-top h1{font-size:38px;line-height:1.1;letter-spacing:-.04em}
+.app-top{align-items:center}
+#monochrome-toggle{width:var(--control-h);padding:0}
+.icon-button{width:var(--control-h);padding:0}.icon-button svg{width:20px;height:20px;display:block}
+#delete-recipe:hover{color:#fff;background:#92372f;border-color:#92372f}
+.mono-icon{width:14px;height:14px;border:1.5px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.monochrome{--ink:#111111;--ink-soft:#555555;--rule:#111111;--turmeric:#111111;--turmeric-wash:#EEEEEE;--kale:#333333;--kale-wash:#E4E4E4;--decision-wash:#F3F3F3;--pepper:#111111;color:var(--ink)}
+#editor.monochrome .entry-column-headings th{background:#F4F4F4}
+#editor.monochrome .entry-meta{border-top-color:#DDDDDD}
+#editor.monochrome .procedure-details{border-top-color:#B4B4B4}
+#editor.monochrome input,#editor.monochrome textarea{border-color:#B4B4B4}
+#editor.monochrome .entry-grid input,#editor.monochrome .entry-grid textarea{border-color:transparent}
 .library-bar,.view-bar,.export-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .library-bar{padding:16px 0;border-top:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule)}
 .library-bar label{font:11px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
 .library-bar select{flex:1;max-width:340px;min-width:150px}
 #save-status{margin-left:auto;font-size:12px;color:var(--ink-soft)}
 .view-bar{margin:22px 0}.view-bar .export-bar{margin-left:auto}
-.export-bar button{font-size:11px;padding:8px 10px}
-#insert-degree{font-size:20px;line-height:1;padding:5px 10px;min-width:36px}
+.text-tool{font-size:20px;line-height:1;padding:0;width:var(--control-h)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;font:700 11px/1 'Space Mono',monospace}.frac span{padding:1px 2px}.frac span:first-child{border-bottom:1.5px solid currentColor}
 button:disabled{opacity:.4;cursor:default}
+select{height:var(--control-h)}
 input,textarea,select{font:14px/1.4 'Instrument Sans',system-ui,sans-serif;color:var(--ink);background:#fff;border:1px solid #adb6ab;border-radius:0;padding:8px 10px;max-width:100%}
 input:focus,textarea:focus,select:focus{outline:2px solid var(--turmeric);outline-offset:1px}
 textarea{resize:vertical;min-height:62px}
@@ -194,7 +230,7 @@ input[type=checkbox]{accent-color:var(--turmeric);width:18px;height:18px;flex:no
 body.editing-table .wrap{max-width:1440px}
 .entry-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}
 .entry-toolbar h2{font:600 24px/1.2 'Bricolage Grotesque',sans-serif;margin:0}
-.entry-toolbar div{display:flex;gap:8px}.entry-toolbar button{font-size:11px}
+.entry-toolbar div{display:flex;gap:8px}
 .entry-grid{table-layout:fixed;min-width:940px}
 .entry-grid input,.entry-grid textarea{width:100%;background:transparent;border:1px solid transparent;padding:5px 6px;min-height:30px;line-height:1.35}
 .entry-grid input:hover,.entry-grid textarea:hover{border-color:#aeb9ab}
@@ -210,11 +246,35 @@ body.editing-table .wrap{max-width:1440px}
 .entry-meta label{display:flex;align-items:center;gap:6px;min-width:0}
 .entry-meta span{font-size:11px;color:var(--ink-soft);white-space:nowrap}
 .entry-meta input{min-width:0;font-size:12px}
+.entry-meta input[data-field=baseServings]{width:64px;flex:none}
 .entry-grid .prep,.entry-grid .finish{padding:4px 12px}
-.entry-grid .prep textarea,.entry-grid .finish textarea{text-align:center;font-size:14px}
-.instruction-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
-.instruction-row .row-actions{display:flex;align-items:center;white-space:nowrap}
-.entry-grid .instruction-add{padding:4px 12px;text-align:left}.instruction-add button{font-size:10px;padding:5px 8px}
+.entry-grid .prep textarea,.entry-grid .finish textarea{font-size:14px}
+.entry-grid .prep input[data-field=title],.entry-grid .finish input[data-field=title]{font-weight:700;font-size:14px}
+.instruction-row{display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr) auto;gap:8px;align-items:start}
+.instruction-row .row-actions{display:flex;align-items:flex-start;white-space:nowrap;padding-top:3px}
+.entry-grid .instruction-add{padding:4px 12px;text-align:center}
+.instruction-add button+button{margin-left:8px}
+.decision-tag{font:11px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
+.entry-grid td.decision{padding:0}
+.entry-grid .grid-head-row{grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center}
+.grid-add{display:flex;gap:8px}
+td.grid-title{font-weight:500}
+.entry-grid .decision-head{grid-template-columns:auto minmax(0,1fr) auto;padding:4px 12px}
+.entry-grid .decision-head textarea{font-weight:600}
+.decision-options{display:grid;grid-template-columns:repeat(var(--options),minmax(0,1fr));border-top:1px solid var(--rule)}
+.decision-options>div{padding:6px 8px;min-width:0;position:relative}.decision-options>div+div{border-left:1px dashed var(--rule)}
+.decision-options>div+div::before{content:'OR';position:absolute;left:0;top:50%;transform:translate(-50%,-50%);z-index:1;font:10px/1 'Space Mono',monospace;letter-spacing:.06em;padding:3px 6px;border:1px solid var(--rule);border-radius:99px;background:#fff;color:var(--ink)}
+.entry-grid .decision-options input{font-weight:700;text-align:center}
+.entry-grid .decision-options textarea{font-size:13px;text-align:center}
+.option-head{display:grid;grid-template-columns:minmax(56px,90px) minmax(0,1fr) auto;gap:6px;align-items:start}
+.entry-grid .decision-options input[data-field=answer]{font:11px 'Space Mono',monospace;border:1px solid var(--rule);border-radius:99px;min-height:26px;background:#fff}
+.entry-grid .branch-item{margin-top:8px;padding:6px;border:1px dashed var(--rule);background:rgba(255,255,255,.35)}
+.branch-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:start}
+.branch-decision>.branch-head{grid-template-columns:auto minmax(0,1fr) auto;align-items:center}
+.entry-grid .branch-head textarea{font-weight:600}
+.branch-add{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px}
+.option-head .row-actions{padding-top:3px}
+.decision-add{padding-top:6px;border-top:1px solid var(--rule)}
 .entry-column-headings th{font:11px/1.3 'Space Mono',monospace;text-align:center;padding:7px 8px;border:1px solid var(--rule);background:#f4f7f2;font-weight:400}
 .entry-column-headings th:first-child{text-align:left}
 .entry-column-headings .row-actions{margin-top:2px}
@@ -228,10 +288,29 @@ body.editing-table .wrap{max-width:1440px}
 .entry-grid input[data-field=metricQuantity],.entry-grid input[data-field=metricUnit]{font-size:12px;min-height:26px;color:var(--ink-soft);font-style:italic}
 .entry-ingredient-grid .entry-description{grid-column:3 / 5;grid-row:2}
 .entry-description textarea{font-size:12px;font-style:italic;min-height:26px}
-.entry-ingredient-grid .row-actions{grid-column:4;grid-row:1;display:flex;align-items:center;white-space:nowrap}
+.entry-ingredient-grid .row-actions{grid-column:4;grid-row:1;display:flex;align-items:flex-start;align-self:start;white-space:nowrap}
 .entry-grid summary{cursor:pointer;list-style-position:inside;font-size:10px;line-height:1.5;color:var(--ink-soft);padding:3px 0}
-.entry-grid .row-actions button{font-size:10px;padding:3px 4px}
-.entry-grid .editor-op{background:var(--kale-wash);padding:10px 8px;vertical-align:top;text-align:center}
+.entry-grid .row-actions button{font-size:10px;padding:3px 4px;min-height:0}
+.entry-grid .editor-op{background:var(--kale-wash);padding:10px 8px;vertical-align:top;text-align:center;position:relative}
+.op-actions{display:flex;justify-content:flex-end;margin:-6px -4px 2px}
+.edge-handle{position:absolute;left:0;right:0;height:12px;z-index:3;cursor:ns-resize;touch-action:none}
+.edge-handle.top{top:-6px}.edge-handle.bottom{bottom:-6px}
+.edge-handle::after{content:'';position:absolute;left:35%;right:35%;top:4px;height:4px;border-radius:2px;background:var(--ink);opacity:0;transition:opacity .12s ease}
+.entry-grid td.editor-op:hover>.edge-handle::after{opacity:.35}.edge-handle:hover::after,body.resizing .edge-handle::after{opacity:.8}
+.entry-grid .editor-ingredient{position:relative}
+.row-insert{position:absolute;left:0;right:0;height:14px;z-index:4;display:flex;align-items:center;justify-content:center}
+.row-insert.top{top:-7px}.row-insert.bottom{bottom:-7px}
+.row-insert::before{content:'';position:absolute;left:0;right:0;top:6px;height:2px;background:var(--ink);opacity:0;transition:opacity .12s ease}
+.row-insert button{position:relative;width:22px;height:22px;min-height:0;padding:0;font:13px/1 'Space Mono',monospace;color:#fff;background:var(--ink);border:1px solid var(--ink);border-radius:50%;opacity:0;transition:opacity .12s ease}
+.row-insert:is(:hover,:focus-within)::before{opacity:.6}.row-insert:is(:hover,:focus-within) button{opacity:1}
+@media (hover:none){.row-insert button{opacity:.5}}
+.entry-grid td.slot{background:#fff;padding:0;vertical-align:middle;text-align:center}
+.entry-grid td.slot.open-left{border-left-style:hidden}.entry-grid td.slot.open-right{border-right-style:hidden}
+.slot-add{width:24px;height:24px;min-height:0;padding:0;font:14px/1 'Space Mono',monospace;color:var(--ink);background:#fff;border:1px solid var(--ink)}
+.slot-add:hover{color:#fff;background:var(--ink)}
+@media (hover:hover) and (pointer:fine){.slot-add{opacity:0;pointer-events:none;transition:opacity .12s ease}.entry-grid td.slot:is(:hover,:focus-within) .slot-add{opacity:1;pointer-events:auto}}
+.entry-grid .edge-active{outline:2px solid var(--ink);outline-offset:-3px}
+body.resizing,body.resizing *{cursor:ns-resize!important;user-select:none}
 .editor-op textarea[data-field=instructions]{font-size:13px;min-height:42px;text-align:center;margin-bottom:8px}
 .entry-procedure-title textarea{font-size:16px;font-weight:700;text-align:center;min-height:32px}
 .editor-op .component-list{text-align:left;font-size:10px;margin:5px 0 9px}
@@ -242,23 +321,37 @@ body.editing-table .wrap{max-width:1440px}
 .editor-op .output-fields{display:grid;grid-template-columns:1fr 1fr;gap:2px}
 .output-fields input:first-child,.output-fields textarea{grid-column:span 2}
 .editor-op .output-fields input,.editor-op .output-fields textarea{font-size:11px;min-height:27px;background:rgba(255,255,255,.4)}
-.editor-op.empty-column{vertical-align:middle;padding:22px}.empty-column p{font-size:12px;color:var(--ink-soft);max-width:26ch;margin:10px auto 0}
-.editor-op.procedure-reference{vertical-align:middle;font-size:14px}.procedure-reference button{display:block;font-size:10px;margin:10px auto 0;padding:5px}
+.editor-op.empty-column{vertical-align:middle;padding:22px}
+.editor-op.procedure-reference{vertical-align:middle;font-size:14px}.procedure-reference button{display:flex;font-size:10px;margin:10px auto 0}
 .editor-ingredient.independent{vertical-align:middle;color:var(--ink-soft)}.independent small{font-size:11px}.independent p{font-size:14px;margin:4px 0;overflow-wrap:anywhere}
 #credit-editor{margin-top:20px}#credit-editor textarea{width:100%;font:11.5px/1.6 'Space Mono',monospace;min-height:42px;border-color:#cbd4c6}
 .section-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:32px 0 12px}
 .section-top h2{font:600 24px/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:-.025em;margin:0}
-.section-top button{font-size:11px}
 .edit-table{min-width:890px;table-layout:fixed}.edit-table th{background:var(--turmeric);color:#fff;text-align:left;font-size:12px;font-weight:500;padding:8px 10px;border:1px solid var(--rule)}
 .edit-table td{padding:6px;vertical-align:top}.edit-table input,.edit-table textarea{width:100%;border-color:transparent;padding:6px 4px;min-height:34px}
 .edit-table input:hover,.edit-table textarea:hover{border-color:#adb6ab}.edit-table textarea{font-size:13px;min-height:64px}
 .edit-table .row-actions{white-space:nowrap;text-align:center;padding:10px 2px;vertical-align:middle}
-.row-actions button{font-size:11px;padding:4px 5px;border-color:transparent}.row-actions button:hover{border-color:var(--rule)}
-.row-actions button[data-action=remove]{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;margin-left:6px;padding:6px;color:#92372f;background:#fff0ed;border:1px solid #c98e86;vertical-align:middle}
-.row-actions button[data-action=remove]:hover{color:#fff;background:#92372f;border-color:#92372f}
-.row-actions button[data-action=remove]:focus-visible{outline:2px solid #92372f;outline-offset:2px}
-.row-actions button[data-action=remove] svg{display:block;width:18px;height:18px}
-.component-button{font:12px/1.35 'Instrument Sans',sans-serif;text-align:left;padding:6px 8px;width:100%;min-height:34px;border-color:#adb6ab}
+.row-actions button{font-size:11px;padding:4px 5px;min-height:0;border-color:transparent}.row-actions button:hover{border-color:var(--rule)}
+.row-actions button[data-action^=remove]{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-left:4px;padding:4px;color:#92372f;background:#fff0ed;border:1px solid #c98e86;vertical-align:middle}
+@media (hover:hover) and (pointer:fine){
+ .row-actions :is(button.drag-handle,button.add-parallel,button[data-action^=remove]){opacity:0;pointer-events:none;transition:opacity .12s ease}
+ :is(.entry-grid td,.entry-grid th,.edit-table tr):is(:hover,:focus-within) .row-actions :is(button.drag-handle,button.add-parallel,button[data-action^=remove]){opacity:1;pointer-events:auto}
+ :is(.entry-grid td,.entry-grid th,.edit-table tr):is(:hover,:focus-within) .row-actions :is(button.drag-handle,button.add-parallel,button[data-action^=remove]):disabled{opacity:.4;pointer-events:none}
+}
+.row-actions button.drag-handle{width:24px;height:24px;margin-left:3px;padding:4px;color:var(--ink);background:#fff;border:1px solid var(--ink);vertical-align:middle;cursor:grab;touch-action:none}
+.row-actions button.drag-handle svg{display:block;width:14px;height:14px}
+.row-actions button.drag-handle:hover{color:#fff;background:var(--ink)}
+.row-actions button.add-parallel{width:24px;height:24px;margin-left:3px;padding:0;font:14px/1 'Space Mono',monospace;color:var(--ink);background:#fff;border:1px solid var(--ink);vertical-align:middle}
+.row-actions button.add-parallel:hover{color:#fff;background:var(--ink)}
+.drag-ghost{position:fixed;left:0;top:0;z-index:1000;pointer-events:none;max-height:320px;overflow:hidden;background:#fff;opacity:.94;box-shadow:0 14px 32px rgba(0,0,0,.22);will-change:transform}
+.drag-ghost table{width:100%;min-width:0!important;table-layout:fixed}
+.drag-ghost td{width:100%}
+.entry-grid .drag-source,.edit-table .drag-source{outline:2px dashed var(--ink);outline-offset:-3px;opacity:.45}
+body.dragging,body.dragging *{cursor:grabbing!important;user-select:none}
+.row-actions button[data-action^=remove]:hover{color:#fff;background:#92372f;border-color:#92372f}
+.row-actions button[data-action^=remove]:focus-visible{outline:2px solid #92372f;outline-offset:2px}
+.row-actions button[data-action^=remove] svg{display:block;width:14px;height:14px}
+.component-button{display:block;font:12px/1.35 'Instrument Sans',sans-serif;text-align:left;padding:6px 8px;width:100%;min-height:34px;border-color:#adb6ab}
 .component-list{font-size:11px;line-height:1.4;color:var(--ink-soft);margin:5px 2px 0;overflow-wrap:anywhere}
 .notes-editor{min-width:650px}
 #recipe-card{background:#fff;padding:30px 0 0;min-width:0}
@@ -275,7 +368,6 @@ body.editing-table .wrap{max-width:1440px}
 #recipe-card .note-item p,#recipe-card .credit{white-space:pre-wrap;overflow-wrap:anywhere}
 #recipe-card .ingredient-line,#recipe-card .detail-line{display:flex;gap:10px;align-items:baseline}
 #recipe-card .q,#recipe-card .secondary-q{min-width:88px;flex-shrink:0}
-#recipe-card .ingredient-line.no-measure .name{margin-left:0}
 #recipe-card .ingredient-line .name,#recipe-card .detail-line .note{min-width:0;flex:1}
 #recipe-card .detail-line .secondary-q:empty{min-width:88px}
 #recipe-card .meta{margin-bottom:24px}
@@ -285,8 +377,10 @@ body.editing-table .wrap{max-width:1440px}
 #recipe-card td.op:focus-visible,#recipe-card td.ing:focus-visible{outline:3px solid var(--turmeric);outline-offset:-4px}
 .empty-card{border:1px solid var(--rule);color:var(--ink-soft);padding:36px 20px;text-align:center;font-size:14px}
 #preview-warnings{color:var(--ink-soft);font-size:12px;margin:0 0 14px;white-space:pre-line}
-#preview .controls{margin-bottom:18px}.serving-input{width:70px;padding:5px 8px;font-size:13px}
-.notice{min-height:20px;font-size:13px;color:var(--turmeric);margin:8px 0}
+#preview .controls{margin-bottom:18px}[data-servings],.serving-input{width:42px}
+.serving-input{height:var(--control-h);padding:0;text-align:center;font-size:13px;-moz-appearance:textfield;appearance:textfield}
+.serving-input::-webkit-inner-spin-button,.serving-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.notice{min-height:20px;font-size:13px;color:var(--turmeric);margin:8px 0}.notice:empty{min-height:0;margin:0}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;font-size:13px;max-width:calc(100vw - 32px);z-index:5}
 dialog{border:1.5px solid var(--rule);padding:26px;max-width:540px;width:calc(100% - 32px);max-height:85vh;color:var(--ink);background:#fff}
 dialog::backdrop{background:rgba(27,34,28,.3)}
@@ -295,11 +389,20 @@ dialog p{font-size:13px;color:var(--ink-soft);margin:0 0 20px}
 .component-options{max-height:45vh;overflow-y:auto}.component-options h3{font:11px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin:18px 0 8px;color:var(--turmeric)}
 .component-option{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #dde3da;cursor:pointer;font-size:14px}
 .component-option small{display:block;font-size:11px;color:var(--ink-soft);margin-top:2px}
+.component-option.blocked{opacity:.45;cursor:not-allowed}
+.github-steps{font-size:13px;line-height:1.5;color:var(--ink);margin:0 0 18px;padding-left:20px}.github-steps li{margin-bottom:4px}
+.github-steps a,#github-dialog a{color:var(--ink);text-decoration-color:var(--turmeric);text-underline-offset:2px}
+.github-label{display:block;font:11px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:6px}
+#github-token{width:100%;font-family:'Space Mono',monospace;font-size:13px}
+#github-dialog p.github-note{font-size:12px;margin:10px 0 0}#github-dialog code{font:12px 'Space Mono',monospace;color:var(--ink)}
+#github-dialog .dialog-actions{flex-wrap:wrap}#github-disconnect{margin-right:auto}
 .dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}.dialog-actions .go{margin-left:0}
-.export-options{display:grid;gap:10px}.export-options button{text-align:left;font-size:14px;padding:14px 16px}
+.export-options{display:grid;gap:10px}.export-options button{justify-content:flex-start;font-size:14px;padding:14px 16px}
+.export-row{display:flex;gap:10px}.export-row>button:first-child{flex:1}
+.export-options button.copy-image{justify-content:center;gap:8px;padding:14px 16px}.copy-image svg{width:18px;height:18px}
 @media(max-width:680px){
  body{padding:20px 16px 40px}.app-top h1{font-size:32px}
- .view-bar{gap:12px}.view-bar .export-bar{margin-left:0;width:100%}.export-bar{gap:6px}.export-bar button{font-size:10px;padding:7px 8px}
+ .view-bar{gap:12px}.view-bar .export-bar{margin-left:0;width:100%}.export-bar{gap:6px}.export-bar button{padding:0 12px}
  #save-status{width:100%;margin-left:0}.library-bar select{max-width:none}
  .entry-grid .item-title input,.entry-grid .prep textarea,.entry-grid .finish textarea{text-align:left}
  #recipe-card h1{font-size:44px}.clock{margin-left:0}#recipe-card td.ing{font-size:14px}.stage-bar{gap:10px}
@@ -323,7 +426,6 @@ dialog p{font-size:13px;color:var(--ink-soft);margin:0 0 20px}
  #recipe-card tr.hot td.ing{background:#fff}.note-item{break-inside:avoid}
 }
 </style>
-  
 <style>/* Bundled font licenses
 Copyright 2022 The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage)
 
@@ -614,32 +716,32 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 @font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url('data:font/woff2;base64,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') format('woff2')}</style></head>
 <body class="editing-table">
 <div class="wrap">
-<header class="app-top"><h1>Recipe builder</h1></header>
+<header class="app-top"><h1>Recipe builder</h1><button id="monochrome-toggle" aria-pressed="false" aria-label="Black and white recipe card" title="Switch the recipe card between colour and black and white"><span class="mono-icon" aria-hidden="true"></span></button></header>
 <div class="library-bar">
 <label for="saved-recipes">Saved recipes</label><select id="saved-recipes" aria-label="Saved recipes"></select>
-<button id="new-recipe">New recipe</button><button id="save-recipe">Save recipe</button>
-<span id="save-status" role="status" aria-live="polite">Saved in 15:23:30</span>
+<button id="new-recipe" class="icon-button" aria-label="New recipe" title="New recipe"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 4v12M4 10h12"></path></svg></button><button id="save-recipe" class="icon-button" aria-label="Save recipe" title="Save recipe"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.75 3.75h8.5l3 3v9.5H4.75z"></path><path d="M7.25 3.75v3.5h5v-3.5M7.25 16.25v-5h5.5v5"></path></svg></button><button id="delete-recipe" class="icon-button" aria-label="Delete recipe" title="Delete recipe"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 5.75h12.5M8.25 5.75v-2h3.5v2M5.75 5.75l.75 10.5h7l.75-10.5"></path></svg></button><button id="duplicate-recipe" class="icon-button" aria-label="Duplicate recipe" title="Duplicate recipe"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7.75" y="7.75" width="8.5" height="8.5"></rect><path d="M12.25 7.75v-4h-8.5v8.5h4"></path></svg></button><button id="undo" class="icon-button" aria-label="Undo" title="Undo (Ctrl/⌘ Z)" disabled=""><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.5 4.75 4.25 8l3.25 3.25M4.25 8h7.5a3.75 3.75 0 0 1 0 7.5H9"></path></svg></button><button id="redo" class="icon-button" aria-label="Redo" title="Redo (Shift Ctrl/⌘ Z)" disabled=""><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.5 4.75 15.75 8l-3.25 3.25M15.75 8h-7.5a3.75 3.75 0 0 0 0 7.5H11"></path></svg></button><button id="open-github" class="icon-button" aria-label="Save to GitHub" title="Save to GitHub" aria-haspopup="dialog" aria-controls="github-dialog"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.25 15.25h-.5a3.5 3.5 0 0 1-.4-6.98 4.75 4.75 0 0 1 9.3 0 3.5 3.5 0 0 1-.4 6.98h-.5"></path><path d="M10 16.25v-6.5M7.5 12.25 10 9.75l2.5 2.5"></path></svg></button>
+<span id="save-status" role="status" aria-live="polite">Saved in 16:13:48</span>
 </div>
 <div class="view-bar">
 <button id="edit-tab" aria-pressed="true">Edit table</button><button id="preview-tab" aria-pressed="false">Recipe card</button>
 <div class="export-bar" aria-label="Export recipe">
-<button id="insert-degree" aria-label="Insert degree symbol" title="Insert ° at the cursor in the active text field" disabled="">°</button><button id="export-html">Save HTML</button><button id="open-export" aria-haspopup="dialog" aria-controls="export-dialog">Export</button>
+<button id="export-html">Save HTML</button><button id="open-export" aria-haspopup="dialog" aria-controls="export-dialog">Export</button>
 </div>
 </div>
 <div id="export-status" class="notice" role="status" aria-live="polite"></div>
 <main>
 <section id="editor" aria-label="Recipe editor">
-<div class="entry-toolbar"><h2>Recipe table</h2><div><button data-action="add-ingredient">Add ingredient</button><button data-action="add-procedure">Add procedure</button></div></div>
-<div class="scroll" id="entry-table"><table aria-label="Editable recipe grid" class="entry-grid" style="min-width:940px"><colgroup><col style="width:360px"><col style="width:160px"></colgroup><tbody><tr><th class="item-title" colspan="2"><input id="recipe-name" type="text" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="name" aria-label="Recipe name" placeholder="Recipe name" value=""></th></tr><tr><td class="entry-overview" colspan="2"><input type="text" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="eyebrow" aria-label="Category / short label" placeholder="Category / short label (optional)" value=""><textarea rows="1" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="description" aria-label="Recipe description" placeholder="Recipe description" style="height: 32px;"></textarea><div class="entry-meta"><label><span>Base servings</span><input type="number" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="baseServings" aria-label="Base servings" placeholder="" min="0" step="any" value="4"></label><label><span>Active time</span><input type="text" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="active" aria-label="Active time" placeholder="e.g. 20 min" value=""></label><label><span>Total time</span><input type="text" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="total" aria-label="Total time" placeholder="e.g. 55 min" value=""></label><label><span>Vessel / equipment</span><input type="text" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="vessel" aria-label="Vessel / equipment" placeholder="Vessel / equipment" value=""></label></div></td></tr><tr><td class="prep" colspan="2"><div class="instruction-row"><textarea rows="1" data-kind="preparation" data-id="664a454d-da07-4355-97d1-3ceb57c2dac4" data-field="text" aria-label="Initial preparation 1" placeholder="Initial preparation 1 (optional)" style="height: 29px;"></textarea><div class="row-actions"><button data-action="move" data-kind="preparation" data-id="664a454d-da07-4355-97d1-3ceb57c2dac4" data-direction="-1" aria-label="Move preparation 1 up" disabled="">Up</button><button data-action="move" data-kind="preparation" data-id="664a454d-da07-4355-97d1-3ceb57c2dac4" data-direction="1" aria-label="Move preparation 1 down" disabled="">Down</button><button data-action="remove" data-kind="preparation" data-id="664a454d-da07-4355-97d1-3ceb57c2dac4" aria-label="Remove preparation 1" title="Remove preparation 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7"></path></svg></button></div></div></td></tr><tr><td class="prep instruction-add" colspan="2"><button data-action="add-preparation">Add preparation</button></td></tr><tr class="entry-column-headings"><th scope="col">Quantity · Item · Description</th><th scope="col">Procedures</th></tr><tr data-row="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b"><td class="editor-ingredient" colspan="1"><div class="entry-ingredient-grid"><input type="text" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-field="quantity" aria-label="Quantity for ingredient 1" placeholder="Qty" value=""><input type="text" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-field="unit" aria-label="Unit for ingredient 1" placeholder="Unit" value=""><input type="text" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-field="name" aria-label="Item name for ingredient 1" placeholder="Item name" value=""><input type="text" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-field="metricQuantity" aria-label="Optional quantity for ingredient 1" placeholder="Optional" value=""><input type="text" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-field="metricUnit" aria-label="Optional unit for ingredient 1" placeholder="Unit" value=""><div class="entry-description"><textarea rows="1" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-field="description" aria-label="Description for ingredient 1" placeholder="Description / prep" style="height: 26px;"></textarea></div><div class="row-actions"><button data-action="move" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-direction="-1" aria-label="Move ingredient 1 up" disabled="">Up</button><button data-action="move" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" data-direction="1" aria-label="Move ingredient 1 down" disabled="">Down</button><button data-action="remove" data-kind="ingredient" data-id="7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b" aria-label="Remove ingredient 1" title="Remove ingredient 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7"></path></svg></button></div></div></td><td class="editor-op empty-column" rowspan="1"><button data-action="add-procedure" aria-label="Add first procedure">Add procedure</button><p>Choose its components to merge the rows.</p></td></tr><tr><td class="finish" colspan="2"><div class="instruction-row"><textarea rows="1" data-kind="finishing" data-id="390ff266-3884-42bb-b4dc-34b4be9d419f" data-field="text" aria-label="Serving / finishing instructions 1" placeholder="Serving / finishing instructions 1 (optional)" style="height: 29px;"></textarea><div class="row-actions"><button data-action="move" data-kind="finishing" data-id="390ff266-3884-42bb-b4dc-34b4be9d419f" data-direction="-1" aria-label="Move finishing 1 up" disabled="">Up</button><button data-action="move" data-kind="finishing" data-id="390ff266-3884-42bb-b4dc-34b4be9d419f" data-direction="1" aria-label="Move finishing 1 down" disabled="">Down</button><button data-action="remove" data-kind="finishing" data-id="390ff266-3884-42bb-b4dc-34b4be9d419f" aria-label="Remove finishing 1" title="Remove finishing 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7"></path></svg></button></div></div></td></tr><tr><td class="finish instruction-add" colspan="2"><button data-action="add-finishing">Add finishing</button></td></tr></tbody></table></div>
-<div id="credit-editor"><textarea rows="1" data-kind="recipe" data-id="975c65db-49a3-4975-90a5-2b6b5436c75e" data-field="credit" aria-label="Source / credit" placeholder="Source / credit (optional)" style="height: 40px;"></textarea></div>
+<div class="entry-toolbar"><h2>Recipe table</h2><div><button class="text-tool fraction" data-insert="1/2" aria-label="Insert one half" title="Insert 1/2 at the cursor" disabled=""><span class="frac" aria-hidden="true"><span>1</span><span>2</span></span></button><button class="text-tool fraction" data-insert="1/4" aria-label="Insert one quarter" title="Insert 1/4 at the cursor" disabled=""><span class="frac" aria-hidden="true"><span>1</span><span>4</span></span></button><button class="text-tool fraction" data-insert="3/4" aria-label="Insert three quarters" title="Insert 3/4 at the cursor" disabled=""><span class="frac" aria-hidden="true"><span>3</span><span>4</span></span></button><button class="text-tool fraction" data-insert="1/3" aria-label="Insert one third" title="Insert 1/3 at the cursor" disabled=""><span class="frac" aria-hidden="true"><span>1</span><span>3</span></span></button><button class="text-tool fraction" data-insert="2/3" aria-label="Insert two thirds" title="Insert 2/3 at the cursor" disabled=""><span class="frac" aria-hidden="true"><span>2</span><span>3</span></span></button><button id="insert-degree" class="text-tool" data-insert="°" aria-label="Insert degree symbol" title="Insert ° at the cursor in the active text field" disabled="">°</button><button data-action="add-ingredient" aria-label="Add ingredient">+ Ingredient</button><button data-action="add-step" aria-label="Add step">+ Step</button></div></div>
+<div class="scroll" id="entry-table"><table aria-label="Editable recipe grid" class="entry-grid" style="min-width:940px"><colgroup><col style="width:360px"><col style="width:160px"></colgroup><tbody><tr><th class="item-title" colspan="2"><input id="recipe-name" type="text" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="name" aria-label="Recipe name" placeholder="Recipe name" value=""></th></tr><tr><td class="entry-overview" colspan="2"><textarea rows="1" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="description" aria-label="Recipe description" placeholder="Recipe description" style="height: 32px;"></textarea><div class="entry-meta"><label><span>Base yield</span><input type="number" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="baseServings" aria-label="Base yield amount" placeholder="" min="0" step="any" value="4"><input type="text" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="yieldUnit" aria-label="Base yield unit" placeholder="portions" value=""></label><label><span>Active time</span><input type="text" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="active" aria-label="Active time" placeholder="e.g. 20 min" value=""></label><label><span>Total time</span><input type="text" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="total" aria-label="Total time" placeholder="e.g. 55 min" value=""></label><label><span>Vessel / equipment</span><input type="text" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="vessel" aria-label="Vessel / equipment" placeholder="Vessel / equipment" value=""></label></div></td></tr><tr><td class="prep" colspan="2"><div class="instruction-row"><input type="text" data-kind="preparation" data-id="bbf9ac33-83f6-4fae-a5a7-ee150b0c727c" data-field="title" aria-label="Initial preparation 1 name" placeholder="Step name" value=""><textarea rows="1" data-kind="preparation" data-id="bbf9ac33-83f6-4fae-a5a7-ee150b0c727c" data-field="text" aria-label="Initial preparation 1" placeholder="Add preparation steps" style="height: 29px;"></textarea><div class="row-actions"><button class="drag-handle" data-kind="preparation" data-id="bbf9ac33-83f6-4fae-a5a7-ee150b0c727c" aria-label="Move preparation 1: drag, or press the arrow keys" title="Drag to move"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.6"></circle><circle cx="15" cy="6" r="1.6"></circle><circle cx="9" cy="12" r="1.6"></circle><circle cx="15" cy="12" r="1.6"></circle><circle cx="9" cy="18" r="1.6"></circle><circle cx="15" cy="18" r="1.6"></circle></svg></button><button data-action="remove" data-kind="preparation" data-id="bbf9ac33-83f6-4fae-a5a7-ee150b0c727c" aria-label="Remove preparation 1" title="Remove preparation 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7"></path></svg></button></div><input type="text" data-kind="preparation" data-id="bbf9ac33-83f6-4fae-a5a7-ee150b0c727c" data-field="tools" aria-label="Initial preparation 1 notes" placeholder="Add notes" value=""></div></td></tr><tr><td class="prep instruction-add" colspan="2"><button data-action="add-preparation" aria-label="Add preparation">+ Preparation</button><button data-action="add-decision" data-kind="preparation" aria-label="Add decision">+ Decision</button><button data-action="add-grid" data-kind="preparation" aria-label="Add process grid">+ Process grid</button></td></tr><tr class="entry-column-headings" data-grid-heading="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8"><th scope="col" colspan="1">Quantity · Item · Description</th><th scope="col">Steps</th></tr><tr data-row="b678f395-d38d-40a5-8410-5863b551571f"><td class="editor-ingredient" colspan="1"><div class="row-insert top"><button data-action="insert-ingredient" data-grid="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-index="0" aria-label="Add an ingredient before ingredient 1" title="Add an ingredient here">+</button></div><div class="row-insert bottom"><button data-action="insert-ingredient" data-grid="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-index="1" aria-label="Add an ingredient after ingredient 1" title="Add an ingredient here">+</button></div><div class="entry-ingredient-grid"><input type="text" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" data-field="quantity" aria-label="Quantity for ingredient 1" placeholder="Qty" value=""><input type="text" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" data-field="unit" aria-label="Unit for ingredient 1" placeholder="Unit" value=""><input type="text" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" data-field="name" aria-label="Item name for ingredient 1" placeholder="Item name" value=""><input type="text" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" data-field="metricQuantity" aria-label="Optional quantity for ingredient 1" placeholder="Optional" value=""><input type="text" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" data-field="metricUnit" aria-label="Optional unit for ingredient 1" placeholder="Unit" value=""><div class="entry-description"><textarea rows="1" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" data-field="description" aria-label="Description for ingredient 1" placeholder="Description / prep" style="height: 26px;"></textarea></div><div class="row-actions"><button class="drag-handle" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" aria-label="Move ingredient 1: drag, or press the arrow keys" title="Drag to move"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.6"></circle><circle cx="15" cy="6" r="1.6"></circle><circle cx="9" cy="12" r="1.6"></circle><circle cx="15" cy="12" r="1.6"></circle><circle cx="9" cy="18" r="1.6"></circle><circle cx="15" cy="18" r="1.6"></circle></svg></button><button data-action="remove" data-kind="ingredient" data-id="b678f395-d38d-40a5-8410-5863b551571f" aria-label="Remove ingredient 1" title="Remove ingredient 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7"></path></svg></button></div></div></td><td class="editor-op empty-column" rowspan="1"><button data-action="add-step" data-grid="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" aria-label="Add the first step">+ Step</button></td></tr><tr><td class="finish" colspan="2"><div class="instruction-row"><input type="text" data-kind="finishing" data-id="c24c92aa-efc3-468d-8916-ce5a4a311765" data-field="title" aria-label="Serving / finishing instructions 1 name" placeholder="Step name" value=""><textarea rows="1" data-kind="finishing" data-id="c24c92aa-efc3-468d-8916-ce5a4a311765" data-field="text" aria-label="Serving / finishing instructions 1" placeholder="Add finishing procedure" style="height: 29px;"></textarea><div class="row-actions"><button class="drag-handle" data-kind="finishing" data-id="c24c92aa-efc3-468d-8916-ce5a4a311765" aria-label="Move finishing 1: drag, or press the arrow keys" title="Drag to move"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.6"></circle><circle cx="15" cy="6" r="1.6"></circle><circle cx="9" cy="12" r="1.6"></circle><circle cx="15" cy="12" r="1.6"></circle><circle cx="9" cy="18" r="1.6"></circle><circle cx="15" cy="18" r="1.6"></circle></svg></button><button data-action="remove" data-kind="finishing" data-id="c24c92aa-efc3-468d-8916-ce5a4a311765" aria-label="Remove finishing 1" title="Remove finishing 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7"></path></svg></button></div><input type="text" data-kind="finishing" data-id="c24c92aa-efc3-468d-8916-ce5a4a311765" data-field="tools" aria-label="Serving / finishing instructions 1 notes" placeholder="Add notes" value=""></div></td></tr><tr><td class="finish instruction-add" colspan="2"><button data-action="add-finishing" aria-label="Add finishing">+ Finishing</button><button data-action="add-decision" data-kind="finishing" aria-label="Add decision">+ Decision</button><button data-action="add-grid" data-kind="finishing" aria-label="Add process grid">+ Process grid</button></td></tr></tbody></table></div>
+<div id="credit-editor"><textarea rows="1" data-kind="recipe" data-id="cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8" data-field="credit" aria-label="Source" placeholder="Source (optional)" style="height: 40px;"></textarea></div>
 <div class="section-top"><h2>Recipe notes</h2><button data-action="add-note">Add note</button></div>
 <div id="note-editor"></div>
 </section>
 <section id="preview" aria-label="Recipe card preview" hidden="">
 <p id="preview-warnings" hidden=""></p>
 <div class="controls">
-<div class="group"><span>Serves</span><button data-servings="2" aria-pressed="false">2</button><button data-servings="4" aria-pressed="true">4</button><button data-servings="6" aria-pressed="false">6</button><input class="serving-input" id="serving-value" type="number" min="1" max="10000" aria-label="Preview servings" value="4"></div>
-<div class="group"><span>Amounts</span><button data-units="main" aria-pressed="true">Main</button><button data-units="alternate" aria-pressed="false">Alternate</button></div>
+<div class="group"><span id="servings-label">Serves</span><button data-servings="2" aria-pressed="false">2</button><button data-servings="4" aria-pressed="true">4</button><button data-servings="6" aria-pressed="false">6</button><input class="serving-input" id="serving-value" type="number" min="0.01" max="10000" step="any" aria-label="Preview servings" value="4"><span id="servings-unit"></span></div>
+
 <button class="go" id="start-cooking" disabled="">Start cooking</button>
 </div>
 <div class="stage-bar" id="cooking-bar"><span class="stage-n" id="cooking-number"></span><span class="stage-t" id="cooking-title"></span><button id="previous-stage">Back</button><button id="next-stage">Next</button><button id="stop-cooking">Exit</button><span class="clock" id="cooking-clock"></span></div>
@@ -648,11 +750,20 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 </main>
 </div>
 <dialog id="components-dialog" aria-labelledby="components-heading"><h2 id="components-heading">Components needed</h2><p id="components-description"></p><div class="component-options" id="component-options"></div><div class="dialog-actions"><button id="cancel-components">Cancel</button><button class="go" id="apply-components">Apply components</button></div></dialog>
-<dialog id="export-dialog" aria-labelledby="export-heading"><h2 id="export-heading">Export recipe</h2><p>Choose a format for your recipe card.</p><div class="export-options"><button id="export-pdf">Print / PDF</button><button id="export-png">HQ PNG</button><button id="export-jpeg">HQ JPEG</button></div><div class="dialog-actions"><button id="cancel-export">Cancel</button></div></dialog>
+<dialog id="github-dialog" aria-labelledby="github-heading"><h2 id="github-heading">Save to GitHub</h2>
+<div id="github-connect"><p>Saving writes every recipe in this browser to <code class="github-file">recipes/library.json</code> in the <span class="github-repo">thecatlab/recipe-card</span> repository. The website updates about a minute later.</p>
+<ol class="github-steps"><li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub’s new fine-grained token page</a>.</li><li>Under <b>Repository access</b>, pick <b>Only select repositories</b> and choose <b class="github-repo-name">recipe-card</b>.</li><li>Under <b>Permissions → Repository permissions</b>, set <b>Contents</b> to <b>Read and write</b>.</li><li>Generate the token and paste it here.</li></ol>
+<label class="github-label" for="github-token">Access token</label><input id="github-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+<p class="github-note">The token is kept only in this browser. Anyone who has it can change files in this one repository, so connect only on your own devices.</p></div>
+<div id="github-connected" hidden=""><p>Connected to <span class="github-repo">thecatlab/recipe-card</span>. Saving writes every recipe in this browser to <code class="github-file">recipes/library.json</code>, and the website updates about a minute later.</p><p id="github-last" class="github-note"></p></div>
+<p id="github-status" class="notice" role="status" aria-live="polite"></p>
+<div class="dialog-actions"><button id="github-disconnect" hidden="">Disconnect</button><button id="cancel-github">Cancel</button><button class="go" id="github-connect-button">Connect</button><button class="go" id="github-save" hidden="">Save recipes</button></div></dialog>
+<dialog id="export-dialog" aria-labelledby="export-heading"><h2 id="export-heading">Export recipe</h2><p>Choose a format for your recipe card.</p><div class="export-options"><button id="export-pdf">Print / PDF</button><button id="export-jpeg">HQ JPEG</button><div class="export-row"><button id="export-png">HQ PNG</button><button id="copy-png" class="copy-image" aria-label="Copy PNG image" title="Copy the image to paste elsewhere"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7.75" y="7.75" width="8.5" height="8.5"></rect><path d="M12.25 7.75v-4h-8.5v8.5h4"></path></svg>Copy</button></div></div><div class="dialog-actions"><button id="cancel-export">Cancel</button></div></dialog>
 <div id="toast" role="status" aria-live="polite" hidden=""></div>
 
 
-<script id="recipe-data" type="application/json" data-snapshot="69b6ca26-f8c4-49bf-a68f-86739b99f6bb">{"id":"975c65db-49a3-4975-90a5-2b6b5436c75e","name":"","description":"","eyebrow":"","baseServings":4,"active":"","total":"","vessel":"","prep":[{"id":"664a454d-da07-4355-97d1-3ceb57c2dac4","text":""}],"finish":[{"id":"390ff266-3884-42bb-b4dc-34b4be9d419f","text":""}],"credit":"","ingredients":[{"id":"7ad2d1c9-c5bb-4d8a-9566-f5dfe09eb74b","name":"","description":"","quantity":"","unit":"","metricQuantity":"","metricUnit":""}],"procedures":[],"notes":[]}</script><script id="capture-runtime">/*!
+
+<script id="recipe-data" type="application/json" data-snapshot="facc8da3-0d94-4016-a359-d7247553131d">{"id":"cc6f13c4-7dc2-4de5-b4aa-7cc6390bcad8","name":"","description":"","eyebrow":"","baseServings":4,"yieldUnit":"","active":"","total":"","vessel":"","prep":[{"id":"bbf9ac33-83f6-4fae-a5a7-ee150b0c727c","title":"","text":"","tools":""}],"finish":[{"id":"c24c92aa-efc3-468d-8916-ce5a4a311765","title":"","text":"","tools":""}],"credit":"","monochrome":false,"ingredients":[{"id":"b678f395-d38d-40a5-8410-5863b551571f","name":"","description":"","quantity":"","unit":"","metricQuantity":"","metricUnit":""}],"procedures":[],"notes":[]}</script><script id="capture-runtime">/*!
  * html2canvas 1.4.1 <https://html2canvas.hertzen.com>
  * Copyright (c) 2022 Niklas von Hertzen <https://hertzen.com>
  * Released under MIT License
@@ -677,11 +788,17 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     return { id: id(), name: '', description: '', quantity: '', unit: '', metricQuantity: '', metricUnit: '' };
   }
   function procedure() {
-    return { id: id(), title: '', instructions: '', inputs: [], minutes: '', outputName: '', outputDescription: '', outputQuantity: '', outputUnit: '' };
+    return { id: id(), title: '', instructions: '', inputs: [], minutes: '', outputName: '', outputDescription: '', outputQuantity: '', outputUnit: '', tools: '', parallel: false };
   }
-  function instruction() { return { id: id(), text: '' }; }
+  function instruction() { return { id: id(), title: '', text: '', tools: '' }; }
+  // A decision branch: its answer ("Yes"), name, instructions, notes, and further instructions or decisions nested under it.
+  function option() { return { id: id(), answer: '', label: '', text: '', tools: '', items: [] }; }
+  // An empty step column: holds a column's place until a procedure goes into it.
+  function blankStep() { return { ...procedure(), blank: true }; }
+  function processGrid() { return { id: id(), title: '', ingredients: [ingredient()], procedures: [] }; }
+  function decision() { return { id: id(), text: '', options: [option(), option()] }; }
   function blankRecipe() {
-    return { id: id(), name: '', description: '', eyebrow: '', baseServings: 4, active: '', total: '', vessel: '', prep: [instruction()], finish: [instruction()], credit: '', ingredients: [ingredient()], procedures: [], notes: [] };
+    return { id: id(), name: '', description: '', eyebrow: '', baseServings: 4, yieldUnit: '', active: '', total: '', vessel: '', prep: [instruction()], finish: [instruction()], credit: '', monochrome: false, ingredients: [ingredient()], procedures: [], notes: [] };
   }
   function number(value) {
     let text = String(value).trim();
@@ -692,12 +809,16 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     if (match && Number(match[3])) return Number(match[1] || 0) + Number(match[2]) / Number(match[3]);
     return null;
   }
-  function quantity(value, factor = 1, fractions = true) {
+  function decimal(value) {
+    return String(Number(value.toFixed(Math.abs(value) < 1 ? 3 : 2)));
+  }
+  function quantity(value, factor = 1) {
     const parsed = number(value);
     if (parsed === null) return String(value).trim();
     const result = parsed * factor;
-    if (fractions) {
+    if (/[\/⅛¼⅜½⅝¾⅞⅓⅔]/.test(String(value))) {
       const whole = Math.floor(result);
+      if (Math.abs(result - whole) < 0.001) return String(Math.round(result));
       for (const denominator of [2, 3, 4, 8]) {
         const numerator = Math.round((result - whole) * denominator);
         if (numerator > 0 && numerator < denominator && Math.abs(result - whole - numerator / denominator) < 0.001) {
@@ -705,13 +826,63 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         }
       }
     }
-    return factor === 1 ? String(value).trim() : String(Math.round(result * 1000) / 1000);
+    return decimal(result);
+  }
+  const metricUnits = {
+    mg: { dimension: 'mass', size: 0.001, names: ['mg', 'milligram', 'milligrams', 'milligramme', 'milligrammes'] },
+    g: { dimension: 'mass', size: 1, names: ['g', 'gr', 'gram', 'grams', 'gramme', 'grammes'] },
+    kg: { dimension: 'mass', size: 1000, names: ['kg', 'kgs', 'kilo', 'kilos', 'kilogram', 'kilograms', 'kilogramme', 'kilogrammes'] },
+    ml: { dimension: 'volume', size: 1, names: ['ml', 'millilitre', 'millilitres', 'milliliter', 'milliliters'] },
+    l: { dimension: 'volume', size: 1000, names: ['l', 'ltr', 'litre', 'litres', 'liter', 'liters'] },
+  };
+  function unitLabel(key, written, amount) {
+    const lower = written.trim().toLowerCase();
+    if (!/gram|lit|kilo/.test(lower)) return { mg: 'mg', g: 'g', kg: 'kg', ml: written.includes('L') ? 'mL' : 'ml', l: 'L' }[key];
+    const ending = /er/.test(lower) ? 'er' : 're';
+    const name = { mg: 'milligram', g: 'gram', kg: 'kilogram', ml: 'millilit' + ending, l: 'lit' + ending }[key];
+    return amount === 1 ? name : name + 's';
+  }
+  function scaleMeasure(value, unit = '', factor = 1) {
+    const parsed = number(value);
+    const written = String(unit ?? '');
+    const key = Object.keys(metricUnits).find(name => metricUnits[name].names.includes(written.trim().toLowerCase().replace(/\.$/, '')));
+    if (parsed === null || factor === 1 || !key) return { quantity: quantity(value, factor), unit: written };
+    const base = parsed * factor * metricUnits[key].size;
+    const choices = Object.keys(metricUnits).filter(name => metricUnits[name].dimension === metricUnits[key].dimension && (name !== 'mg' || key === 'mg')).sort((a, b) => metricUnits[b].size - metricUnits[a].size);
+    const target = choices.find(name => Math.abs(base) / metricUnits[name].size >= 1) || choices.at(-1);
+    if (target === key) return { quantity: quantity(value, factor), unit: written };
+    const amount = Number(decimal(base / metricUnits[target].size));
+    return { quantity: String(amount), unit: unitLabel(target, written, amount) };
+  }
+  function bullets(text) {
+    const blocks = [];
+    let gap = false;
+    for (const line of String(text ?? '').split('\n')) {
+      // "• item", "- item" or "* item" is a bullet; "1. item" or "1) item" is numbered.
+      const match = line.match(/^\s*(?:[•*-]|(\d+)[.)])\s+(.*)$/);
+      const last = blocks.at(-1);
+      if (!line.trim()) {
+        if (last && !last.list) last.lines.push('');
+        gap = blocks.length > 0;
+      } else if (match) {
+        const ordered = match[1] !== undefined;
+        if (last?.list && !gap && Boolean(last.ordered) === ordered) last.items.push(match[2]);
+        else blocks.push({ list: true, items: [match[2]], ...(ordered && { ordered: true, start: Number(match[1]) }), ...(gap && { space: true }) });
+        gap = false;
+      } else {
+        if (last && !last.list) last.lines.push(line);
+        else blocks.push({ list: false, lines: [line], ...(gap && { space: true }) });
+        gap = false;
+      }
+    }
+    return blocks.map(({ lines, ...block }) => block.list ? block : { ...block, text: lines.join('\n').trim() });
   }
   function plan(recipe, includeEmpty = false) {
     const rows = includeEmpty ? recipe.ingredients.slice() : recipe.ingredients.filter(item => [item.name, item.description, item.quantity, item.unit, item.metricQuantity, item.metricUnit].some(value => String(value).trim()));
     const masks = [];
     const ingredientIds = new Set(rows.map(item => item.id));
     recipe.procedures.forEach((stage, index) => {
+      if (stage.placeholder || stage.blank) { masks.push(new Set()); return; }
       const mask = new Set();
       stage.inputs.forEach(input => {
         if (ingredientIds.has(input)) mask.add(input);
@@ -727,14 +898,28 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     });
     return { rows, masks };
   }
-  function canMoveProcedure(recipe, index, direction) {
-    const other = index + direction;
-    if (other < 0 || other >= recipe.procedures.length) return false;
-    const earlier = recipe.procedures[Math.min(index, other)];
-    const later = recipe.procedures[Math.max(index, other)];
-    return !later.inputs.includes(earlier.id);
+  // Procedures sit in columns; a procedure marked `parallel` shares the column of the one before it.
+  function columns(recipe) {
+    const result = [];
+    recipe.procedures.forEach((stage, index) => {
+      if (index && stage.parallel) result.at(-1).push(index);
+      else result.push([index]);
+    });
+    return result;
   }
-  globalThis.RecipeModel = { id, ingredient, procedure, instruction, blankRecipe, number, quantity, plan, canMoveProcedure };
+  // A layout is valid when every procedure only uses outputs from earlier columns
+  // and procedures sharing a column never cover the same row.
+  function validLayout(recipe) {
+    const columnOf = new Map();
+    columns(recipe).forEach((column, number) => column.forEach(index => columnOf.set(recipe.procedures[index].id, number)));
+    if (recipe.procedures.some(stage => stage.inputs.some(input => columnOf.has(input) && columnOf.get(input) >= columnOf.get(stage.id)))) return false;
+    const { masks } = plan(recipe, true);
+    return columns(recipe).every(column => {
+      const seen = new Set();
+      return column.every(index => [...masks[index]].every(row => !seen.has(row) && seen.add(row)));
+    });
+  }
+  globalThis.RecipeModel = { id, ingredient, procedure, instruction, option, decision, blankStep, processGrid, blankRecipe, bullets, number, quantity, scaleMeasure, plan, columns, validLayout };
 })();
 
 window.initRecipeGenerator = function () {
@@ -746,10 +931,48 @@ window.initRecipeGenerator = function () {
   const snapshot = embedded ? JSON.parse(embedded.textContent) : null;
   let library;
   try { library = JSON.parse(localStorage.getItem(storageKey)); } catch { /* Storage may be unavailable for local files. */ }
+  // Recipes bundled with the hosted site (recipes/library.json, set by main.js in production builds).
+  const bundled = snapshot ? null : window.recipeCollection;
   if (!library?.recipes?.length) {
-    const blank = snapshot || M.blankRecipe();
-    library = { selectedId: blank.id, recipes: [blank] };
+    if (bundled?.recipes?.length) library = { selectedId: bundled.selectedId, recipes: [] };
+    else {
+      const blank = snapshot || M.blankRecipe();
+      library = { selectedId: blank.id, recipes: [blank] };
+    }
   }
+  function normalize(entry) {
+    for (const field of ['prep', 'finish']) {
+      if (!Array.isArray(entry[field])) entry[field] = [{ ...M.instruction(), text: entry[field] || '' }];
+    }
+    return entry;
+  }
+  // A shared recipe (bundled with the site or saved on GitHub) is identified by its id and a hash of its content.
+  function versionToken(entry) {
+    const text = JSON.stringify(entry);
+    let hash = 5381;
+    for (let index = 0; index < text.length; index++) hash = (hash * 33 + text.charCodeAt(index)) >>> 0;
+    return `bundled:${entry.id}:${hash.toString(36)}`;
+  }
+  function markImported(tokens) {
+    library.importedSnapshots = [...(library.importedSnapshots || []), ...tokens].slice(-1000);
+  }
+  // Adds each version of a shared recipe once, so local edits stay until the shared copy changes. Returns the recipes it changed.
+  function importRecipes(list) {
+    const imported = [];
+    for (const entry of list || []) {
+      if (!entry?.id) continue;
+      const token = versionToken(entry);
+      if (library.importedSnapshots?.includes(token)) continue;
+      const copy = normalize(structuredClone(entry));
+      const existing = library.recipes.findIndex(item => item.id === entry.id);
+      if (existing < 0) library.recipes.push(copy);
+      else library.recipes[existing] = copy;
+      markImported([token]);
+      imported.push(copy);
+    }
+    return imported;
+  }
+  importRecipes(bundled?.recipes);
   if (snapshot) {
     const token = embedded.dataset.snapshot || snapshot.id;
     if (!library.importedSnapshots?.includes(token)) {
@@ -760,11 +983,7 @@ window.initRecipeGenerator = function () {
     }
     library.selectedId = snapshot.id;
   }
-  library.recipes.forEach(entry => {
-    for (const field of ['prep', 'finish']) {
-      if (!Array.isArray(entry[field])) entry[field] = [{ ...M.instruction(), text: entry[field] || '' }];
-    }
-  });
+  library.recipes.forEach(normalize);
   let recipe = library.recipes.find(item => item.id === library.selectedId) || library.recipes[0];
   let servings = Number(recipe.baseServings) || 4;
   let units = 'main';
@@ -795,21 +1014,59 @@ window.initRecipeGenerator = function () {
     }
     renderLibrary();
   }
-  function changed() {
+  // Undo history, per recipe and per session: snapshots of the recipe before each change.
+  const histories = new Map();
+  let lastEdit = { key: null, time: 0 };
+  function history() {
+    if (!histories.has(recipe.id)) histories.set(recipe.id, { past: [], future: [], baseline: JSON.stringify(recipe) });
+    return histories.get(recipe.id);
+  }
+  function record(key) {
+    const entry = history();
+    const now = JSON.stringify(recipe);
+    if (now === entry.baseline) return;
+    // A burst of typing in one field counts as a single step.
+    const sameBurst = key && key === lastEdit.key && Date.now() - lastEdit.time < 1500;
+    if (!sameBurst) entry.past.push(entry.baseline);
+    if (entry.past.length > 100) entry.past.shift();
+    entry.baseline = now;
+    entry.future = [];
+    lastEdit = { key, time: Date.now() };
+    updateUndo();
+  }
+  function travel(from, to) {
+    const entry = history();
+    if (!entry[from].length) return;
+    entry[to].push(JSON.stringify(recipe));
+    entry.baseline = entry[from].pop();
+    recipe = JSON.parse(entry.baseline);
+    library.recipes[library.recipes.findIndex(item => item.id === recipe.id)] = recipe;
+    lastEdit = { key: null, time: 0 };
+    stopCooking();
+    renderEditor();
+    renderCard();
+    save();
+  }
+  function updateUndo() {
+    $('undo').disabled = !history().past.length;
+    $('redo').disabled = !history().future.length;
+  }
+  function changed(key) {
+    record(key);
     $('save-status').textContent = 'Saving…';
     clearTimeout(saveTimeout);
     saveTimeout = setTimeout(save, 300);
     $('entry-table').querySelectorAll('[data-action="components"]').forEach(button => {
-      const stage = recipe.procedures.find(item => item.id === button.dataset.id);
+      const stage = findProcedure(button.dataset.id);
       if (!stage) return;
       button.nextElementSibling.innerHTML = stage.inputs.map(id => escape(componentName(id))).join('<br>');
     });
     $('entry-table').querySelectorAll('[data-procedure-reference]').forEach(element => {
-      const stage = recipe.procedures.find(item => item.id === element.dataset.procedureReference);
-      if (stage) element.textContent = stage.title || 'Procedure ' + (recipe.procedures.indexOf(stage) + 1);
+      const stage = findProcedure(element.dataset.procedureReference);
+      if (stage) element.textContent = procedureName(gridOf(stage.id), stage);
     });
     $('entry-table').querySelectorAll('[data-output-reference]').forEach(element => {
-      const stage = recipe.procedures.find(item => item.id === element.dataset.outputReference);
+      const stage = findProcedure(element.dataset.outputReference);
       if (stage) element.textContent = [stage.outputQuantity, stage.outputUnit, componentName(stage.id), stage.outputDescription].filter(Boolean).join(' ');
     });
     renderCard();
@@ -823,52 +1080,173 @@ window.initRecipeGenerator = function () {
     const attributes = `data-kind="${kind}" data-id="${escape(item.id || '')}" data-field="${field}" aria-label="${escape(label)}" placeholder="${escape(placeholder)}"`;
     return type === 'textarea' ? `<textarea rows="1" ${attributes}>${value}</textarea>` : `<input type="${type}" ${attributes}${numeric} value="${value}">`;
   }
-  function actionButtons(kind, item, index, length) {
-    const up = kind === 'procedure' ? M.canMoveProcedure(recipe, index, -1) : index > 0;
-    const down = kind === 'procedure' ? M.canMoveProcedure(recipe, index, 1) : index < length - 1;
-    const previous = kind === 'procedure' ? 'left' : 'up';
-    const next = kind === 'procedure' ? 'right' : 'down';
-    const removeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7"/></svg>';
-    return `<button data-action="move" data-kind="${kind}" data-id="${item.id}" data-direction="-1" aria-label="Move ${kind} ${index + 1} ${previous}"${up ? '' : ' disabled'}>${kind === 'procedure' ? 'Left' : 'Up'}</button><button data-action="move" data-kind="${kind}" data-id="${item.id}" data-direction="1" aria-label="Move ${kind} ${index + 1} ${next}"${down ? '' : ' disabled'}>${kind === 'procedure' ? 'Right' : 'Down'}</button><button data-action="remove" data-kind="${kind}" data-id="${item.id}" aria-label="Remove ${kind} ${index + 1}" title="Remove ${kind} ${index + 1}">${removeIcon}</button>`;
+  const icon = path => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="${path}"/></svg>`;
+  const removeIcon = icon('M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7M14 10v7');
+  const grip = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></svg>';
+  function gripButton(kind, id, label) {
+    return `<button class="drag-handle" data-kind="${kind}" data-id="${id}" aria-label="${escape(label)}: drag, or press the arrow keys" title="Drag to move">${grip}</button>`;
+  }
+  function removeButton(kind, id, label) {
+    return `<button data-action="remove" data-kind="${kind}" data-id="${id}" aria-label="Remove ${escape(label)}" title="Remove ${escape(label)}">${removeIcon}</button>`;
+  }
+  function actionButtons(kind, item, index) {
+    return gripButton(kind, item.id, 'Move ' + kind + ' ' + (index + 1)) + removeButton(kind, item.id, kind + ' ' + (index + 1));
+  }
+  function grids() {
+    return [...recipe.prep, recipe, ...recipe.finish].filter(item => item === recipe || item.ingredients);
+  }
+  function gridById(id) {
+    return grids().find(grid => grid.id === id) || recipe;
+  }
+  function gridOf(id) {
+    return grids().find(grid => grid.ingredients.some(item => item.id === id) || grid.procedures.some(item => item.id === id));
+  }
+  function findProcedure(id) {
+    return gridOf(id)?.procedures.find(item => item.id === id);
+  }
+  // Cooking stages are columns: procedures sharing a column start together.
+  function stageList() {
+    return grids().flatMap(grid => realColumns(grid).map(group => ({ grid, group, stages: group.map(index => grid.procedures[index]).filter(stage => !stage.blank) })));
+  }
+  function stageNumbers() {
+    return new Map(stageList().flatMap((entry, number) => entry.stages.map(stage => [stage.id, number])));
+  }
+  // A column is a step; it may hold several procedures, or be a blank step waiting for one.
+  function realColumns(grid) {
+    return M.columns(grid).filter(group => group.some(index => !grid.procedures[index].blank && !grid.procedures[index].placeholder));
+  }
+  function columnNumber(grid, stage) {
+    const index = grid.procedures.indexOf(stage);
+    return M.columns(grid).findIndex(group => group.includes(index));
+  }
+  function procedureName(grid, stage) {
+    return stage.title || 'Step ' + (columnNumber(grid, stage) + 1);
   }
   function componentName(id) {
-    const ingredientIndex = recipe.ingredients.findIndex(item => item.id === id);
-    if (ingredientIndex >= 0) return recipe.ingredients[ingredientIndex].name || 'Ingredient ' + (ingredientIndex + 1);
-    const stageIndex = recipe.procedures.findIndex(item => item.id === id);
-    return stageIndex >= 0 ? recipe.procedures[stageIndex].outputName || (recipe.procedures[stageIndex].title || 'Procedure ' + (stageIndex + 1)) + ' output' : '';
+    const grid = gridOf(id);
+    if (!grid) return '';
+    const ingredientIndex = grid.ingredients.findIndex(item => item.id === id);
+    if (ingredientIndex >= 0) return grid.ingredients[ingredientIndex].name || 'Ingredient ' + (ingredientIndex + 1);
+    const stageIndex = grid.procedures.findIndex(item => item.id === id);
+    return grid.procedures[stageIndex].outputName || (grid.procedures[stageIndex].title || 'Procedure ' + (stageIndex + 1)) + ' output';
   }
-  function entries(kind) {
-    return recipe[{ ingredient: 'ingredients', procedure: 'procedures', note: 'notes', preparation: 'prep', finishing: 'finish' }[kind]];
+  function entries(kind, grid = recipe) {
+    if (kind === 'ingredient' || kind === 'procedure') return grid[kind + 's'];
+    return recipe[{ note: 'notes', preparation: 'prep', finishing: 'finish' }[kind]];
+  }
+  function toolsNote(tools, centred = true) {
+    const text = String(tools ?? '').trim();
+    if (!text) return { className: '', top: '', bottom: '' };
+    const note = escape(text);
+    return { className: ' has-tools', top: centred ? `<small class="tools-space" aria-hidden="true">${note}</small>` : '', bottom: `<small class="tools-space" aria-hidden="true">${note}</small><small class="tools">${note}</small>` };
+  }
+  function toolsInput(kind, item, label) {
+    return input(kind, item, 'tools', label + ' notes', 'text', 'Add notes');
+  }
+  function richText(text) {
+    return M.bullets(text).map(block => block.list ? `<${block.ordered ? 'ol' : 'ul'} class="bullets${block.space ? ' spaced' : ''}"${block.ordered && block.start !== 1 ? ` start="${block.start}"` : ''}>${block.items.map(item => `<li>${escape(item)}</li>`).join('')}</${block.ordered ? 'ol' : 'ul'}>` : block.space ? `<div class="rich-text spaced">${escape(block.text)}</div>` : escape(block.text)).join('');
+  }
+  function yieldLabel(amount) {
+    return recipe.yieldUnit?.trim() ? amount + ' ' + recipe.yieldUnit.trim() : amount;
+  }
+  function branchItems(option) {
+    if (!option.items) option.items = [];
+    return option.items;
+  }
+  // Every decision, including ones nested inside another decision's branches.
+  function allDecisions(list = [...recipe.prep, ...recipe.finish]) {
+    return list.flatMap(item => item.options ? [item, ...item.options.flatMap(option => allDecisions(branchItems(option)))] : []);
+  }
+  function findOption(id) {
+    for (const decision of allDecisions()) {
+      const option = decision.options.find(entry => entry.id === id);
+      if (option) return { decision, option };
+    }
+    return {};
+  }
+  function findNested(id) {
+    for (const decision of allDecisions()) for (const option of decision.options) {
+      const list = branchItems(option);
+      const item = list.find(entry => entry.id === id);
+      if (item) return { list, item };
+    }
+    return {};
+  }
+  const filled = (...values) => values.some(value => String(value ?? '').trim());
+  function decisionHasContent(decision) {
+    return filled(decision.text) || decision.options.some(optionHasContent);
+  }
+  function optionHasContent(option) {
+    return filled(option.answer, option.label, option.text, option.tools) || branchItems(option).some(nestedHasContent);
+  }
+  function nestedHasContent(item) {
+    return item.options ? decisionHasContent(item) : filled(item.title, item.text, item.tools);
+  }
+  function nestedEditor(item, index) {
+    const actions = `<div class="row-actions">${gripButton('nested', item.id, 'Move item ' + (index + 1))}${removeButton('nested', item.id, 'item ' + (index + 1))}</div>`;
+    if (item.options) return `<div class="branch-item branch-decision"><div class="branch-head"><span class="decision-tag">Decision</span>${input('nested', item, 'text', 'Nested decision', 'textarea', 'Decision, e.g. Fridge or freezer?')}${actions}</div>${decisionBody(item, true)}</div>`;
+    return `<div class="branch-item"><div class="branch-head">${input('nested', item, 'title', 'Instruction ' + (index + 1) + ' name', 'text', 'Step name')}${actions}</div>${input('nested', item, 'text', 'Instruction ' + (index + 1), 'textarea', 'Add instruction')}${toolsInput('nested', item, 'Instruction ' + (index + 1))}</div>`;
+  }
+  function nestedCard(item) {
+    if (item.options) return `<div class="branch-item branch-decision">${decisionBody(item, false)}</div>`;
+    const note = toolsNote(item.tools, false);
+    return `<div class="branch-item${note.className}">${note.top}${filled(item.title) ? `<b>${escape(item.title)}</b> ` : ''}${richText(item.text)}${note.bottom}</div>`;
+  }
+  function optionEditor(decision, option, index) {
+    const name = 'Option ' + (index + 1);
+    return `<div><div class="option-head">${input('option', option, 'answer', name + ' answer', 'text', 'Answer, e.g. Yes')}${input('option', option, 'label', name + ' name', 'text', name + ', e.g. Serve now')}<div class="row-actions"><button data-action="remove-option" data-id="${option.id}" aria-label="Remove ${name.toLowerCase()}" title="Remove ${name.toLowerCase()}"${decision.options.length > 2 ? '' : ' disabled'}>${removeIcon}</button></div></div>${input('option', option, 'text', name + ' instructions', 'textarea', 'Instructions for this option. Start a line with - or 1. for a list')}${toolsInput('option', option, name)}${branchItems(option).map(nestedEditor).join('')}<div class="branch-add"><button data-action="add-branch-step" data-id="${option.id}" aria-label="Add an instruction under ${name.toLowerCase()}">+ Instruction</button><button data-action="add-branch-decision" data-id="${option.id}" aria-label="Add a decision under ${name.toLowerCase()}">+ Decision</button></div></div>`;
+  }
+  function optionCard(option) {
+    const note = toolsNote(option.tools, false);
+    return `<div class="${note.className.trim()}">${note.top}${filled(option.answer) ? `<span class="answer-pill">${escape(option.answer)} →</span>` : ''}${filled(option.label) ? `<b>${escape(option.label)}</b>` : ''}${richText(option.text)}${branchItems(option).filter(nestedHasContent).map(nestedCard).join('')}${note.bottom}</div>`;
+  }
+  // The question, then one column per branch with an OR badge on each divider; branches can nest further decisions.
+  function decisionBody(decision, edit) {
+    const options = edit ? decision.options : decision.options.filter(optionHasContent);
+    const grid = options.length ? `<div class="decision-options" style="--options:${options.length}">${options.map((option, index) => edit ? optionEditor(decision, option, index) : optionCard(option)).join('')}</div>` : '';
+    if (edit) return `${grid}<div class="decision-add instruction-add"><button data-action="add-option" data-id="${decision.id}">+ Option</button></div>`;
+    return `${filled(decision.text) ? `<div class="decision-q"><span class="decision-tag">Decision · </span>${escape(decision.text)}</div>` : ''}${grid}`;
+  }
+  function decisionMarkup(kind, className, label, item, index, list, columns, edit) {
+    if (!edit) return decisionHasContent(item) ? `<tr><td class="${className} decision" colspan="${columns}">${decisionBody(item, false)}</td></tr>` : '';
+    return `<tr><td class="${className} decision" colspan="${columns}"><div class="instruction-row decision-head"><span class="decision-tag">Decision</span>${input(kind, item, 'text', label + ' ' + (index + 1) + ' decision', 'textarea', 'Decision, e.g. Serve now or store?')}<div class="row-actions">${actionButtons(kind, item, index, list.length)}</div></div>${decisionBody(item, true)}</td></tr>`;
   }
   function instructionRows(kind, className, label, columns, edit) {
     const list = entries(kind);
-    let rows = list.map((item, index) => !edit && !item.text.trim() ? '' : `<tr><td class="${className}" colspan="${columns}">${edit ? `<div class="instruction-row">${input(kind, item, 'text', label + ' ' + (index + 1), 'textarea', label + ' ' + (index + 1) + ' (optional)')}<div class="row-actions">${actionButtons(kind, item, index, list.length)}</div></div>` : escape(item.text)}</td></tr>`).join('');
-    if (edit) rows += `<tr><td class="${className} instruction-add" colspan="${columns}"><button data-action="add-${kind}">Add ${kind}</button></td></tr>`;
+    let rows = list.map((item, index) => item.options ? decisionMarkup(kind, className, label, item, index, list, columns, edit) : item.ingredients ? processGridMarkup(kind, className, item, index, list, columns, edit) : !edit && !(item.title || '').trim() && !item.text.trim() && !(item.tools || '').trim() ? '' : (note => `<tr><td class="${className}${edit ? '' : note.className}" colspan="${columns}">${edit ? `<div class="instruction-row">${input(kind, item, 'title', label + ' ' + (index + 1) + ' name', 'text', 'Step name')}${input(kind, item, 'text', label + ' ' + (index + 1), 'textarea', kind === 'preparation' ? 'Add preparation steps' : 'Add finishing procedure')}<div class="row-actions">${actionButtons(kind, item, index, list.length)}</div>${toolsInput(kind, item, label + ' ' + (index + 1))}</div>` : `${note.top}${(item.title || '').trim() ? `<b>${escape(item.title)}</b> ` : ''}${escape(item.text)}${note.bottom}`}</td></tr>`)(toolsNote(item.tools))).join('');
+    if (edit) rows += `<tr><td class="${className} instruction-add" colspan="${columns}"><button data-action="add-${kind}" aria-label="Add ${kind}">+ ${kind[0].toUpperCase() + kind.slice(1)}</button><button data-action="add-decision" data-kind="${kind}" aria-label="Add decision">+ Decision</button><button data-action="add-grid" data-kind="${kind}" aria-label="Add process grid">+ Process grid</button></td></tr>`;
     return rows;
   }
-  function editorIngredient(item, span) {
+  function editorIngredient(item, span, grid) {
     if (item.preparation) {
-      const stage = recipe.procedures.find(entry => 'output-' + entry.id === item.id);
+      const stage = grid.procedures.find(entry => 'output-' + entry.id === item.id);
       return `<td class="editor-ingredient independent" colspan="${span}"><small>Independent preparation</small><p data-output-reference="${stage.id}">${escape([stage.outputQuantity, stage.outputUnit, componentName(stage.id), stage.outputDescription].filter(Boolean).join(' '))}</p></td>`;
     }
-    const index = recipe.ingredients.indexOf(item);
+    const index = grid.ingredients.indexOf(item);
     const label = ' for ingredient ' + (index + 1);
-    return `<td class="editor-ingredient" colspan="${span}"><div class="entry-ingredient-grid">${input('ingredient', item, 'quantity', 'Quantity' + label, 'text', 'Qty')}${input('ingredient', item, 'unit', 'Unit' + label, 'text', 'Unit')}${input('ingredient', item, 'name', 'Item name' + label, 'text', 'Item name')}${input('ingredient', item, 'metricQuantity', 'Optional quantity' + label, 'text', 'Optional')}${input('ingredient', item, 'metricUnit', 'Optional unit' + label, 'text', 'Unit')}<div class="entry-description">${input('ingredient', item, 'description', 'Description' + label, 'textarea', 'Description / prep')}</div><div class="row-actions">${actionButtons('ingredient', item, index, recipe.ingredients.length)}</div></div></td>`;
+    const insert = (position, edge) => `<div class="row-insert ${edge}"><button data-action="insert-ingredient" data-grid="${grid.id}" data-index="${position}" aria-label="Add an ingredient ${edge === 'top' ? 'before' : 'after'} ${escape(item.name || 'ingredient ' + (index + 1))}" title="Add an ingredient here">+</button></div>`;
+    return `<td class="editor-ingredient" colspan="${span}">${index === 0 ? insert(0, 'top') : ''}${insert(index + 1, 'bottom')}<div class="entry-ingredient-grid">${input('ingredient', item, 'quantity', 'Quantity' + label, 'text', 'Qty')}${input('ingredient', item, 'unit', 'Unit' + label, 'text', 'Unit')}${input('ingredient', item, 'name', 'Item name' + label, 'text', 'Item name')}${input('ingredient', item, 'metricQuantity', 'Optional quantity' + label, 'text', 'Optional')}${input('ingredient', item, 'metricUnit', 'Optional unit' + label, 'text', 'Unit')}<div class="entry-description">${input('ingredient', item, 'description', 'Description' + label, 'textarea', 'Description / prep')}</div><div class="row-actions">${actionButtons('ingredient', item, index, grid.ingredients.length)}</div></div></td>`;
+  }
+  function edgeHandles(stage) {
+    if (!stage.inputs.length) return '';
+    return ['top', 'bottom'].map(edge => `<span class="edge-handle ${edge}" data-edge="${edge}" data-id="${stage.id}" title="Drag to add or remove rows"></span>`).join('');
   }
   function editorProcedure(stage, index, span, primary) {
-    if (!primary) return `<td class="editor-op procedure-reference" rowspan="${span}"><b data-procedure-reference="${stage.id}">${escape(stage.title || 'Procedure ' + (index + 1))}</b><button data-action="focus-procedure" data-id="${stage.id}">Edit procedure</button></td>`;
+    if (!primary) return `<td class="editor-op procedure-reference" rowspan="${span}">${edgeHandles(stage)}<b data-procedure-reference="${stage.id}">${escape(stage.title || 'Step ' + (index + 1))}</b><button data-action="focus-procedure" data-id="${stage.id}">Edit procedure</button></td>`;
     const label = ' for procedure ' + (index + 1);
-    return `<td class="editor-op" rowspan="${span}"><div class="entry-procedure-title">${input('procedure', stage, 'title', 'Procedure name' + label, 'textarea', 'Procedure name')}</div>${input('procedure', stage, 'instructions', 'Instructions' + label, 'textarea', 'Instructions')}<button class="component-button" data-action="components" data-id="${stage.id}" aria-label="Choose components${label}">${stage.inputs.length ? stage.inputs.length + ' component' + (stage.inputs.length === 1 ? '' : 's') + ' · edit' : 'Choose components'}</button><p class="component-list">${stage.inputs.map(id => escape(componentName(id))).join('<br>')}</p><details class="procedure-details"><summary>Timer & prepared output</summary><label class="timer-field"><span>Minutes</span>${input('procedure', stage, 'minutes', 'Timer minutes' + label, 'number')}</label><div class="output-fields">${input('procedure', stage, 'outputName', 'Output name' + label, 'text', 'Output name')}${input('procedure', stage, 'outputQuantity', 'Output quantity' + label, 'text', 'Quantity')}${input('procedure', stage, 'outputUnit', 'Output unit' + label, 'text', 'Unit')}${input('procedure', stage, 'outputDescription', 'Output description' + label, 'textarea', 'Output description')}</div></details></td>`;
+    return `<td class="editor-op" rowspan="${span}">${edgeHandles(stage)}<div class="row-actions op-actions">${gripButton('stage', stage.id, 'Move ' + (stage.title || 'procedure ' + (index + 1)))}${removeButton('procedure', stage.id, stage.title || 'procedure ' + (index + 1))}</div><div class="entry-procedure-title">${input('procedure', stage, 'title', 'Procedure name' + label, 'textarea', 'Procedure name')}</div>${input('procedure', stage, 'instructions', 'Instructions' + label, 'textarea', 'Instructions. Start a line with - or 1. for a list')}${toolsInput('procedure', stage, 'Procedure ' + (index + 1))}<button class="component-button" data-action="components" data-id="${stage.id}" aria-label="Choose components${label}">${stage.inputs.length ? stage.inputs.length + ' component' + (stage.inputs.length === 1 ? '' : 's') + ' · edit' : 'Choose components'}</button><p class="component-list">${stage.inputs.map(id => escape(componentName(id))).join('<br>')}</p><details class="procedure-details"><summary>Timer & prepared output</summary><label class="timer-field"><span>Minutes</span>${input('procedure', stage, 'minutes', 'Timer minutes' + label, 'number')}</label><div class="output-fields">${input('procedure', stage, 'outputName', 'Output name' + label, 'text', 'Output name')}${input('procedure', stage, 'outputQuantity', 'Output quantity' + label, 'text', 'Quantity')}${input('procedure', stage, 'outputUnit', 'Output unit' + label, 'text', 'Unit')}${input('procedure', stage, 'outputDescription', 'Output description' + label, 'textarea', 'Output description')}</div></details></td>`;
   }
   function resizeTextarea(element) {
+    if (bulletField(element)) element.classList.toggle('has-bullets', /^[ \t]*(?:•|\d+[.)])[ \t]+/m.test(element.value));
     element.style.height = 'auto';
     element.style.height = element.scrollHeight + 'px';
   }
   function renderEditor() {
+    updateUndo();
     activeTextField = null;
-    $('insert-degree').disabled = true;
+    updateTextTools();
     $('entry-table').innerHTML = tableMarkup(true);
-    $('credit-editor').innerHTML = input('recipe', recipe, 'credit', 'Source / credit', 'textarea', 'Source / credit (optional)');
+    $('credit-editor').innerHTML = input('recipe', recipe, 'credit', 'Source', 'textarea', 'Source (optional)');
     $('note-editor').innerHTML = recipe.notes.length ? `<div class="scroll"><table class="edit-table notes-editor" aria-label="Notes editor"><colgroup><col style="width:28%"><col style="width:54%"><col style="width:18%"></colgroup><thead><tr><th>Note title</th><th>Note</th><th>Order / remove</th></tr></thead><tbody>${recipe.notes.map((item, index) => `<tr><td>${input('note', item, 'title', 'Note title ' + (index + 1))}</td><td>${input('note', item, 'body', 'Note ' + (index + 1), 'textarea')}</td><td class="row-actions">${actionButtons('note', item, index, recipe.notes.length)}</td></tr>`).join('')}</tbody></table></div>` : '';
     $('editor').querySelectorAll('textarea').forEach(resizeTextarea);
   }
@@ -880,63 +1258,110 @@ window.initRecipeGenerator = function () {
     const alternate = system === 'alternate' && hasAlternate;
     const amount = alternate ? item.metricQuantity : item.quantity;
     const unit = alternate ? item.metricUnit : item.unit;
-    return [M.quantity(amount, servings / (Number(recipe.baseServings) || 4), !alternate), unit].filter(Boolean).join(' ');
+    const scaled = M.scaleMeasure(amount, unit, servings / (Number(recipe.baseServings) || 4));
+    return [scaled.quantity, scaled.unit].filter(Boolean).join(' ');
   }
   function ingredientMarkup(item, span) {
     const primary = measure(item, units);
     const secondary = String(item.metricQuantity).trim() !== '' ? measure(item, units === 'main' ? 'alternate' : 'main') : '';
-    return `<td class="ing${item.preparation ? ' preparation' : ''}${crossedOff.has(item.id) ? ' off' : ''}" colspan="${span}" data-ingredient="${escape(item.id)}"${item.preparation ? '' : ` tabindex="0" role="button" aria-pressed="${crossedOff.has(item.id)}" aria-label="Mark ${escape(item.name || 'ingredient')} as used"`}><span class="ingredient-line${primary ? '' : ' no-measure'}"><span class="q">${escape(primary)}</span><span class="name">${escape(item.name || 'Unnamed ingredient')}</span></span>${secondary || item.description ? `<span class="detail-line"><span class="secondary-q">${escape(secondary)}</span><span class="note">${escape(item.description)}</span></span>` : ''}</td>`;
+    return `<td class="ing${item.preparation ? ' preparation' : ''}${crossedOff.has(item.id) ? ' off' : ''}" colspan="${span}" data-ingredient="${escape(item.id)}"${item.preparation ? '' : ` tabindex="0" role="button" aria-pressed="${crossedOff.has(item.id)}" aria-label="Mark ${escape(item.name || 'ingredient')} as used"`}><span class="ingredient-line"><span class="q">${escape(primary)}</span><span class="name">${escape(item.name || 'Unnamed ingredient')}</span></span>${secondary || item.description ? `<span class="detail-line"><span class="secondary-q">${escape(secondary)}</span><span class="note">${escape(item.description)}</span></span>` : ''}</td>`;
   }
-  function procedureMarkup(stage, index, span) {
+  function procedureMarkup(stage, index, span, number) {
     const output = [measure({ quantity: stage.outputQuantity, unit: stage.outputUnit, metricQuantity: '' }, units), stage.outputName].filter(Boolean).join(' ') + (stage.outputDescription ? '\n' + stage.outputDescription : '');
     const detail = stage.instructions || (Number(stage.minutes) > 0 ? stage.minutes + ' min' : '');
     const components = stage.inputs.map(componentName).filter(Boolean).join(', ');
-    return `<td class="op" rowspan="${span}" data-stage="${index}" tabindex="0" role="button" aria-label="Start procedure ${escape(stage.title || index + 1)}" title="${escape(components ? 'Uses: ' + components : 'Independent preparation')}"${components ? ` data-components="${escape(components)}"` : ''}><b>${escape(stage.title || 'Procedure ' + (index + 1))}</b>${detail ? `<span>${escape(detail)}</span>` : ''}${output.trim() ? `<span class="output">${escape(output.trim())}</span>` : ''}</td>`;
+    const note = toolsNote(stage.tools);
+    return `<td class="op${note.className}" rowspan="${span}" data-stage="${number}" tabindex="0" role="button" aria-label="Start procedure ${escape(stage.title || index + 1)}" title="${escape(components ? 'Uses: ' + components : 'Independent preparation')}"${components ? ` data-components="${escape(components)}"` : ''}>${note.top}<b>${escape(stage.title || 'Step ' + (index + 1))}</b>${detail ? `<span>${stage.instructions ? richText(detail) : escape(detail)}</span>` : ''}${output.trim() ? `<span class="output">${escape(output.trim())}</span>` : ''}${note.bottom}</td>`;
   }
-  function tableMarkup(edit = false) {
-    const { rows, masks } = M.plan(recipe, edit);
-    const stageCount = recipe.procedures.length;
-    const columns = stageCount + 1 + (edit && !stageCount ? 1 : 0);
-    const columnWidth = edit ? 160 : 120;
-    const width = Math.max(940, 360 + Math.max(stageCount, edit ? 1 : 0) * columnWidth);
-    let body = `<tr><th class="item-title" colspan="${columns}">${edit ? input('recipe', recipe, 'name', 'Recipe name', 'text', 'Recipe name').replace('<input ', '<input id="recipe-name" ') : escape(recipe.name || 'Untitled recipe')}</th></tr>`;
-    if (edit) {
-      body += `<tr><td class="entry-overview" colspan="${columns}">${input('recipe', recipe, 'eyebrow', 'Category / short label', 'text', 'Category / short label (optional)')}${input('recipe', recipe, 'description', 'Recipe description', 'textarea', 'Recipe description')}<div class="entry-meta">${[['baseServings', 'Base servings', 'number', ''], ['active', 'Active time', 'text', 'e.g. 20 min'], ['total', 'Total time', 'text', 'e.g. 55 min'], ['vessel', 'Vessel / equipment', 'text', 'Vessel / equipment']].map(([field, label, type, placeholder]) => `<label><span>${label}</span>${input('recipe', recipe, field, label, type, placeholder)}</label>`).join('')}</div></td></tr>`;
-    }
-    body += instructionRows('preparation', 'prep', 'Initial preparation', columns, edit);
-    if (edit) body += `<tr class="entry-column-headings"><th scope="col">Quantity · Item · Description</th>${stageCount ? recipe.procedures.map((stage, index) => `<th scope="col"><span>Procedure ${index + 1}</span><div class="row-actions">${actionButtons('procedure', stage, index, stageCount)}</div></th>`).join('') : '<th scope="col">Procedures</th>'}</tr>`;
+  function gridMarkup(grid, columns, edit) {
+    const { rows, masks } = M.plan(grid, edit);
+    const groups = edit ? M.columns(grid) : realColumns(grid);
+    const columnCount = groups.length;
+    const offset = columns - 1 - (columnCount || (edit ? 1 : 0));
+    const numbers = stageNumbers();
+    let body = '';
+    if (edit) body += `<tr class="entry-column-headings" data-grid-heading="${grid.id}"><th scope="col" colspan="${offset + 1}">Quantity · Item · Description</th>${columnCount ? groups.map((group, number) => {
+      const head = grid.procedures[group[0]];
+      if (head.placeholder) return `<th scope="col" data-column="${head.id}"></th>`;
+      return `<th scope="col" data-column="${head.id}"><span>Step ${number + 1}</span><div class="row-actions">${gripButton('column', head.id, 'Move step ' + (number + 1))}<button class="add-parallel" data-action="add-parallel" data-kind="procedure" data-id="${head.id}" aria-label="Add a procedure to step ${number + 1}" title="Add a procedure to this step">+</button>${head.blank ? removeButton('procedure', head.id, 'step ' + (number + 1)) : ''}</div></th>`;
+    }).join('') : '<th scope="col">Steps</th>'}</tr>`;
     rows.forEach((item, rowIndex) => {
-      const first = masks.findIndex(mask => mask.has(item.id));
-      const firstColumn = first < 0 ? stageCount : first;
-      body += '<tr data-row="' + escape(item.id) + '">' + (edit ? editorIngredient(item, firstColumn + 1) : ingredientMarkup(item, firstColumn + 1));
-      for (let column = firstColumn; column < stageCount; column++) {
-        if (!masks[column].has(item.id)) body += '<td class="gap"></td>';
-        else if (rowIndex === 0 || !masks[column].has(rows[rowIndex - 1].id)) {
+      const owner = column => groups[column].find(index => masks[index].has(item.id));
+      const first = groups.findIndex((group, column) => owner(column) !== undefined);
+      const firstColumn = first < 0 ? columnCount : first;
+      // In the editor the item cell stops at the item column, and every free spot under a procedure column is its own cell.
+      body += '<tr data-row="' + escape(item.id) + '">' + (edit ? editorIngredient(item, offset + 1, grid) : ingredientMarkup(item, offset + firstColumn + 1));
+      for (let column = edit ? 0 : firstColumn; column < columnCount; column++) {
+        const index = owner(column);
+        if (index === undefined) body += edit ? slotMarkup(grid, groups, column, item, owner) : '<td class="gap"></td>';
+        else if (rowIndex === 0 || !masks[index].has(rows[rowIndex - 1].id)) {
           let span = 1;
-          while (rowIndex + span < rows.length && masks[column].has(rows[rowIndex + span].id)) span++;
-          const primary = rowIndex === rows.findIndex(row => masks[column].has(row.id));
-          body += edit ? editorProcedure(recipe.procedures[column], column, span, primary) : procedureMarkup(recipe.procedures[column], column, span);
+          while (rowIndex + span < rows.length && masks[index].has(rows[rowIndex + span].id)) span++;
+          const primary = rowIndex === rows.findIndex(row => masks[index].has(row.id));
+          const stage = grid.procedures[index];
+          body += edit ? editorProcedure(stage, column, span, primary) : procedureMarkup(stage, column, span, numbers.get(stage.id));
         }
       }
-      if (edit && !stageCount && !rowIndex) body += `<td class="editor-op empty-column" rowspan="${rows.length}"><button data-action="add-procedure" aria-label="Add first procedure">Add procedure</button><p>Choose its components to merge the rows.</p></td>`;
+      if (edit && !columnCount && !rowIndex) body += `<td class="editor-op empty-column" rowspan="${rows.length}"><button data-action="add-step" data-grid="${grid.id}" aria-label="Add the first step">+ Step</button></td>`;
       body += '</tr>';
     });
-    if (!rows.length) body += `<tr><td class="empty-card" colspan="${columns}">${edit ? 'Add an ingredient row to start your table.' : 'Your recipe table is blank. Add ingredients and procedures in Edit table.'}</td></tr>`;
+    if (!rows.length && (edit || grid === recipe)) body += `<tr><td class="empty-card" colspan="${columns}">${edit ? 'Add an ingredient row to start ' + (grid === recipe ? 'your table' : 'this process grid') + '.' : 'Your recipe table is blank. Add ingredients and procedures in Edit table.'}</td></tr>`;
+    return body;
+  }
+  // A new procedure takes over a blank step, or joins the procedures already in the step.
+  function placeInStep(grid, group, stage) {
+    const head = grid.procedures[group[0]];
+    if (head.blank) grid.procedures.splice(group[0], 1, Object.assign(stage, { parallel: Boolean(head.parallel) }));
+    else grid.procedures.splice(group.at(-1) + 1, 0, Object.assign(stage, { parallel: true }));
+  }
+  function slotMarkup(grid, groups, column, item, owner) {
+    const classes = ['gap', 'slot'];
+    if (column === 0 || owner(column - 1) === undefined) classes.push('open-left');
+    if (column < groups.length - 1 && owner(column + 1) === undefined) classes.push('open-right');
+    const source = item.preparation ? item.id.slice('output-'.length) : null;
+    const sourceColumn = source && groups.findIndex(group => group.some(index => grid.procedures[index].id === source));
+    const allowed = !grid.procedures[groups[column][0]].placeholder && (!source || sourceColumn < column);
+    return `<td class="${classes.join(' ')}">${allowed ? `<button class="slot-add" data-action="add-at" data-grid="${grid.id}" data-slot-column="${column}" data-row="${escape(item.id)}" aria-label="Add a procedure for ${escape(item.name || 'this row')} in step ${column + 1}" title="Add a procedure here">+</button>` : ''}</td>`;
+  }
+  function processGridMarkup(kind, className, grid, index, list, columns, edit) {
+    if (!edit) {
+      if (!M.plan(grid).rows.length) return '';
+      return (grid.title.trim() ? `<tr><td class="${className} grid-title" colspan="${columns}"><b>${escape(grid.title)}</b></td></tr>` : '') + gridMarkup(grid, columns, false);
+    }
+    return `<tr><td class="${className} grid-head" colspan="${columns}"><div class="instruction-row grid-head-row"><span class="decision-tag">Process grid</span>${input(kind, grid, 'title', 'Process grid ' + (index + 1) + ' name', 'text', 'Process grid name (optional)')}<div class="grid-add"><button data-action="add-ingredient" data-grid="${grid.id}" aria-label="Add ingredient to this process grid">+ Ingredient</button><button data-action="add-step" data-grid="${grid.id}" aria-label="Add a step to this process grid">+ Step</button></div><div class="row-actions">${actionButtons(kind, grid, index, list.length)}</div></div></td></tr>` + gridMarkup(grid, columns, true);
+  }
+  function tableMarkup(edit = false) {
+    const procedureColumns = Math.max(...grids().map(grid => (edit ? M.columns(grid) : realColumns(grid)).length || (edit ? 1 : 0)));
+    const columns = procedureColumns + 1;
+    const columnWidth = edit ? 160 : 120;
+    const width = Math.max(940, 360 + procedureColumns * columnWidth);
+    let body = `<tr><th class="item-title" colspan="${columns}">${edit ? input('recipe', recipe, 'name', 'Recipe name', 'text', 'Recipe name').replace('<input ', '<input id="recipe-name" ') : escape(recipe.name || 'Untitled recipe')}</th></tr>`;
+    if (edit) {
+      body += `<tr><td class="entry-overview" colspan="${columns}">${input('recipe', recipe, 'description', 'Recipe description', 'textarea', 'Recipe description')}<div class="entry-meta"><label><span>Base yield</span>${input('recipe', recipe, 'baseServings', 'Base yield amount', 'number', '')}${input('recipe', recipe, 'yieldUnit', 'Base yield unit', 'text', 'portions')}</label>${[['active', 'Active time', 'text', 'e.g. 20 min'], ['total', 'Total time', 'text', 'e.g. 55 min'], ['vessel', 'Vessel / equipment', 'text', 'Vessel / equipment']].map(([field, label, type, placeholder]) => `<label><span>${label}</span>${input('recipe', recipe, field, label, type, placeholder)}</label>`).join('')}</div></td></tr>`;
+    }
+    body += instructionRows('preparation', 'prep', 'Initial preparation', columns, edit);
+    body += gridMarkup(recipe, columns, edit);
     body += instructionRows('finishing', 'finish', 'Serving / finishing instructions', columns, edit);
     return `<table aria-label="${edit ? 'Editable recipe grid' : 'Recipe procedure grid'}"${edit ? ' class="entry-grid"' : ''} style="min-width:${width}px"><colgroup><col style="width:360px">${Array.from({ length: columns - 1 }, () => `<col style="width:${columnWidth}px">`).join('')}</colgroup><tbody>${body}</tbody></table>`;
   }
   function renderCard() {
     const notes = recipe.notes.filter(item => item.title || item.body);
-    $('recipe-card').innerHTML = `${recipe.eyebrow ? `<p class="eyebrow">${escape(recipe.eyebrow)}</p>` : ''}<h1>${escape(recipe.name || 'Untitled recipe')}</h1>${recipe.description ? `<p class="deck">${escape(recipe.description)}</p>` : ''}<p class="meta"><span>Serves <b>${servings}</b></span>${[['Active', recipe.active], ['Total', recipe.total], ['Vessel', recipe.vessel]].filter(([, value]) => value).map(([label, value]) => `<span>${label} <b>${escape(value)}</b></span>`).join('')}</p><div class="scroll">${tableMarkup()}</div>${notes.length ? `<section class="notes"><h2>Recipe notes</h2><div class="grid">${notes.map(item => `<div class="note-item">${item.title ? `<h3>${escape(item.title)}</h3>` : ''}<p>${escape(item.body)}</p></div>`).join('')}</div></section>` : ''}${recipe.credit ? `<p class="credit">${escape(recipe.credit)}</p>` : ''}`;
+    $('recipe-card').classList.toggle('monochrome', Boolean(recipe.monochrome));
+    $('editor').classList.toggle('monochrome', Boolean(recipe.monochrome));
+    $('monochrome-toggle').setAttribute('aria-pressed', Boolean(recipe.monochrome));
+    $('recipe-card').innerHTML = `<h1>${escape(recipe.name || 'Untitled recipe')}</h1>${recipe.description ? `<p class="deck">${escape(recipe.description)}</p>` : ''}<p class="meta"><span>${recipe.yieldUnit?.trim() ? 'Makes' : 'Serves'} <b>${escape(yieldLabel(servings))}</b></span>${[['Active', recipe.active], ['Total', recipe.total], ['Vessel', recipe.vessel]].filter(([, value]) => value).map(([label, value]) => `<span>${label} <b>${escape(value)}</b></span>`).join('')}</p><div class="scroll">${tableMarkup()}</div>${notes.length ? `<section class="notes"><h2>Recipe notes</h2><div class="grid">${notes.map(item => `<div class="note-item">${item.title ? `<h3>${escape(item.title)}</h3>` : ''}<p>${escape(item.body)}</p></div>`).join('')}</div></section>` : ''}${recipe.credit ? `<p class="credit">${escape(recipe.credit)}</p>` : ''}`;
     $('serving-value').value = servings;
+    $('servings-label').textContent = recipe.yieldUnit?.trim() ? 'Makes' : 'Serves';
+    $('servings-unit').textContent = recipe.yieldUnit?.trim() || '';
     document.querySelectorAll('[data-servings]').forEach(button => button.setAttribute('aria-pressed', Number(button.dataset.servings) === servings));
-    document.querySelectorAll('[data-units]').forEach(button => button.setAttribute('aria-pressed', button.dataset.units === units));
-    $('start-cooking').disabled = !recipe.procedures.length;
+    $('start-cooking').disabled = !stageList().length;
+    const allIngredients = grids().flatMap(grid => grid.ingredients);
+    const allProcedures = grids().flatMap(grid => grid.procedures);
     const warnings = [];
-    if (recipe.ingredients.some(item => !item.name.trim() && [item.quantity, item.unit, item.description, item.metricQuantity, item.metricUnit].some(Boolean))) warnings.push('Some ingredients need an item name.');
-    if (recipe.procedures.some(stage => !stage.title.trim())) warnings.push('Some procedures need a name.');
-    if (units === 'alternate' && recipe.ingredients.some(item => item.quantity && !item.metricQuantity)) warnings.push('Ingredients without an optional amount keep their main quantity and unit.');
-    if (servings !== Number(recipe.baseServings) && [...recipe.ingredients.map(item => item.quantity), ...recipe.procedures.map(stage => stage.outputQuantity)].some(value => value && M.number(value) === null)) warnings.push('Text quantities and ranges keep their original amounts when servings change.');
+    if (allIngredients.some(item => !item.name.trim() && [item.quantity, item.unit, item.description, item.metricQuantity, item.metricUnit].some(Boolean))) warnings.push('Some ingredients need an item name.');
+    if (allProcedures.some(stage => !stage.title.trim())) warnings.push('Some procedures need a name.');
+    if (units === 'alternate' && allIngredients.some(item => item.quantity && !item.metricQuantity)) warnings.push('Ingredients without an optional amount keep their main quantity and unit.');
+    if (servings !== Number(recipe.baseServings) && [...allIngredients.map(item => item.quantity), ...allProcedures.map(stage => stage.outputQuantity)].some(value => value && M.number(value) === null)) warnings.push('Text quantities and ranges keep their original amounts when servings change.');
     $('preview-warnings').textContent = warnings.join('\n');
     $('preview-warnings').hidden = !warnings.length;
     document.title = recipe.name ? recipe.name + ' — Recipe builder' : 'Recipe builder';
@@ -951,19 +1376,26 @@ window.initRecipeGenerator = function () {
     $('edit-tab').setAttribute('aria-pressed', edit);
     $('preview-tab').setAttribute('aria-pressed', !edit);
     if (!edit) activeTextField = null;
-    $('insert-degree').disabled = !activeTextField;
+    updateTextTools();
     if (edit) $('editor').querySelectorAll('textarea').forEach(resizeTextarea);
     if (!edit) renderCard();
   }
   function openComponents(id) {
-    selectedProcedure = recipe.procedures.find(item => item.id === id);
-    const stageIndex = recipe.procedures.indexOf(selectedProcedure);
-    $('components-description').textContent = 'Choose what goes into ' + (selectedProcedure.title || 'procedure ' + (stageIndex + 1)) + '.';
-    function option(item, name, description) {
-      return `<label class="component-option"><input type="checkbox" value="${escape(item.id)}"${selectedProcedure.inputs.includes(item.id) ? ' checked' : ''}><span>${escape(name)}${description ? `<small>${escape(description)}</small>` : ''}</span></label>`;
+    const grid = gridOf(id);
+    selectedProcedure = grid.procedures.find(item => item.id === id);
+    const stageIndex = grid.procedures.indexOf(selectedProcedure);
+    const groups = M.columns(grid);
+    const column = groups.findIndex(group => group.includes(stageIndex));
+    const { masks } = M.plan(grid, true);
+    const taken = new Map();
+    groups[column].filter(index => index !== stageIndex).forEach(index => masks[index].forEach(row => taken.set(row, procedureName(grid, grid.procedures[index]))));
+    $('components-description').textContent = 'Choose what goes into ' + procedureName(grid, selectedProcedure) + '.' + (taken.size ? ' Greyed-out items are already used by another procedure in this column.' : '');
+    function option(item, name, description, blockedBy) {
+      const checked = selectedProcedure.inputs.includes(item.id);
+      return `<label class="component-option${blockedBy && !checked ? ' blocked' : ''}"><input type="checkbox" value="${escape(item.id)}"${checked ? ' checked' : ''}${blockedBy && !checked ? ' disabled' : ''}><span>${escape(name)}${blockedBy ? `<small>Used by ${escape(blockedBy)} in this column</small>` : description ? `<small>${escape(description)}</small>` : ''}</span></label>`;
     }
-    const ingredients = recipe.ingredients.map((item, index) => option(item, item.name || 'Ingredient ' + (index + 1), [item.quantity, item.unit, item.description].filter(Boolean).join(' '))).join('');
-    const outputs = recipe.procedures.slice(0, stageIndex).map((item, index) => option(item, componentName(item.id), 'From ' + (item.title || 'procedure ' + (index + 1)) + (item.outputDescription ? ' · ' + item.outputDescription : ''))).join('');
+    const ingredients = grid.ingredients.map((item, index) => option(item, item.name || 'Ingredient ' + (index + 1), [item.quantity, item.unit, item.description].filter(Boolean).join(' '), taken.get(item.id))).join('');
+    const outputs = groups.slice(0, column).flat().map(index => grid.procedures[index]).filter(item => !item.placeholder).map(item => option(item, componentName(item.id), 'From ' + procedureName(grid, item) + (item.outputDescription ? ' · ' + item.outputDescription : ''), [...masks[grid.procedures.indexOf(item)]].map(row => taken.get(row)).find(Boolean))).join('');
     $('component-options').innerHTML = `<h3>Ingredients</h3>${ingredients || '<p>Add an ingredient first.</p>'}${outputs ? '<h3>Earlier procedure outputs</h3>' + outputs : ''}`;
     $('components-dialog').showModal();
   }
@@ -976,29 +1408,37 @@ window.initRecipeGenerator = function () {
     $('recipe-card').querySelectorAll('.hot').forEach(element => element.classList.remove('hot'));
   }
   function highlight() {
-    const mask = M.plan(recipe).masks[step];
+    const current = stageList()[step];
+    const masks = current && M.plan(current.grid).masks;
+    const rows = new Set(current ? current.group.flatMap(index => [...masks[index]]) : []);
     $('recipe-card').querySelectorAll('[data-stage]').forEach(element => element.classList.toggle('hot', Number(element.dataset.stage) === step));
-    $('recipe-card').querySelectorAll('[data-row]').forEach(element => element.classList.toggle('hot', mask?.has(element.dataset.row)));
+    $('recipe-card').querySelectorAll('[data-row]').forEach(element => element.classList.toggle('hot', rows.has(element.dataset.row)));
   }
   function goTo(index) {
-    if (!recipe.procedures.length) return;
+    const list = stageList();
+    if (!list.length) return;
     clearInterval(tick);
-    step = Math.max(0, Math.min(recipe.procedures.length - 1, index));
-    const stage = recipe.procedures[step];
+    step = Math.max(0, Math.min(list.length - 1, index));
+    const { grid, stages } = list[step];
     $('cooking-bar').classList.add('live');
     $('recipe-card').classList.add('dim');
-    $('cooking-number').textContent = 'Stage ' + (step + 1) + ' of ' + recipe.procedures.length;
-    $('cooking-title').textContent = stage.title || 'Procedure ' + (step + 1);
+    $('cooking-number').textContent = 'Step ' + (step + 1) + ' of ' + list.length;
+    $('cooking-title').textContent = stages.map(stage => procedureName(grid, stage)).join(' + ');
     $('previous-stage').disabled = step === 0;
-    $('next-stage').disabled = step === recipe.procedures.length - 1;
+    $('next-stage').disabled = step === list.length - 1;
     $('cooking-clock').classList.remove('ring');
-    const seconds = Math.round(Number(stage.minutes) * 60);
-    if (seconds > 0) {
-      const end = Date.now() + seconds * 1000;
+    const start = Date.now();
+    const timers = stages.filter(stage => Number(stage.minutes) > 0).map(stage => ({ name: procedureName(grid, stage), end: start + Math.round(Number(stage.minutes) * 60) * 1000 }));
+    if (timers.length) {
       const update = () => {
-        const remaining = Math.max(0, Math.ceil((end - Date.now()) / 1000));
-        $('cooking-clock').textContent = remaining ? Math.floor(remaining / 60) + ':' + String(remaining % 60).padStart(2, '0') : 'Time';
-        if (!remaining) { clearInterval(tick); $('cooking-clock').classList.add('ring'); }
+        const now = Date.now();
+        $('cooking-clock').textContent = timers.map(timer => {
+          const remaining = Math.max(0, Math.ceil((timer.end - now) / 1000));
+          const time = remaining ? Math.floor(remaining / 60) + ':' + String(remaining % 60).padStart(2, '0') : 'Time';
+          return timers.length > 1 ? timer.name + ' ' + time : time;
+        }).join(' · ');
+        $('cooking-clock').classList.toggle('ring', timers.some(timer => timer.end <= now));
+        if (timers.every(timer => timer.end <= now)) clearInterval(tick);
       };
       update();
       tick = setInterval(update, 250);
@@ -1043,7 +1483,7 @@ window.initRecipeGenerator = function () {
     download(new Blob([html], { type: 'text/html;charset=utf-8' }), filename('html'));
     notify('Saved editable HTML with fonts and recipe data included.');
   }
-  async function exportImage(format) {
+  async function exportImage(format, copy = false) {
     if (exporting) return;
     exporting = true;
     const wasEditing = editing;
@@ -1072,6 +1512,10 @@ window.initRecipeGenerator = function () {
       const mime = format === 'png' ? 'image/png' : 'image/jpeg';
       const blob = await new Promise(resolve => canvas.toBlob(resolve, mime, 0.98));
       if (!blob) throw new Error('The browser could not create the image. Use Print / PDF or Save HTML.');
+      if (copy) {
+        $('export-status').textContent = 'Copying image · ' + canvas.width + ' × ' + canvas.height + ' px…';
+        return blob;
+      }
       download(blob, filename(format === 'jpeg' ? 'jpg' : format));
       $('export-status').textContent = format.toUpperCase() + ' exported · ' + canvas.width + ' × ' + canvas.height + ' px';
     } catch (error) {
@@ -1085,24 +1529,52 @@ window.initRecipeGenerator = function () {
   }
 
   $('editor').addEventListener('focusin', event => {
-    if (event.target.matches('input[type="text"], textarea')) {
-      activeTextField = event.target;
-      $('insert-degree').disabled = false;
-    } else {
-      activeTextField = null;
-      $('insert-degree').disabled = true;
-    }
+    if (event.target.matches('.text-tool')) return;
+    activeTextField = event.target.matches('input[type="text"], textarea') ? event.target : null;
+    updateTextTools();
   });
-  $('insert-degree').addEventListener('click', () => {
+  function updateTextTools() {
+    document.querySelectorAll('.text-tool').forEach(button => { button.disabled = !activeTextField; });
+  }
+  function bulletField(element) {
+    return Boolean(element?.matches('[data-field="instructions"], [data-kind="option"][data-field="text"], [data-kind="nested"][data-field="text"]'));
+  }
+  $('editor').addEventListener('keydown', event => {
+    const field = event.target;
+    if (event.key !== 'Enter' || event.shiftKey || event.isComposing || !bulletField(field)) return;
+    const { value, selectionStart, selectionEnd } = field;
+    const start = value.lastIndexOf('\n', selectionStart - 1) + 1;
+    const endIndex = value.indexOf('\n', selectionEnd);
+    const line = value.slice(start, endIndex < 0 ? value.length : endIndex);
+    const marker = line.match(/^\s*(?:[•*-]|(\d+)([.)]))\s+/);
+    if (!marker) return;
+    event.preventDefault();
+    if (!line.slice(marker[0].length).trim()) field.setRangeText('', start, start + line.length, 'end');
+    else field.setRangeText(marker[1] ? `\n${Number(marker[1]) + 1}${marker[2]} ` : '\n• ', selectionStart, selectionEnd, 'end');
+    field.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  document.querySelectorAll('.text-tool').forEach(button => button.addEventListener('mousedown', event => event.preventDefault()));
+  document.querySelectorAll('.text-tool').forEach(button => button.addEventListener('click', () => {
     if (!activeTextField?.isConnected || !editing) return;
-    activeTextField.setRangeText('°', activeTextField.selectionStart, activeTextField.selectionEnd, 'end');
+    const { selectionStart, selectionEnd, value } = activeTextField;
+    const text = button.classList.contains('fraction') && /\d$/.test(value.slice(0, selectionStart)) ? ' ' + button.dataset.insert : button.dataset.insert;
+    activeTextField.setRangeText(text, selectionStart, selectionEnd, 'end');
     activeTextField.focus();
     activeTextField.dispatchEvent(new Event('input', { bubbles: true }));
-  });
+  }));
   $('editor').addEventListener('input', event => {
     const { kind, id, field } = event.target.dataset;
     if (!kind || !field) return;
-    const item = kind === 'recipe' ? recipe : entries(kind).find(entry => entry.id === id);
+    const item = kind === 'recipe' ? recipe : kind === 'option' ? findOption(id).option : kind === 'nested' ? findNested(id).item : entries(kind, gridOf(id) || recipe).find(entry => entry.id === id);
+    if (event.inputType?.startsWith('insert') && bulletField(event.target)) {
+      const marker = /^[ \t]*[*-][ \t]+/gm;
+      const value = event.target.value.replace(marker, '• ');
+      if (value !== event.target.value) {
+        const caret = event.target.value.slice(0, event.target.selectionStart).replace(marker, '• ').length;
+        event.target.value = value;
+        event.target.setSelectionRange(caret, caret);
+      }
+    }
     if (field === 'baseServings') {
       const count = M.number(event.target.value);
       if (count === null || count <= 0) {
@@ -1115,47 +1587,450 @@ window.initRecipeGenerator = function () {
     }
     item[field] = event.target.value;
     if (event.target.tagName === 'TEXTAREA') resizeTextarea(event.target);
-    changed();
+    changed(kind + ':' + id + ':' + field);
   });
   $('editor').addEventListener('click', event => {
     const button = event.target.closest('button[data-action]');
     if (!button) return;
-    const { action, kind, id, direction } = button.dataset;
+    const { action, kind, id } = button.dataset;
+    const grid = button.dataset.grid ? gridById(button.dataset.grid) : (kind === 'ingredient' || kind === 'procedure') ? gridOf(id) : recipe;
     if (action === 'components') { openComponents(id); return; }
     if (action === 'focus-procedure') { focusProcedure(id); return; }
-    if (action === 'add-ingredient') recipe.ingredients.push(M.ingredient());
-    if (action === 'add-procedure') recipe.procedures.push(M.procedure());
+    if (action === 'add-ingredient') grid.ingredients.push(M.ingredient());
+    if (action === 'add-step') grid.procedures.push(M.blankStep());
+    let added;
+    let inserted;
+    if (action === 'insert-ingredient') {
+      const index = Number(button.dataset.index);
+      const [above, below] = [grid.ingredients[index - 1], grid.ingredients[index]];
+      inserted = M.ingredient();
+      grid.ingredients.splice(index, 0, inserted);
+      // Inserting inside a merged procedure cell keeps the cell whole: the new item joins it.
+      if (above && below) grid.procedures.forEach((stage, position) => {
+        const mask = M.plan(grid, true).masks[position];
+        if (mask.has(above.id) && mask.has(below.id) && !mask.has(inserted.id)) stage.inputs.push(inserted.id);
+      });
+    }
+    if (action === 'add-at') {
+      const group = M.columns(grid)[Number(button.dataset.slotColumn)];
+      const row = button.dataset.row;
+      added = { ...M.procedure(), inputs: [row.startsWith('output-') ? row.slice('output-'.length) : row] };
+      placeInStep(grid, group, added);
+      if (!M.validLayout(grid)) {
+        grid.procedures.splice(grid.procedures.indexOf(added), 1);
+        notify("A procedure can't go there.");
+        return;
+      }
+    }
+    if (action === 'add-parallel') {
+      const group = M.columns(grid).find(indices => indices.includes(grid.procedures.findIndex(stage => stage.id === id)));
+      added = M.procedure();
+      placeInStep(grid, group, added);
+    }
     if (action === 'add-note') recipe.notes.push({ id: M.id(), title: '', body: '' });
     if (action === 'add-preparation') recipe.prep.push(M.instruction());
     if (action === 'add-finishing') recipe.finish.push(M.instruction());
-    if (action === 'remove' || action === 'move') {
-      const list = entries(kind);
+    if (action === 'add-decision') entries(kind).push(M.decision());
+    if (action === 'add-grid') {
+      // A new grid starts with as many blank steps as the widest grid, so its columns line up from the left.
+      const created = M.processGrid();
+      const steps = Math.max(...grids().map(other => M.columns(other).length));
+      for (let count = 0; count < steps; count++) created.procedures.push(M.blankStep());
+      entries(kind).push(created);
+    }
+    if (action === 'add-option') allDecisions().find(item => item.id === id).options.push(M.option());
+    let nested;
+    if (action === 'add-branch-step' || action === 'add-branch-decision') {
+      nested = action === 'add-branch-step' ? M.instruction() : M.decision();
+      branchItems(findOption(id).option).push(nested);
+    }
+    if (action === 'remove-option') {
+      const { decision, option } = findOption(id);
+      if (decision.options.length > 2) decision.options.splice(decision.options.indexOf(option), 1);
+    }
+    if (action === 'remove') {
+      const list = kind === 'nested' ? findNested(id).list : entries(kind, grid);
       const index = list.findIndex(item => item.id === id);
-      if (action === 'remove') {
-        list.splice(index, 1);
-        recipe.procedures.forEach(stage => { stage.inputs = stage.inputs.filter(inputId => inputId !== id); });
-        crossedOff.delete(id);
-      } else {
-        const destination = index + Number(direction);
-        if (kind === 'procedure' && !M.canMoveProcedure(recipe, index, Number(direction))) return;
-        [list[index], list[destination]] = [list[destination], list[index]];
-      }
+      // Removing the first procedure of a shared column hands the column to the next one.
+      if (kind === 'procedure' && !list[index].parallel && list[index + 1]?.parallel) list[index + 1].parallel = false;
+      list.splice(index, 1);
+      grid.procedures.forEach(stage => { stage.inputs = stage.inputs.filter(inputId => inputId !== id); });
+      crossedOff.delete(id);
     }
     changed();
     renderEditor();
-    if (action === 'add-procedure') {
-      openComponents(recipe.procedures[recipe.procedures.length - 1].id);
+    if (action === 'insert-ingredient') {
+      $('editor').querySelector(`[data-kind="ingredient"][data-id="${inserted.id}"][data-field="name"]`)?.focus();
+    } else if (action === 'add-step') {
+      $('entry-table').querySelector(`[data-column="${grid.procedures.at(-1).id}"]`)?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    } else if (action === 'add-parallel') {
+      openComponents(added.id);
+    } else if (action === 'add-at') {
+      focusProcedure(added.id);
+    } else if (action === 'add-decision' || action === 'add-grid') {
+      const field = action === 'add-grid' ? 'title' : 'text';
+      $('editor').querySelector(`[data-kind="${kind}"][data-id="${entries(kind).at(-1).id}"][data-field="${field}"]`)?.focus();
+    } else if (nested) {
+      $('editor').querySelector(`[data-kind="nested"][data-id="${nested.id}"][data-field="${nested.options ? 'text' : 'title'}"]`)?.focus();
+    } else if (action === 'add-option') {
+      const decision = allDecisions().find(item => item.id === id);
+      $('editor').querySelector(`[data-kind="option"][data-id="${decision.options.at(-1).id}"][data-field="label"]`)?.focus();
     } else if (action.startsWith('add-')) {
       const addedKind = action.slice(4);
-      const item = entries(addedKind).at(-1);
-      const field = addedKind === 'ingredient' ? 'name' : addedKind === 'note' ? 'title' : 'text';
+      const item = entries(addedKind, grid).at(-1);
+      const field = addedKind === 'ingredient' ? 'name' : 'title';
       $('editor').querySelector(`[data-kind="${addedKind}"][data-id="${item.id}"][data-field="${field}"]`)?.focus();
     }
   });
+  let drag = null;
+  function rowAnchor(kind, id) {
+    if (kind === 'nested') return $('editor').querySelector(`[data-kind="nested"][data-id="${id}"]`)?.closest('.branch-item');
+    if (kind === 'ingredient') return $('entry-table').querySelector(`tr[data-row="${id}"]`);
+    return $('editor').querySelector(`[data-kind="${kind}"][data-id="${id}"]`)?.closest('tr');
+  }
+  function procedureCells(id) {
+    return [...$('entry-table').querySelectorAll(`[data-kind="procedure"][data-id="${id}"][data-field="title"], [data-procedure-reference="${id}"]`)].map(element => element.closest('td'));
+  }
+  function columnStages(grid) {
+    return M.columns(grid).map(group => group.map(index => grid.procedures[index]));
+  }
+  function setColumns(grid, groups) {
+    groups = groups.map(group => group.some(stage => !stage.blank && !stage.placeholder) ? group.filter(stage => !stage.blank) : group);
+    grid.procedures.splice(0, grid.procedures.length, ...groups.filter(group => group.length).flatMap(group => group.map((stage, index) => Object.assign(stage, { parallel: index > 0 }))));
+  }
+  function placeColumns(grid, groups) {
+    const current = columnStages(grid);
+    setColumns(grid, groups);
+    if (M.validLayout(grid)) return true;
+    setColumns(grid, current);
+    return false;
+  }
+  function procedureSnapshot(grid) {
+    const saved = grid.procedures.map(stage => ({ stage, parallel: Boolean(stage.parallel), inputs: stage.inputs.slice() }));
+    return () => grid.procedures.splice(0, grid.procedures.length, ...saved.map(entry => Object.assign(entry.stage, { parallel: entry.parallel, inputs: entry.inputs })));
+  }
+  function procedureSignature(grid) {
+    return () => JSON.stringify(grid.procedures.map(stage => [stage.id, Boolean(stage.parallel), stage.inputs]));
+  }
+  // Rows: ingredients, preparation and finishing entries, notes.
+  function listDrag(kind, id) {
+    const list = kind === 'nested' ? findNested(id).list : entries(kind, kind === 'ingredient' ? gridOf(id) : recipe);
+    const item = list.find(entry => entry.id === id);
+    const original = list.slice();
+    const cells = () => {
+      if (kind === 'nested') return [rowAnchor(kind, id)].filter(Boolean);
+      if (kind === 'ingredient') return [...$('entry-table').querySelectorAll(`tr[data-row="${id}"] > .editor-ingredient`)];
+      const row = rowAnchor(kind, id);
+      if (!row) return [];
+      const rows = [row];
+      // A process grid moves with its heading and ingredient rows, up to the next preparation or finishing row.
+      if (item.ingredients) for (let next = row.nextElementSibling; next && !next.querySelector(':scope > td.prep, :scope > td.finish'); next = next.nextElementSibling) rows.push(next);
+      return rows.flatMap(tr => [...tr.children]);
+    };
+    return {
+      axis: 'y', cells, source: () => cells()[0],
+      restore: () => list.splice(0, list.length, ...original),
+      signature: () => list.map(entry => entry.id).join(),
+      update() {
+        const order = list.filter(entry => entry !== item);
+        order.splice(order.filter(entry => {
+          const box = rowAnchor(kind, entry.id)?.getBoundingClientRect();
+          return box && drag.y > box.top + box.height / 2;
+        }).length, 0, item);
+        if (order.every((entry, index) => entry === list[index])) return false;
+        list.splice(0, list.length, ...order);
+        return true;
+      },
+      step(direction) {
+        const index = list.indexOf(item);
+        const other = index + direction;
+        if (other < 0 || other >= list.length) return false;
+        [list[index], list[other]] = [list[other], list[index]];
+        return true;
+      },
+    };
+  }
+  // An ingredient row can move within its grid or into another process grid.
+  function ingredientDrag(id) {
+    const home = gridOf(id);
+    const item = home.ingredients.find(entry => entry.id === id);
+    const saved = grids().map(grid => ({ grid, ingredients: grid.ingredients.slice(), inputs: grid.procedures.map(stage => stage.inputs.slice()) }));
+    const homeInputs = saved.find(entry => entry.grid === home).inputs;
+    const within = listDrag('ingredient', id);
+    return {
+      ...within,
+      restore: () => saved.forEach(entry => {
+        entry.grid.ingredients.splice(0, entry.grid.ingredients.length, ...entry.ingredients);
+        entry.grid.procedures.forEach((stage, index) => { stage.inputs = entry.inputs[index].slice(); });
+      }),
+      signature: () => grids().map(grid => grid.ingredients.map(entry => entry.id).join()).join('|'),
+      update() {
+        let target = { grid: grids()[0], index: 0 };
+        for (const grid of grids()) {
+          const heading = $('entry-table').querySelector(`[data-grid-heading="${grid.id}"]`)?.getBoundingClientRect();
+          if (heading && heading.top + heading.height / 2 < drag.y) target = { grid, index: 0 };
+          grid.ingredients.filter(entry => entry !== item).forEach((entry, index) => {
+            const box = rowAnchor('ingredient', entry.id)?.getBoundingClientRect();
+            if (box && box.top + box.height / 2 < drag.y) target = { grid, index: index + 1 };
+          });
+        }
+        const current = gridOf(id);
+        if (current === target.grid && current.ingredients.indexOf(item) === target.index) return false;
+        current.ingredients.splice(current.ingredients.indexOf(item), 1);
+        target.grid.ingredients.splice(target.index, 0, item);
+        // Procedures only use items from their own grid, so the item keeps its links only while it stays home.
+        home.procedures.forEach((stage, index) => { stage.inputs = target.grid === home ? homeInputs[index].slice() : homeInputs[index].filter(input => input !== id); });
+        return true;
+      },
+    };
+  }
+  // A whole procedure column, by its header grip.
+  function columnDrag(id) {
+    const grid = gridOf(id);
+    const stage = findProcedure(id);
+    const groupOf = groups => groups.find(group => group.includes(stage));
+    const anchor = group => $('entry-table').querySelector(`[data-column="${group[0].id}"]`);
+    return {
+      axis: 'x', restore: procedureSnapshot(grid), signature: procedureSignature(grid),
+      cells: () => {
+        const group = groupOf(columnStages(grid));
+        return [anchor(group), ...group.flatMap(item => procedureCells(item.id))].filter(Boolean);
+      },
+      source: () => procedureCells(groupOf(columnStages(grid))[0].id)[0],
+      update() {
+        const groups = columnStages(grid);
+        const group = groupOf(groups);
+        const order = groups.filter(other => other !== group);
+        order.splice(order.filter(other => {
+          const box = anchor(other)?.getBoundingClientRect();
+          return box && drag.x > box.left + box.width / 2;
+        }).length, 0, group);
+        if (order.every((other, index) => other === groups[index])) return false;
+        return placeColumns(grid, order);
+      },
+      step(direction) {
+        const groups = columnStages(grid);
+        const index = groups.indexOf(groupOf(groups));
+        const other = index + direction;
+        if (other < 0 || other >= groups.length) return false;
+        [groups[index], groups[other]] = [groups[other], groups[index]];
+        return placeColumns(grid, groups);
+      },
+    };
+  }
+  // One procedure cell: drop it on a column to share it, or on a column's edge to give it a column of its own.
+  function stageDrag(id) {
+    const grid = gridOf(id);
+    const stage = findProcedure(id);
+    const before = columnStages(grid);
+    const home = before.findIndex(group => group.includes(stage));
+    // While the procedure is away, an empty placeholder keeps its old column so the others don't shift under the cursor.
+    const placeholder = { ...M.procedure(), id: 'placeholder-' + M.id(), placeholder: true };
+    const base = before.map(group => group.filter(other => other !== stage)).map(group => group.length ? group : [placeholder]);
+    let layout = { join: home };
+    const arrange = next => {
+      const groups = base.map(group => group.slice());
+      if (next.join === undefined) groups.splice(next.before, 0, [stage]);
+      else if (groups[next.join][0] === placeholder) groups[next.join] = [stage];
+      else groups[next.join].push(stage);
+      return placeColumns(grid, groups);
+    };
+    return {
+      axis: 'x', restore: procedureSnapshot(grid), signature: procedureSignature(grid),
+      cells: () => procedureCells(id),
+      source: () => procedureCells(id)[0],
+      finish: () => setColumns(grid, columnStages(grid).map(group => group.filter(item => !item.placeholder))),
+      update() {
+        let next = null;
+        base.forEach((group, index) => {
+          const box = $('entry-table').querySelector(`[data-column="${group[0].id}"]`)?.getBoundingClientRect();
+          if (next || !box || drag.x < box.left || drag.x > box.right) return;
+          const quarter = box.width / 4;
+          next = drag.x < box.left + quarter ? { before: index } : drag.x > box.right - quarter ? { before: index + 1 } : { join: index };
+        });
+        if (!next || JSON.stringify(next) === JSON.stringify(layout) || !arrange(next)) return false;
+        layout = next;
+        return true;
+      },
+      step(direction) {
+        const groups = columnStages(grid);
+        const index = groups.findIndex(group => group.includes(stage));
+        // Alone in its column, it swaps with the neighbouring column; sharing one, it steps out into a new column beside it.
+        if (groups[index].length === 1) {
+          const other = index + direction;
+          if (other < 0 || other >= groups.length) return false;
+          [groups[index], groups[other]] = [groups[other], groups[index]];
+        } else {
+          groups[index] = groups[index].filter(item => item !== stage);
+          groups.splice(direction < 0 ? index : index + 1, 0, [stage]);
+        }
+        return placeColumns(grid, groups);
+      },
+    };
+  }
+  // A procedure's top or bottom edge: drag to take in or let go of neighbouring rows.
+  function edgeDrag(handle) {
+    const { id, edge } = handle.dataset;
+    const grid = gridOf(id);
+    const stage = findProcedure(id);
+    const original = stage.inputs.slice();
+    const { rows, masks } = M.plan(grid, true);
+    const ids = rows.map(row => row.id);
+    const cell = handle.closest('td');
+    const start = ids.indexOf(cell.closest('tr').dataset.row);
+    const end = start + cell.rowSpan - 1;
+    const index = grid.procedures.indexOf(stage);
+    const groups = M.columns(grid);
+    const columnOf = stageId => groups.findIndex(group => group.some(other => grid.procedures[other].id === stageId));
+    const taken = new Set(groups[columnOf(id)].filter(other => other !== index).flatMap(other => [...masks[other]]));
+    // Rows that come from an earlier procedure's output stay put; remove that output in the component picker instead.
+    const locked = row => masks[index].has(row) && !original.includes(row);
+    const addable = row => !taken.has(row) && (!row.startsWith('output-') || (columnOf(row.slice(7)) >= 0 && columnOf(row.slice(7)) < columnOf(id)));
+    return {
+      axis: 'y', resize: true, restore: procedureSnapshot(grid), signature: procedureSignature(grid),
+      cells: () => procedureCells(id),
+      update() {
+        const passed = ids.filter(row => {
+          const box = $('entry-table').querySelector(`tr[data-row="${row}"]`)?.getBoundingClientRect();
+          return box && box.top + box.height / 2 < drag.y;
+        }).length;
+        let from = start;
+        let to = end;
+        if (edge === 'bottom') to = Math.max(start, passed - 1);
+        else from = Math.min(end, passed);
+        for (let row = end + 1; row <= to; row++) if (!addable(ids[row])) { to = row - 1; break; }
+        for (let row = start - 1; row >= from; row--) if (!addable(ids[row])) { from = row + 1; break; }
+        for (let row = end; row > to; row--) if (locked(ids[row])) { to = row; break; }
+        for (let row = start; row < from; row++) if (locked(ids[row])) { from = row; break; }
+        const inputs = new Set(original);
+        ids.forEach((row, position) => {
+          const wasIn = position >= start && position <= end;
+          const isIn = position >= from && position <= to;
+          if (wasIn && !isIn) inputs.delete(row);
+          if (isIn && !wasIn) inputs.add(row.startsWith('output-') ? row.slice(7) : row);
+        });
+        const next = [...inputs];
+        if (next.join() === stage.inputs.join()) return false;
+        const previous = stage.inputs;
+        stage.inputs = next;
+        if (M.validLayout(grid)) return true;
+        stage.inputs = previous;
+        return false;
+      },
+    };
+  }
+  function dragConfig(kind, id) {
+    return kind === 'column' ? columnDrag(id) : kind === 'stage' ? stageDrag(id) : kind === 'ingredient' ? ingredientDrag(id) : listDrag(kind, id);
+  }
+  function markDrag() {
+    drag.cells().forEach(cell => cell?.classList.add(drag.resize ? 'edge-active' : 'drag-source'));
+  }
+  function placeGhost() {
+    if (!drag.ghost) return;
+    const { width, height } = drag.ghost.getBoundingClientRect();
+    const left = Math.max(4, Math.min(drag.x - drag.offsetX, innerWidth - width - 4));
+    const top = Math.max(4, Math.min(drag.y - drag.offsetY, innerHeight - height - 4));
+    drag.ghost.style.transform = `translate(${left}px, ${top}px)`;
+  }
+  function dragUpdate() {
+    placeGhost();
+    if (!drag.update()) return;
+    renderEditor();
+    markDrag();
+  }
+  function dragAutoScroll() {
+    const edge = 48;
+    const box = $('entry-table').getBoundingClientRect();
+    const dy = drag.y < edge ? -12 : drag.y > innerHeight - edge ? 12 : 0;
+    const dx = drag.axis !== 'x' ? 0 : drag.x < box.left + edge ? -12 : drag.x > box.right - edge ? 12 : 0;
+    if (dy) scrollBy(0, dy);
+    if (dx) $('entry-table').scrollLeft += dx;
+    if (dx || dy) dragUpdate();
+  }
+  function dragEnd(cancel) {
+    clearInterval(drag.timer);
+    drag.ghost?.remove();
+    document.body.classList.remove('dragging', 'resizing');
+    if (cancel) drag.restore();
+    else drag.finish?.();
+    const moved = drag.signature() !== drag.before;
+    drag = null;
+    renderEditor();
+    if (moved) changed();
+  }
+  function startDrag(config, event) {
+    drag = { ...config, x: event.clientX, y: event.clientY, before: config.signature() };
+    renderEditor();
+    if (!drag.resize) {
+      const source = drag.source();
+      const box = source.getBoundingClientRect();
+      const width = Math.min(box.width, 560);
+      const table = document.createElement('table');
+      table.className = 'entry-grid';
+      let clone = source.cloneNode(true);
+      if (!/^T[DH]$/.test(clone.tagName)) {
+        const cell = document.createElement('td');
+        cell.append(clone);
+        clone = cell;
+      }
+      clone.removeAttribute('rowspan');
+      clone.removeAttribute('colspan');
+      clone.querySelectorAll('.edge-handle').forEach(element => element.remove());
+      [clone, ...clone.querySelectorAll('*')].forEach(element => [...element.attributes].filter(attribute => attribute.name !== 'data-kind' && attribute.name !== 'data-field' && (attribute.name === 'id' || attribute.name.startsWith('data-'))).forEach(attribute => element.removeAttribute(attribute.name)));
+      table.insertRow().append(clone);
+      drag.ghost = document.createElement('div');
+      drag.ghost.className = 'drag-ghost';
+      drag.ghost.setAttribute('aria-hidden', 'true');
+      drag.ghost.style.width = width + 'px';
+      drag.ghost.append(table);
+      $('editor').append(drag.ghost);
+      drag.offsetX = Math.max(12, Math.min(event.clientX - box.left, width - 12));
+      drag.offsetY = Math.max(12, Math.min(event.clientY - box.top, Math.min(box.height, 320) - 12));
+    }
+    document.body.classList.add(drag.resize ? 'resizing' : 'dragging');
+    markDrag();
+    placeGhost();
+    drag.timer = setInterval(dragAutoScroll, 16);
+  }
+  $('editor').addEventListener('pointerdown', event => {
+    if (event.button !== 0 || drag) return;
+    const edge = event.target.closest('.edge-handle');
+    const handle = event.target.closest('.drag-handle');
+    if (!edge && !handle) return;
+    event.preventDefault();
+    startDrag(edge ? edgeDrag(edge) : dragConfig(handle.dataset.kind, handle.dataset.id), event);
+  });
+  $('editor').addEventListener('keydown', event => {
+    const handle = event.target.closest?.('.drag-handle');
+    if (!handle || drag) return;
+    const { kind, id } = handle.dataset;
+    const horizontal = kind === 'column' || kind === 'stage';
+    const direction = { ArrowUp: -1, ArrowDown: 1, ArrowLeft: -1, ArrowRight: 1 }[event.key];
+    if (!direction || horizontal !== (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) return;
+    event.preventDefault();
+    if (!dragConfig(kind, id).step(direction)) return;
+    renderEditor();
+    changed();
+    $('editor').querySelector(`.drag-handle[data-kind="${kind}"][data-id="${id}"]`)?.focus();
+  });
+  window.addEventListener('pointermove', event => {
+    if (!drag) return;
+    drag.x = event.clientX;
+    drag.y = event.clientY;
+    dragUpdate();
+  });
+  window.addEventListener('pointerup', () => { if (drag) dragEnd(false); });
+  window.addEventListener('pointercancel', () => { if (drag) dragEnd(true); });
+  window.addEventListener('keydown', event => { if (drag && event.key === 'Escape') dragEnd(true); });
   $('cancel-components').addEventListener('click', () => $('components-dialog').close());
   $('components-dialog').addEventListener('close', () => focusProcedure(selectedProcedure.id));
   $('apply-components').addEventListener('click', () => {
+    const previous = selectedProcedure.inputs;
     selectedProcedure.inputs = Array.from($('component-options').querySelectorAll('input:checked'), item => item.value);
+    if (!M.validLayout(gridOf(selectedProcedure.id))) {
+      selectedProcedure.inputs = previous;
+      notify('Those items overlap another procedure in this column.');
+    }
     $('components-dialog').close();
     changed();
     renderEditor();
@@ -1180,6 +2055,36 @@ window.initRecipeGenerator = function () {
     save();
     $('recipe-name').focus();
   });
+  $('monochrome-toggle').addEventListener('click', () => {
+    recipe.monochrome = !recipe.monochrome;
+    changed();
+  });
+  $('delete-recipe').addEventListener('click', () => {
+    if (!confirm(`Delete “${recipe.name || 'Untitled recipe'}”? This can't be undone.`)) return;
+    stopCooking();
+    const index = library.recipes.indexOf(recipe);
+    library.recipes.splice(index, 1);
+    if (!library.recipes.length) library.recipes.push(M.blankRecipe());
+    recipe = library.recipes[Math.min(index, library.recipes.length - 1)];
+    servings = Number(recipe.baseServings) || 4;
+    crossedOff.clear();
+    renderEditor();
+    renderCard();
+    save();
+    notify('Recipe deleted.');
+  });
+  $('duplicate-recipe').addEventListener('click', () => {
+    save();
+    stopCooking();
+    const copy = { ...structuredClone(recipe), id: M.id(), name: (recipe.name || 'Untitled recipe') + ' (copy)' };
+    library.recipes.splice(library.recipes.indexOf(recipe) + 1, 0, copy);
+    recipe = copy;
+    crossedOff.clear();
+    renderEditor();
+    renderCard();
+    save();
+    notify('Duplicated as “' + recipe.name + '”.');
+  });
   $('saved-recipes').addEventListener('change', event => {
     const selectedId = event.target.value;
     save();
@@ -1196,7 +2101,6 @@ window.initRecipeGenerator = function () {
     if (event.target.checkValidity() && Number(event.target.value) > 0) { servings = Number(event.target.value); renderCard(); }
     else event.target.reportValidity();
   });
-  document.querySelectorAll('[data-units]').forEach(button => button.addEventListener('click', () => { units = button.dataset.units; renderCard(); }));
   $('start-cooking').addEventListener('click', () => goTo(0));
   $('previous-stage').addEventListener('click', () => goTo(step - 1));
   $('next-stage').addEventListener('click', () => goTo(step + 1));
@@ -1220,14 +2124,178 @@ window.initRecipeGenerator = function () {
   $('export-html').addEventListener('click', exportHTML);
   $('open-export').addEventListener('click', () => $('export-dialog').showModal());
   $('cancel-export').addEventListener('click', () => $('export-dialog').close());
+  function copyImage() {
+    $('export-dialog').close();
+    if (!navigator.clipboard?.write || !window.ClipboardItem) {
+      $('export-status').textContent = "This browser can't copy images. Use HQ PNG to download instead.";
+      return;
+    }
+    // The clipboard write must start inside the click, so it receives the image while it's still rendering.
+    const image = exportImage('png', true).then(blob => blob || Promise.reject(new Error('No image')));
+    navigator.clipboard.write([new ClipboardItem({ 'image/png': image })])
+      .then(() => { $('export-status').textContent = $('export-status').textContent.replace('Copying image', 'Image copied').replace('…', ' · paste it anywhere'); })
+      .catch(() => { if (!/too large|could not/.test($('export-status').textContent)) $('export-status').textContent = "The image couldn't be copied. Use HQ PNG to download instead."; });
+  }
+  $('copy-png').addEventListener('click', copyImage);
   $('export-png').addEventListener('click', () => { $('export-dialog').close(); exportImage('png'); });
   $('export-jpeg').addEventListener('click', () => { $('export-dialog').close(); exportImage('jpeg'); });
   $('export-pdf').addEventListener('click', () => { $('export-dialog').close(); save(); stopCooking(); setView(false); window.print(); });
+  $('undo').addEventListener('click', () => travel('past', 'future'));
+  $('redo').addEventListener('click', () => travel('future', 'past'));
+  window.addEventListener('keydown', event => {
+    const key = event.key.toLowerCase();
+    if (!(event.metaKey || event.ctrlKey) || event.altKey || (key !== 'z' && key !== 'y') || drag) return;
+    // Inside a text field the browser's own undo handles the text being typed.
+    if (event.target.matches?.('input:not([type="checkbox"]), textarea, select')) return;
+    event.preventDefault();
+    if (key === 'y' || event.shiftKey) travel('future', 'past');
+    else travel('past', 'future');
+  });
+  // Saving to GitHub: writes the library to the repository set by main.js (window.recipeGitHub), which redeploys the site.
+  // Exported HTML files have no repository, so the button stays hidden there.
+  const repo = window.recipeGitHub;
+  const tokenKey = 'recipe-generator.github-token';
+  const readToken = () => { try { return localStorage.getItem(tokenKey) || ''; } catch { return ''; } };
+  const jakartaTime = time => new Date(time).toLocaleString('en-GB', { timeZone: 'Asia/Jakarta', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false });
+  const toBase64 = text => { let binary = ''; new TextEncoder().encode(text).forEach(byte => { binary += String.fromCharCode(byte); }); return btoa(binary); };
+  const fromBase64 = text => new TextDecoder().decode(Uint8Array.from(atob(text.replace(/\s/g, '')), character => character.charCodeAt(0)));
+  const recipeName = item => item.name || 'Untitled recipe';
+  // An untouched new recipe is not worth saving.
+  const isEmpty = item => !filled(item.name, item.description) && !item.ingredients?.some(entry => filled(entry.name)) && !item.procedures?.some(entry => filled(entry.title, entry.instructions));
+  async function github(token, path, options = {}) {
+    let response;
+    try {
+      response = await fetch(`https://api.github.com/repos/${repo.owner}/${repo.repo}${path}`, { ...options, cache: 'no-store', headers: { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2022-11-28' } });
+    } catch {
+      throw new Error("Couldn't reach GitHub. Check your internet connection and try again.");
+    }
+    if (response.ok || (response.status === 404 && !options.method)) return response;
+    const detail = await response.json().catch(() => ({}));
+    if (response.status === 401) throw new Error("GitHub didn't accept the token. It may be mistyped, expired or deleted.");
+    if (response.status === 403 || response.status === 404) throw new Error(`The token can't write to ${repo.owner}/${repo.repo}. Check that it includes this repository and that Contents is set to Read and write.`);
+    if (response.status === 409 || response.status === 422) throw new Error('The recipes on GitHub changed while saving. Try saving again.');
+    throw new Error(`GitHub error ${response.status}${detail.message ? ': ' + detail.message : ''}.`);
+  }
+  async function readRemote(token) {
+    const response = await github(token, `/contents/${repo.path}?ref=${encodeURIComponent(repo.branch)}`);
+    if (response.status === 404) return { sha: null, data: { recipes: [] } };
+    const file = await response.json();
+    return { sha: file.sha, data: JSON.parse(fromBase64(file.content)) };
+  }
+  function markSynced(sha, recipes) {
+    library.github = { ...library.github, sha, ...(recipes ? { savedAt: Date.now() } : {}) };
+    if (recipes) markImported(recipes.map(versionToken));
+    save();
+  }
+  // Brings in recipes that were saved to GitHub from another browser or device.
+  async function pullFromGitHub() {
+    const remote = await readRemote(readToken());
+    const imported = importRecipes(remote.data.recipes);
+    if (imported.length) {
+      imported.forEach(item => histories.delete(item.id));
+      recipe = library.recipes.find(item => item.id === recipe.id) || recipe;
+      servings = Number(recipe.baseServings) || 4;
+      renderEditor();
+      renderCard();
+      notify('Loaded the latest from GitHub: ' + imported.map(recipeName).join(', ') + '.');
+    }
+    if (remote.sha) markSynced(remote.sha);
+    return imported;
+  }
+  function githubStatus(text) { $('github-status').textContent = text; }
+  function githubBusy(busy) {
+    ['github-connect-button', 'github-save', 'github-disconnect', 'github-token'].forEach(id => { $(id).disabled = busy; });
+  }
+  function renderGitHubDialog() {
+    const connected = Boolean(readToken());
+    $('github-connect').hidden = connected;
+    $('github-connected').hidden = !connected;
+    $('github-connect-button').hidden = connected;
+    $('github-save').hidden = !connected;
+    $('github-disconnect').hidden = !connected;
+    $('github-last').textContent = library.github?.savedAt ? 'Last saved from this browser on ' + jakartaTime(library.github.savedAt) + '.' : 'Nothing saved from this browser yet.';
+    $('github-token').value = '';
+  }
+  async function connectGitHub() {
+    const token = $('github-token').value.trim();
+    if (!token) { githubStatus('Paste a token first.'); $('github-token').focus(); return; }
+    githubBusy(true);
+    githubStatus('Checking the token…');
+    try {
+      await readRemote(token);
+      try { localStorage.setItem(tokenKey, token); } catch { throw new Error("This browser can't store the token. Private windows often block it."); }
+      renderGitHubDialog();
+      githubStatus('Connected. Loading the latest recipes…');
+      const imported = await pullFromGitHub();
+      githubStatus(imported.length ? 'Connected, and loaded the latest recipes from GitHub.' : 'Connected.');
+      $('github-save').focus();
+    } catch (error) {
+      githubStatus(error.message);
+    } finally {
+      githubBusy(false);
+    }
+  }
+  async function saveToGitHub() {
+    save();
+    const token = readToken();
+    githubBusy(true);
+    githubStatus('Checking GitHub…');
+    try {
+      const remote = await readRemote(token);
+      const recipes = library.recipes.filter(item => !isEmpty(item));
+      if (!recipes.length) { githubStatus('There are no recipes with content to save.'); return; }
+      const ids = new Set(recipes.map(item => item.id));
+      const before = new Map((remote.data.recipes || []).map(item => [item.id, item]));
+      const removed = [...before.values()].filter(item => !ids.has(item.id));
+      const added = recipes.filter(item => !before.has(item.id));
+      const updated = recipes.filter(item => before.has(item.id) && JSON.stringify(item) !== JSON.stringify(before.get(item.id)));
+      if (!added.length && !updated.length && !removed.length && remote.sha) {
+        markSynced(remote.sha, recipes);
+        githubStatus('GitHub already has these recipes. Nothing to save.');
+        return;
+      }
+      const warnings = [];
+      if (library.github?.sha && remote.sha && remote.sha !== library.github.sha) warnings.push('The recipes on GitHub were changed from another browser after this one last loaded them. Saving replaces that version with the recipes in this browser.');
+      if (removed.length) warnings.push('These recipes are on GitHub but not in this browser, so saving removes them from GitHub and the website: ' + removed.map(recipeName).join(', ') + '.');
+      if (warnings.length && !confirm(warnings.join('\n\n') + '\n\nSave anyway?')) { githubStatus('Not saved.'); return; }
+      githubStatus('Saving…');
+      const summary = [['Add', added], ['Update', updated], ['Remove', removed]].filter(([, list]) => list.length).map(([verb, list]) => verb + ' ' + list.map(recipeName).join(', ')).join('; ');
+      const data = { selectedId: ids.has(remote.data.selectedId) ? remote.data.selectedId : recipe.id, recipes };
+      const response = await github(token, `/contents/${repo.path}`, { method: 'PUT', body: JSON.stringify({ message: summary || 'Update recipes', content: toBase64(JSON.stringify(data, null, 2) + '\n'), branch: repo.branch, ...(remote.sha ? { sha: remote.sha } : {}) }) });
+      const result = await response.json();
+      markSynced(result.content.sha, recipes);
+      renderGitHubDialog();
+      githubStatus('Saved. The website updates in about a minute.');
+      notify('Saved to GitHub: ' + summary + '.');
+    } catch (error) {
+      githubStatus(error.message);
+    } finally {
+      githubBusy(false);
+    }
+  }
+  $('open-github').hidden = !repo;
+  if (repo) {
+    document.querySelectorAll('.github-repo').forEach(element => { element.textContent = `${repo.owner}/${repo.repo}`; });
+    document.querySelectorAll('.github-repo-name').forEach(element => { element.textContent = repo.repo; });
+    document.querySelectorAll('.github-file').forEach(element => { element.textContent = repo.path; });
+  }
+  $('open-github').addEventListener('click', () => { renderGitHubDialog(); githubStatus(''); $('github-dialog').showModal(); });
+  $('cancel-github').addEventListener('click', () => $('github-dialog').close());
+  $('github-connect-button').addEventListener('click', connectGitHub);
+  $('github-token').addEventListener('keydown', event => { if (event.key === 'Enter') connectGitHub(); });
+  $('github-save').addEventListener('click', saveToGitHub);
+  $('github-disconnect').addEventListener('click', () => {
+    try { localStorage.removeItem(tokenKey); } catch { /* Nothing stored. */ }
+    renderGitHubDialog();
+    githubStatus('Disconnected. The token is removed from this browser. You can also delete it on GitHub.');
+  });
   window.addEventListener('beforeunload', save);
   renderLibrary();
   renderEditor();
   renderCard();
-  setView(true);
+  // Cards made outside the app (the recipe-card skill) open on the finished card.
+  setView(embedded?.dataset.view !== 'card');
   save();
+  if (repo && readToken() && !snapshot) pullFromGitHub().catch(error => notify(error.message));
 };
 </script><script id="generator-start">window.recipeCaptureSource=document.getElementById('capture-runtime').textContent;window.recipeGeneratorSource=document.getElementById('generator-runtime').textContent;window.initRecipeGenerator();</script></body></html>
