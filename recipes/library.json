@@ -1606,6 +1606,3700 @@
           "body": "Could be added: Lemongrass, Galangal, Candlenut, Nutmeg, Cumin, Daun Salam, Turmeric"
         }
       ]
+    },
+    {
+      "id": "8b6ec215-356c-437e-a581-790d73dcc941",
+      "name": "Proposal Bumbu Bacem Induk",
+      "description": "Master bacem for every sate. Sweet-gurih Klaten profile, kept alive like a Chinese lu shui master stock: reused, topped up, boiled daily.",
+      "eyebrow": "",
+      "baseServings": "2",
+      "yieldUnit": "L",
+      "active": "30 min",
+      "total": "1 hr",
+      "vessel": "Heavy pot 5 L, blender",
+      "prep": [
+        {
+          "id": "339fc15c-f682-4986-a601-825b634e6d62",
+          "title": "Peel",
+          "text": "shallots and garlic. Shave gula jawa. Dissolve tamarind in 100 ml of the water, strain out seeds.",
+          "tools": ""
+        }
+      ],
+      "finish": [
+        {
+          "id": "ef16b2c7-b937-4da3-84da-03555e34042d",
+          "title": "Strain",
+          "text": "out galangal and salam if storing more than 1 day. Leave the paste in; it is part of the coating.",
+          "tools": ""
+        },
+        {
+          "id": "29bb47b3-0309-4551-bb55-e52764028563",
+          "title": "QC",
+          "text": "Record Brix and salt % of the first batch as your house standard. Match every later batch and top-up to it.",
+          "tools": "Refractometer"
+        },
+        {
+          "id": "15cef229-8511-42ef-9fc1-4891e71d47cc",
+          "title": "Proposal Tare Bacem (glaze for grilling)",
+          "ingredients": [
+            {
+              "id": "0913feee-824a-449d-a3b8-986e38217b4c",
+              "name": "Used master bacem",
+              "description": "Best after 2-3 uses: richer from the meat juices",
+              "quantity": "300",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "75772bd7-f115-49c3-9d6c-e5ffff988bc7",
+              "name": "Kecap manis",
+              "description": "",
+              "quantity": "50",
+              "unit": "ml",
+              "metricQuantity": "",
+              "metricUnit": ""
+            },
+            {
+              "id": "5cb30710-867c-4b5f-9cc3-d78147f0bb59",
+              "name": "Margarine",
+              "description": "Classic Javanese sate oles. Or chicken fat",
+              "quantity": "30",
+              "unit": "g",
+              "metricQuantity": "",
+              "metricUnit": ""
+            }
+          ],
+          "procedures": [
+            {
+              "id": "8a567a6d-a50c-4a10-960f-3b8543f2ed79",
+              "title": "Reduce",
+              "instructions": "Simmer until reduced by half and it coats a spoon, 10-12 min.",
+              "inputs": [
+                "0913feee-824a-449d-a3b8-986e38217b4c",
+                "75772bd7-f115-49c3-9d6c-e5ffff988bc7"
+              ],
+              "minutes": "12",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "Yakitori tare method",
+              "parallel": false
+            },
+            {
+              "id": "150f791c-d8ee-44bb-b834-a66b1c3d6b90",
+              "title": "Mount",
+              "instructions": "Off heat, whisk in margarine. Keep warm by the grill; dip or brush in the last minute of grilling only.",
+              "inputs": [
+                "8a567a6d-a50c-4a10-960f-3b8543f2ed79",
+                "5cb30710-867c-4b5f-9cc3-d78147f0bb59"
+              ],
+              "minutes": "",
+              "outputName": "",
+              "outputDescription": "",
+              "outputQuantity": "",
+              "outputUnit": "",
+              "tools": "",
+              "parallel": false
+            }
+          ]
+        },
+        {
+          "id": "cbf4d3ad-b09b-493e-b078-cae901f3d9c5",
+          "text": "Start of each day?",
+          "options": [
+            {
+              "id": "9b33d5c8-c269-49e4-9f68-fba2391e71df",
+              "answer": "Yes",
+              "label": "Revive",
+              "text": "Bring to a full boil 5 min, skim. Top up with fresh half batch when the level drops by a third.",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "d3f01687-5e21-4122-bd92-feebf0022aff",
+              "answer": "Sour or fizzy?",
+              "label": "Discard",
+              "text": "Throw it out and start a fresh batch. Never top up a spoiled stock.",
+              "tools": "",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "507bc924-c354-47a8-ae6c-f4a8a519167f",
+          "title": "Storage",
+          "text": "Cool fast, chill at 4°C or below. Full refresh every 7 days.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "22852ea0-9513-4986-b338-e4eac566c1fe",
+          "name": "Coriander seeds",
+          "description": "Ketumbar",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "2",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "7b5b0b3f-ba0b-4ea2-b2e9-bf1b509e436d",
+          "name": "Shallots",
+          "description": "Bawang merah",
+          "quantity": "150",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "dcec0e42-c4d1-493f-8fce-01422cca235f",
+          "name": "Garlic",
+          "description": "Bawang putih",
+          "quantity": "100",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "428a9682-4503-4565-bfb3-0f84440bb35d",
+          "name": "Cooking oil",
+          "description": "Or rendered chicken fat from Proposal Sate Kulit Ayam",
+          "quantity": "40",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "4686d0c4-d858-4aa3-9477-57e0f7e610b3",
+          "name": "Galangal",
+          "description": "Lengkuas, sliced and smashed",
+          "quantity": "60",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "5ca8864e-c9f6-4972-97b5-59d94b51333f",
+          "name": "Daun salam",
+          "description": "",
+          "quantity": "10",
+          "unit": "leaves",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "bf9d4fb9-e6d7-4674-a3ce-88ff59414959",
+          "name": "Gula jawa",
+          "description": "Gula kelapa/aren, shaved. Main sweetness",
+          "quantity": "300",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "4a0f041b-be8c-4f9a-82e1-73aea533314f",
+          "name": "Kecap manis",
+          "description": "Thick, local brand is fine",
+          "quantity": "200",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "2b1975da-2994-47e1-b303-df8297be5108",
+          "name": "Tamarind pulp",
+          "description": "Asam jawa. Balances the sugar",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "85527374-d4ea-4945-bae9-07237f236e45",
+          "name": "Salt",
+          "description": "",
+          "quantity": "25",
+          "unit": "g",
+          "metricQuantity": "1 1/4",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "76a6f428-3203-4ff8-a103-05fa4041ae3c",
+          "name": "Coconut water",
+          "description": "Air kelapa tua, often free or cheap from santan sellers",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1d2b2a27-1ecf-4536-920d-1cdf2ed02d8f",
+          "name": "Water",
+          "description": "",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "7b28921d-e95c-46ce-b36d-9d004d79b1da",
+          "name": "Mushroom bouillon",
+          "description": "Totole or MSG 5 g. Optional",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "ac3a65f4-3d59-4443-81fb-25bdddd31eed",
+          "title": "Toast",
+          "instructions": "Dry pan, low-medium heat until fragrant and a shade darker, 2-3 min.",
+          "inputs": [
+            "22852ea0-9513-4986-b338-e4eac566c1fe"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "79de7ad8-7783-45e0-be8d-0bd7cc2401a7",
+          "title": "Blend",
+          "instructions": "Blend to a smooth paste with a splash of the oil.",
+          "inputs": [
+            "ac3a65f4-3d59-4443-81fb-25bdddd31eed",
+            "7b5b0b3f-ba0b-4ea2-b2e9-bf1b509e436d",
+            "dcec0e42-c4d1-493f-8fce-01422cca235f",
+            "428a9682-4503-4565-bfb3-0f84440bb35d"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "0018a09d-ceaa-4ff8-83e4-fc29292f73fa",
+          "title": "Fry paste",
+          "instructions": "Fry paste in the oil, medium heat, stirring, until it stops smelling raw and turns light brown, 6-8 min.",
+          "inputs": [
+            "79de7ad8-7783-45e0-be8d-0bd7cc2401a7"
+          ],
+          "minutes": "8",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Browning the paste first builds the deep, roasted note",
+          "parallel": false
+        },
+        {
+          "id": "1172949b-8742-4dfb-b647-04045e59e0bc",
+          "title": "Bloom",
+          "instructions": "Add galangal and salam, stir 1 min.",
+          "inputs": [
+            "0018a09d-ceaa-4ff8-83e4-fc29292f73fa",
+            "4686d0c4-d858-4aa3-9477-57e0f7e610b3",
+            "5ca8864e-c9f6-4972-97b5-59d94b51333f"
+          ],
+          "minutes": "1",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "213d14d4-ff7c-4d6c-8e0d-d039da5d54b6",
+          "title": "Simmer",
+          "instructions": "Add the rest. Bring to a boil, then simmer gently 20 min, uncovered.\n\nTaste: clearly sweet first, then salty-gurih, slight sour finish.",
+          "inputs": [
+            "1172949b-8742-4dfb-b647-04045e59e0bc",
+            "bf9d4fb9-e6d7-4674-a3ce-88ff59414959",
+            "4a0f041b-be8c-4f9a-82e1-73aea533314f",
+            "2b1975da-2994-47e1-b303-df8297be5108",
+            "85527374-d4ea-4945-bae9-07237f236e45",
+            "76a6f428-3203-4ff8-a103-05fa4041ae3c",
+            "1d2b2a27-1ecf-4536-920d-1cdf2ed02d8f",
+            "7b28921d-e95c-46ce-b36d-9d004d79b1da"
+          ],
+          "minutes": "20",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "a1d4c04e-bed1-4676-82c9-12d9977f197b",
+          "title": "Why one master bacem",
+          "body": "One pot seasons every sate, so taste is consistent and cost per skewer drops. Each batch of meat cooked in it leaves gelatin and savoury juices behind, like a Chinese master stock (lu shui): the bacem gets better with use."
+        },
+        {
+          "id": "72565fd1-55ba-4c19-9973-facf80b31718",
+          "title": "Klaten taste",
+          "body": "Klaten and Solo eat sweet-forward: gula jawa and kecap first, gurih second, heat on the side. Serve sambal kecap or rawit separately rather than making the bacem spicy."
+        },
+        {
+          "id": "623a66c1-e8a7-44ba-9953-d60fe6fd82d8",
+          "title": "Coconut water",
+          "body": "Traditional bacem liquid. Its sugars help the dark, glossy colour; replace with water plus 50 g extra gula jawa if unavailable."
+        },
+        {
+          "id": "6d3f2eea-56c7-411f-84a4-30d90f7ed774",
+          "title": "Estimated cost",
+          "body": "About Rp 30.000 per 2 L batch (assumed Klaten market prices, verify locally). Because it is reused, each sate batch only absorbs a small share."
+        }
+      ]
+    },
+    {
+      "id": "0c93d9d5-8be9-438c-8de7-ef3538c6d4b1",
+      "name": "Proposal Sate Ati Ampela",
+      "description": "Tender gizzard, creamy liver. Each part cooked for its own time, then bacem-soaked overnight and grilled with tare.",
+      "eyebrow": "",
+      "baseServings": "20",
+      "yieldUnit": "skewers",
+      "active": "50 min",
+      "total": "1 hr + overnight",
+      "vessel": "Pot, charcoal grill",
+      "prep": [
+        {
+          "id": "dc1e3a73-286b-44a6-b9d1-bdeed4eacb4e",
+          "title": "Soak",
+          "text": "bamboo skewers in water 30 min so they don't burn.",
+          "tools": ""
+        }
+      ],
+      "finish": [
+        {
+          "id": "78921892-bdaf-4240-8e2c-fffe5ca19721",
+          "text": "Selling today?",
+          "options": [
+            {
+              "id": "58c0035c-55eb-4813-a2a7-80b4fa7d7001",
+              "answer": "Yes",
+              "label": "Grill to order",
+              "text": "Keep skewered sate chilled; grill per order or in small batches every 30 min.",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "03b448a8-84df-4534-84b8-9760e6c6f217",
+              "answer": "No",
+              "label": "Store",
+              "text": "Keep unskewered in the bacem, 4°C, up to 3 days.",
+              "tools": "",
+              "items": []
+            }
+          ]
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "6fdd07dd-2fba-4736-ab26-5a450401b992",
+          "name": "Chicken liver",
+          "description": "Ati ayam. Cut into 20 pieces, keep lobes whole if small",
+          "quantity": "400",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "a2ba94ce-a405-4a48-9199-0713aea25efe",
+          "name": "Salt",
+          "description": "",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "1/2",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "1ba3886b-e772-4987-b1ff-836969c676c3",
+          "name": "Cold water",
+          "description": "",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1bad789b-1f37-4820-9591-0c30a62fced0",
+          "name": "Chicken gizzard",
+          "description": "Ampela ayam",
+          "quantity": "500",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "156588d3-6bad-4eaa-acc2-9539e8219da4",
+          "name": "Ginger",
+          "description": "Jahe, smashed",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1b2f3d36-d3ea-4676-b367-d85b65e2683d",
+          "name": "Water",
+          "description": "For blanching",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "400725e6-e225-4a6b-8617-2c3378ce67a6",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "95a05d5f-8d07-4b32-94f5-e3298a570bbf",
+          "name": "Bamboo skewers",
+          "description": "",
+          "quantity": "20",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "2d64b89d-5401-449d-9557-b7d5db86c692",
+          "name": "Proposal Tare Bacem",
+          "description": "From the master bacem card",
+          "quantity": "100",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "13ebea3e-11c4-4536-a7ae-5f0311026b56",
+          "title": "Soak",
+          "instructions": "Soak livers in cold brine 20 min to draw out blood, which turns bitter when cooked. Drain.",
+          "inputs": [
+            "6fdd07dd-2fba-4736-ab26-5a450401b992",
+            "a2ba94ce-a405-4a48-9199-0713aea25efe",
+            "1ba3886b-e772-4987-b1ff-836969c676c3"
+          ],
+          "minutes": "20",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "80f38d5f-8f98-40f9-bee6-89b39b10c968",
+          "title": "Trim & Score",
+          "instructions": "Peel off the yellow lining and thick silverskin. Halve; score each piece in a cross-hatch, 2 mm deep.",
+          "inputs": [
+            "1bad789b-1f37-4820-9591-0c30a62fced0"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Scoring = yakitori sunagimo cut: faster cooking, more bacem grip",
+          "parallel": true
+        },
+        {
+          "id": "f056e57f-ab21-412a-b389-9a4dcc00b909",
+          "title": "Blanch",
+          "instructions": "Start in boiling water with ginger, 3 min. Drain, discard water, rinse.",
+          "inputs": [
+            "80f38d5f-8f98-40f9-bee6-89b39b10c968",
+            "156588d3-6bad-4eaa-acc2-9539e8219da4",
+            "1b2f3d36-d3ea-4676-b367-d85b65e2683d"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Chinese chao shui: removes scum and offal smell",
+          "parallel": false
+        },
+        {
+          "id": "7b0175ae-a582-4bc5-bab4-fbcffb7e2d4e",
+          "title": "Simmer gizzards",
+          "instructions": "Gizzards into bacem. Gentle simmer, lid ajar, until a skewer slides in easily, 40-45 min.",
+          "inputs": [
+            "f056e57f-ab21-412a-b389-9a4dcc00b909",
+            "400725e6-e225-4a6b-8617-2c3378ce67a6"
+          ],
+          "minutes": "45",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Pressure cooker: 15 min",
+          "parallel": false
+        },
+        {
+          "id": "79b77b2e-2e82-4a13-88f4-2db6176fda03",
+          "title": "Steep livers",
+          "instructions": "Heat off. Add livers to the hot bacem, cover, steep 10 min. Inside should be just set, pale pink-brown, not grey.",
+          "inputs": [
+            "7b0175ae-a582-4bc5-bab4-fbcffb7e2d4e",
+            "13ebea3e-11c4-4536-a7ae-5f0311026b56"
+          ],
+          "minutes": "10",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Never boil liver: it turns grainy and bitter",
+          "parallel": false
+        },
+        {
+          "id": "86859d28-1965-4c90-acde-7e65986f37b9",
+          "title": "Rest",
+          "instructions": "Cool in the bacem, chill overnight so the colour and flavour go all the way through.",
+          "inputs": [
+            "79b77b2e-2e82-4a13-88f4-2db6176fda03"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "9366382a-01ca-4dae-8d22-0b96073f4709",
+          "title": "Skewer",
+          "instructions": "Per skewer: ampela, ati, ampela.",
+          "inputs": [
+            "86859d28-1965-4c90-acde-7e65986f37b9",
+            "95a05d5f-8d07-4b32-94f5-e3298a570bbf"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "ead632f3-9ba6-4630-bf74-5b7037f0e44e",
+          "title": "Grill",
+          "instructions": "Medium-hot charcoal, 1 min per side. Dip in tare, grill 30 secs more per side until glossy and lightly charred.",
+          "inputs": [
+            "9366382a-01ca-4dae-8d22-0b96073f4709",
+            "2d64b89d-5401-449d-9557-b7d5db86c692"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "643894d7-6325-4421-8c8e-9f3932a181ff",
+          "title": "Two parts, two timings",
+          "body": "Gizzard is tough muscle and needs 40+ min; liver is done in minutes. Cooking them together is why most sate ati ampela has hard gizzard or chalky liver."
+        },
+        {
+          "id": "fd11516a-f356-4cd4-91fb-b3f924d68840",
+          "title": "Estimated cost",
+          "body": "About Rp 1.900 per skewer (ati ampela ~Rp 30.000/kg assumed). Typical price at soto stalls Rp 4.000-5.000."
+        }
+      ]
+    },
+    {
+      "id": "b49fc7ac-2aa2-4810-8b3d-c7de9ed3820c",
+      "name": "Proposal Sate Telur Uritan",
+      "description": "Unlaid chicken eggs poached gently so they stay whole and creamy, then soaked like Japanese ajitama in master bacem.",
+      "eyebrow": "",
+      "baseServings": "20",
+      "yieldUnit": "skewers",
+      "active": "30 min",
+      "total": "45 min + 4 hr soak",
+      "vessel": "Wide pan, ice bath, grill",
+      "prep": [
+        {
+          "id": "a6a197cd-e053-4201-87a0-8fc01ec1a1e1",
+          "title": "Sort",
+          "text": "uritan by size. Pull off the stringy oviduct strands; leave any small attached membrane.",
+          "tools": ""
+        }
+      ],
+      "finish": [
+        {
+          "id": "b10b4324-899f-4409-856f-6e76377b68d1",
+          "title": "Storage",
+          "text": "In the bacem, 4°C, up to 2 days. Skewer the day of sale.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "40b434aa-2f4a-4369-9ed8-3fb2b54f0151",
+          "name": "Uritan",
+          "description": "Telur muda ayam. About 4-5 per skewer, depending on size",
+          "quantity": "500",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "e72a68b9-f1e4-452b-9498-b76d489f415a",
+          "name": "Water",
+          "description": "",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "c2f4f09a-6492-45b9-9b38-d4d9b47599c9",
+          "name": "Salt",
+          "description": "",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "3/4",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "a9647bf1-04a6-4be9-b751-23b96cc90548",
+          "name": "Ice water",
+          "description": "Bowl of water and ice",
+          "quantity": "1",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "4966f2ad-4c62-4df4-b829-0f226c58262f",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "600",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "0972a736-6fff-42f1-b1c8-3f4f6b249dc3",
+          "name": "Bamboo skewers",
+          "description": "Thin skewers split the yolks less",
+          "quantity": "20",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "8cbeb8a7-e4e2-44f8-948f-bf865b732012",
+          "name": "Proposal Tare Bacem",
+          "description": "Optional",
+          "quantity": "60",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "2eb3c2a5-1cb8-4ee9-984b-429a2927125b",
+          "title": "Heat",
+          "instructions": "Bring salted water to 85°C: small bubbles on the bottom, surface barely moving.",
+          "inputs": [
+            "e72a68b9-f1e4-452b-9498-b76d489f415a",
+            "c2f4f09a-6492-45b9-9b38-d4d9b47599c9"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "d9e4c6f8-a633-418d-a018-645d815e8d46",
+          "title": "Poach",
+          "instructions": "Slide uritan in. Hold 85°C for 5 min until set and opaque. Do not boil: bubbles burst the yolks.",
+          "inputs": [
+            "2eb3c2a5-1cb8-4ee9-984b-429a2927125b",
+            "40b434aa-2f4a-4369-9ed8-3fb2b54f0151"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Salted water firms the outer skin faster",
+          "parallel": false
+        },
+        {
+          "id": "e8d62740-1410-4f67-beb2-b533a3a28837",
+          "title": "Shock",
+          "instructions": "Lift into ice water 5 min to firm. Drain.",
+          "inputs": [
+            "d9e4c6f8-a633-418d-a018-645d815e8d46",
+            "a9647bf1-04a6-4be9-b751-23b96cc90548"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "f7982d4c-1c41-446b-a590-585cdd1c5264",
+          "title": "Steep",
+          "instructions": "Warm bacem to 80°C, heat off, add uritan, steep 15 min. Cool and soak at least 4 hr, or overnight.",
+          "inputs": [
+            "e8d62740-1410-4f67-beb2-b533a3a28837",
+            "4966f2ad-4c62-4df4-b829-0f226c58262f"
+          ],
+          "minutes": "15",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Ajitama principle: flavour goes in by soaking, not by boiling",
+          "parallel": false
+        },
+        {
+          "id": "2745b1b3-1c35-4404-80d3-44f17f47d1df",
+          "title": "Skewer",
+          "instructions": "4-5 per skewer through the centre, gently.",
+          "inputs": [
+            "f7982d4c-1c41-446b-a590-585cdd1c5264",
+            "0972a736-6fff-42f1-b1c8-3f4f6b249dc3"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "c93b3a79-6dfb-4296-a537-03bedf5ad1e9",
+          "title": "Glaze",
+          "instructions": "Brush with tare, warm on a mesh over medium coals 1 min per side. Or serve as bacem without grilling.",
+          "inputs": [
+            "2745b1b3-1c35-4404-80d3-44f17f47d1df",
+            "8cbeb8a7-e4e2-44f8-948f-bf865b732012"
+          ],
+          "minutes": "2",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "85b8fb98-a876-47da-b6c8-2e90194e47eb",
+          "title": "Freshness",
+          "body": "Buy uritan the same morning; they spoil faster than eggs. Smell should be clean, yolks bright orange and taut."
+        },
+        {
+          "id": "aa493f51-bcb6-44f5-8872-45937555c1e8",
+          "title": "Estimated cost",
+          "body": "About Rp 1.900 per skewer (uritan ~Rp 60.000/kg assumed). Typical price Rp 4.000-5.000."
+        }
+      ]
+    },
+    {
+      "id": "5490b62b-4832-4fe8-9417-c8bc6a62e891",
+      "name": "Proposal Sate Paru Bacem Garing",
+      "description": "Beef lung boiled tender, pressed flat for clean slices, bacem-braised, then fried for crisp edges. The beef option.",
+      "eyebrow": "",
+      "baseServings": "25",
+      "yieldUnit": "skewers",
+      "active": "1 hr",
+      "total": "4 hr",
+      "vessel": "Large pot, 2 trays + weight, wok",
+      "prep": [
+        {
+          "id": "972dddc8-ab6c-45ba-88f2-ece871001010",
+          "title": "Rinse",
+          "text": "lung under running water. Cut into fist-size pieces; pierce all over with a knife so trapped air escapes.",
+          "tools": ""
+        }
+      ],
+      "finish": [
+        {
+          "id": "4a9cd311-d2f5-491e-8918-59b2d0b0badc",
+          "text": "Selling today?",
+          "options": [
+            {
+              "id": "eeb43af7-f263-417e-bba4-4ca1a0bc3945",
+              "answer": "Yes",
+              "label": "Fry in small batches",
+              "text": "Fry every 1-2 hr so they stay crisp on display.",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "51513485-14ad-4a76-8905-4a2dc050e005",
+              "answer": "No",
+              "label": "Store",
+              "text": "Keep braised, unfried slices at 4°C up to 3 days, or freeze up to 1 month.",
+              "tools": "",
+              "items": []
+            }
+          ]
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "8920fe2b-c3a6-4435-aec8-8d13f8155526",
+          "name": "Beef lung",
+          "description": "Paru sapi. About 600 g after boiling",
+          "quantity": "1",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d7d7311b-0969-432d-b499-79291cfe65d1",
+          "name": "Ginger",
+          "description": "Smashed",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1ef4d60c-bcc2-4808-8228-47d1377050dc",
+          "name": "Lemongrass",
+          "description": "Serai, bruised",
+          "quantity": "2",
+          "unit": "stalks",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ef325231-54c1-4ba2-9e7f-d3da28671109",
+          "name": "Daun salam",
+          "description": "",
+          "quantity": "4",
+          "unit": "leaves",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "6103a8bc-0fe0-4fda-82d5-454a1eeef8f4",
+          "name": "Salt",
+          "description": "",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "1",
+          "metricUnit": "tbsp"
+        },
+        {
+          "id": "fb201b36-ff46-4b75-99e4-d471e8bd0598",
+          "name": "Water",
+          "description": "",
+          "quantity": "3",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1adfc2ac-3bec-4dfc-9c35-ff623064b3fd",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "0a38b176-d35d-457d-9572-335bac68bf84",
+          "name": "Frying oil",
+          "description": "Reusable for other gorengan",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "2b636c41-e41d-4a96-b6e2-dff27440f3a6",
+          "name": "Bamboo skewers",
+          "description": "",
+          "quantity": "25",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "aad7b80d-5ad5-4852-bea4-dcad22a88f5e",
+          "name": "Proposal Tare Bacem",
+          "description": "",
+          "quantity": "80",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "3595f4da-db2b-4c56-9117-5e82b9fb89d3",
+          "title": "Blanch",
+          "instructions": "Boil 5 min, discard water and scum.",
+          "inputs": [
+            "8920fe2b-c3a6-4435-aec8-8d13f8155526"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "0790571d-2549-470c-a9a5-95ba63638ee4",
+          "title": "Boil",
+          "instructions": "Fresh water with aromatics and salt. Simmer until a knife goes in with no bounce, 60-75 min. Weigh down so pieces stay under.",
+          "inputs": [
+            "3595f4da-db2b-4c56-9117-5e82b9fb89d3",
+            "d7d7311b-0969-432d-b499-79291cfe65d1",
+            "1ef4d60c-bcc2-4808-8228-47d1377050dc",
+            "ef325231-54c1-4ba2-9e7f-d3da28671109",
+            "6103a8bc-0fe0-4fda-82d5-454a1eeef8f4",
+            "fb201b36-ff46-4b75-99e4-d471e8bd0598"
+          ],
+          "minutes": "75",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "15e606c4-5633-4dfc-8977-4f4069c73803",
+          "title": "Press",
+          "instructions": "While warm, lay on a tray, cover with a second tray and 3-5 kg weight. Chill 2 hr.",
+          "inputs": [
+            "0790571d-2549-470c-a9a5-95ba63638ee4"
+          ],
+          "minutes": "120",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Chinese pressed-meat method: dense, even slices that don't crumble",
+          "parallel": false
+        },
+        {
+          "id": "44d6edcb-8c51-4342-95d9-63f03a327ee8",
+          "title": "Slice",
+          "instructions": "1 cm thick, about 3 x 4 cm.",
+          "inputs": [
+            "15e606c4-5633-4dfc-8977-4f4069c73803"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "4dc817de-f040-490e-85c1-3d1f2bd15b35",
+          "title": "Bacem",
+          "instructions": "Simmer in bacem 20 min, turning, until dark. Drain on a rack; air-dry 30 min (fan helps).",
+          "inputs": [
+            "44d6edcb-8c51-4342-95d9-63f03a327ee8",
+            "1adfc2ac-3bec-4dfc-9c35-ff623064b3fd"
+          ],
+          "minutes": "20",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Dry surface = crisp, less oil spatter",
+          "parallel": false
+        },
+        {
+          "id": "81c85959-ef40-4f93-8506-7f4ed6a439a6",
+          "title": "Fry",
+          "instructions": "170°C until edges are crisp and dark, 2-3 min. Drain.",
+          "inputs": [
+            "4dc817de-f040-490e-85c1-3d1f2bd15b35",
+            "0a38b176-d35d-457d-9572-335bac68bf84"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Sugar in the bacem burns above 175°C",
+          "parallel": false
+        },
+        {
+          "id": "21dbfd89-6d70-402d-b536-b6963c926c71",
+          "title": "Skewer & Glaze",
+          "instructions": "3 slices per skewer. Brush with tare; optional 30 secs on the grill.",
+          "inputs": [
+            "81c85959-ef40-4f93-8506-7f4ed6a439a6",
+            "2b636c41-e41d-4a96-b6e2-dff27440f3a6",
+            "aad7b80d-5ad5-4852-bea4-dcad22a88f5e"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "5c4eec09-5c89-4c01-9d9a-12e43c218c5f",
+          "title": "Shared prep",
+          "body": "If you already boil paru for soto toppings, boil one big batch and split it."
+        },
+        {
+          "id": "a2312d31-7d55-4971-9b1d-f835fdaf7ce5",
+          "title": "Estimated cost",
+          "body": "About Rp 3.400 per skewer (paru sapi ~Rp 70.000/kg assumed, ~40% boil loss). Price Rp 6.000-7.000; it is the premium sate."
+        }
+      ]
+    },
+    {
+      "id": "0317c474-87bd-4ef9-a575-0957fe947e98",
+      "name": "Proposal Sate Telur Puyuh",
+      "description": "Quail eggs that peel clean in bulk, soaked overnight in master bacem like Korean mayak gyeran, then glazed.",
+      "eyebrow": "",
+      "baseServings": "25",
+      "yieldUnit": "skewers",
+      "active": "40 min",
+      "total": "1 hr + overnight",
+      "vessel": "Pot, lidded container, ice bath",
+      "prep": [],
+      "finish": [
+        {
+          "id": "f94af9e9-2c36-4700-83d2-cdea530c56b4",
+          "title": "Storage",
+          "text": "In the bacem, 4°C, up to 4 days.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "d2a26c2b-3a52-4e51-a9a2-2fbd9d53526b",
+          "name": "Water",
+          "description": "",
+          "quantity": "2",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1d0c7740-28ec-42f0-98b5-c24b01d024ce",
+          "name": "Vinegar",
+          "description": "Cuka. Softens shell for peeling",
+          "quantity": "30",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "2829dd5d-df23-4ef8-9e03-da95da51d2b8",
+          "name": "Quail eggs",
+          "description": "Telur puyuh, about 100 eggs",
+          "quantity": "1",
+          "unit": "kg",
+          "metricQuantity": "100",
+          "metricUnit": "pcs"
+        },
+        {
+          "id": "c46e57d0-e773-4c00-8f4f-1e7260346724",
+          "name": "Ice water",
+          "description": "",
+          "quantity": "1",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "6a29cc2b-8be3-419a-840a-d3d17c801a4e",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "800",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "6181d163-c665-4074-9053-15d5c18df7e6",
+          "name": "Bamboo skewers",
+          "description": "",
+          "quantity": "25",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "9143514a-60e3-4271-bf5a-ca0ec4198f24",
+          "name": "Proposal Tare Bacem",
+          "description": "Optional, for grilled version",
+          "quantity": "60",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "d461d6dd-1e0f-4b15-bd87-107b2beb3cb5",
+          "title": "Boil",
+          "instructions": "Rolling boil with vinegar.",
+          "inputs": [
+            "d2a26c2b-3a52-4e51-a9a2-2fbd9d53526b",
+            "1d0c7740-28ec-42f0-98b5-c24b01d024ce"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "5caba3a5-bb99-4d54-b26e-902b49b55652",
+          "title": "Cook",
+          "instructions": "Lower eggs into boiling water (hot start). 4 min.",
+          "inputs": [
+            "d461d6dd-1e0f-4b15-bd87-107b2beb3cb5",
+            "2829dd5d-df23-4ef8-9e03-da95da51d2b8"
+          ],
+          "minutes": "4",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Hot start peels far easier than cold start",
+          "parallel": false
+        },
+        {
+          "id": "3bd0dd2a-ac89-4e42-ba7e-6497b7d0d347",
+          "title": "Shock & Crack",
+          "instructions": "Ice water 5 min. Drain, put in a lidded box with a little water, shake hard 20 secs to crack all shells. Peel under water.",
+          "inputs": [
+            "5caba3a5-bb99-4d54-b26e-902b49b55652",
+            "c46e57d0-e773-4c00-8f4f-1e7260346724"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "23495a86-087e-47e9-b3fe-b9c9b06cdd41",
+          "title": "Simmer",
+          "instructions": "Simmer peeled eggs in bacem 10 min, stirring, for even colour.",
+          "inputs": [
+            "3bd0dd2a-ac89-4e42-ba7e-6497b7d0d347",
+            "6a29cc2b-8be3-419a-840a-d3d17c801a4e"
+          ],
+          "minutes": "10",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "c6d0963d-a272-4746-8bcd-ffc3140e298c",
+          "title": "Soak",
+          "instructions": "Cool in the bacem; chill overnight.",
+          "inputs": [
+            "23495a86-087e-47e9-b3fe-b9c9b06cdd41"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Mayak gyeran principle: long soak, deep colour all the way to the yolk",
+          "parallel": false
+        },
+        {
+          "id": "476ed16d-50fd-4a02-b132-9f37b1a86988",
+          "title": "Skewer",
+          "instructions": "4 eggs per skewer.",
+          "inputs": [
+            "c6d0963d-a272-4746-8bcd-ffc3140e298c",
+            "6181d163-c665-4074-9053-15d5c18df7e6"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "7437f903-24f3-477c-83d1-32c794e0419d",
+          "title": "Glaze",
+          "instructions": "Optional: brush with tare, grill 30 secs per side.",
+          "inputs": [
+            "476ed16d-50fd-4a02-b132-9f37b1a86988",
+            "9143514a-60e3-4271-bf5a-ca0ec4198f24"
+          ],
+          "minutes": "1",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "c3895216-4727-4461-8aff-6169b2e21baf",
+          "title": "Why cook first, soak after",
+          "body": "Boiling eggs long in sugary bacem makes whites rubbery. Short simmer plus long cold soak gives a tender white and a deep colour."
+        },
+        {
+          "id": "eaeacc07-ba82-48d9-977d-6e8b10974afe",
+          "title": "Estimated cost",
+          "body": "About Rp 1.700 per skewer (quail eggs ~Rp 33.000/kg assumed). Typical price Rp 3.000-4.000. The bestseller at most soto stalls."
+        }
+      ]
+    },
+    {
+      "id": "2006581f-5881-4851-8a82-0d0cdcd584c9",
+      "name": "Proposal Sate Usus Gulung",
+      "description": "Chicken intestine cleaned until odour-free, wound tight on skewers, bacem-braised, then grilled or fried crisp.",
+      "eyebrow": "",
+      "baseServings": "18",
+      "yieldUnit": "skewers",
+      "active": "50 min",
+      "total": "1 hr 30 min",
+      "vessel": "Pot, grill or wok",
+      "prep": [],
+      "finish": [
+        {
+          "id": "cccb11c1-72e3-48cc-b2c9-c207f398ce24",
+          "text": "Which finish?",
+          "options": [
+            {
+              "id": "c2b15a2f-bad5-4fc1-993c-4cf2ff77b385",
+              "answer": "Grilled",
+              "label": "Sate bakar",
+              "text": "Brush with Proposal Tare Bacem, grill over medium coals 1-2 min per side until edges char.",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "eda622a5-3643-4e5e-ae4a-6079f7657fa1",
+              "answer": "Fried",
+              "label": "Sate goreng",
+              "text": "Air-dry 20 min, fry at 170°C 2 min until crisp. Holds crispness longer on display.",
+              "tools": "",
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "4f68e534-ac61-44f3-a6fd-75a015af5274",
+          "title": "Storage",
+          "text": "Braised, unfinished skewers keep at 4°C up to 3 days. Grill or fry to order.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "4df534ab-53e0-4a77-bfcb-036a5d94cd6c",
+          "name": "Chicken intestine",
+          "description": "Usus ayam, about 25-30 g per skewer",
+          "quantity": "500",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b8713850-c1de-40be-9e97-66e89ebdebea",
+          "name": "Coarse salt",
+          "description": "",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "79a4e270-5290-4889-9329-c9098dcfc9ee",
+          "name": "Tamarind pulp",
+          "description": "Or juice of 2 jeruk nipis",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "46c8fee9-7574-4f58-8ff5-ecff9e1b1d22",
+          "name": "Ginger",
+          "description": "Smashed",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "0f99c946-8912-4419-a354-3da83234bf75",
+          "name": "Daun salam",
+          "description": "",
+          "quantity": "2",
+          "unit": "leaves",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "08af09d1-ce70-4d5b-b2df-32f1aae499bc",
+          "name": "Water",
+          "description": "",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "6e1a7cf1-8223-4c89-86b6-6c9728578d7f",
+          "name": "Bamboo skewers",
+          "description": "",
+          "quantity": "18",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "321bbe8f-1b77-4828-b89a-e0349f772ee3",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "800",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "97d83a69-a912-4680-b93e-e8be6bc6cd97",
+          "title": "Clean",
+          "instructions": "Flush the inside with running water. Scrub with salt and tamarind 2 min until no longer slimy. Rinse well.",
+          "inputs": [
+            "4df534ab-53e0-4a77-bfcb-036a5d94cd6c",
+            "b8713850-c1de-40be-9e97-66e89ebdebea",
+            "79a4e270-5290-4889-9329-c9098dcfc9ee"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Salt scrubs, acid cuts the smell",
+          "parallel": false
+        },
+        {
+          "id": "68f3532f-2108-4bef-bfd8-eb6e80abe8ed",
+          "title": "Blanch",
+          "instructions": "Boil with ginger and salam 5 min. Discard water, rinse.",
+          "inputs": [
+            "97d83a69-a912-4680-b93e-e8be6bc6cd97",
+            "46c8fee9-7574-4f58-8ff5-ecff9e1b1d22",
+            "0f99c946-8912-4419-a354-3da83234bf75",
+            "08af09d1-ce70-4d5b-b2df-32f1aae499bc"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Chinese chao shui",
+          "parallel": false
+        },
+        {
+          "id": "1a2b9a4e-71eb-4166-be70-adb2ce923174",
+          "title": "Wind",
+          "instructions": "Wind tightly around each skewer, tucking the ends.",
+          "inputs": [
+            "68f3532f-2108-4bef-bfd8-eb6e80abe8ed",
+            "6e1a7cf1-8223-4c89-86b6-6c9728578d7f"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Tight = cooks evenly, doesn't unravel",
+          "parallel": false
+        },
+        {
+          "id": "ac0f79a6-7e8f-48b5-9bbd-47474238056b",
+          "title": "Bacem",
+          "instructions": "Lay skewers in bacem, simmer 30 min, turning once. Drain on a rack.",
+          "inputs": [
+            "1a2b9a4e-71eb-4166-be70-adb2ce923174",
+            "321bbe8f-1b77-4828-b89a-e0349f772ee3"
+          ],
+          "minutes": "30",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "dd814942-3bdb-430c-b5d1-b353f05cd4e4",
+          "title": "Smell is the deal-breaker",
+          "body": "Clean, acid scrub and blanch-and-discard are not optional. Customers forgive a tough usus, never a smelly one."
+        },
+        {
+          "id": "651d1179-1c44-47ce-810c-38fea45c12d7",
+          "title": "Estimated cost",
+          "body": "About Rp 800 per skewer (usus ~Rp 15.000/kg assumed). Price Rp 2.500-3.000: the highest margin item."
+        }
+      ]
+    },
+    {
+      "id": "01c7f9ea-0a3a-4372-99d9-6717302b0de4",
+      "name": "Proposal Sate Kulit Ayam",
+      "description": "Yakitori kawa method: skin pre-rendered in diluted bacem, packed tight on skewers, grilled slow until crisp. The fat it gives off is a free by-product.",
+      "eyebrow": "",
+      "baseServings": "15",
+      "yieldUnit": "skewers",
+      "active": "40 min",
+      "total": "1 hr 30 min",
+      "vessel": "Pot, tray, charcoal grill",
+      "prep": [],
+      "finish": [
+        {
+          "id": "a0b0ec5b-b37d-4886-be87-2616ca31c9bb",
+          "title": "Storage",
+          "text": "Skewered, pre-simmered skin keeps 3 days at 4°C. Strain the skimmed fat, chill, use for frying paste or drizzling on soto.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "7f2059a4-5651-445b-986c-24fd9d1a6742",
+          "name": "Chicken skin",
+          "description": "Kulit ayam, neck and back skin is cheapest",
+          "quantity": "500",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "a7303de0-86db-4cdf-b47b-1edada518f2d",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "500",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "f661e3d4-9e8a-4e82-90f7-118790e13b47",
+          "name": "Water",
+          "description": "Dilutes the bacem so sugar doesn't scorch",
+          "quantity": "500",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "8a989a5d-da97-4678-82d5-f93e9b5252dd",
+          "name": "Bamboo skewers",
+          "description": "",
+          "quantity": "15",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b9aeeee9-cc79-415a-971e-56a8ec65b3a3",
+          "name": "Proposal Tare Bacem",
+          "description": "",
+          "quantity": "60",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "7f9f2d0a-5f21-4972-9d84-58119d899828",
+          "title": "Trim",
+          "instructions": "Scrape off loose fat blobs and any feather stubs. Cut into 4 cm wide strips.",
+          "inputs": [
+            "7f2059a4-5651-445b-986c-24fd9d1a6742"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "57efc7fc-d1c0-4b9e-af5f-f28bb6359f85",
+          "title": "Simmer",
+          "instructions": "Simmer in bacem and water 15 min. Lift out, spread on a tray, chill 30 min until firm.",
+          "inputs": [
+            "7f9f2d0a-5f21-4972-9d84-58119d899828",
+            "a7303de0-86db-4cdf-b47b-1edada518f2d",
+            "f661e3d4-9e8a-4e82-90f7-118790e13b47"
+          ],
+          "minutes": "15",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Skim and keep the fat that floats: minyak ayam",
+          "parallel": false
+        },
+        {
+          "id": "07e51f91-ebbe-4786-a7eb-001741b5133b",
+          "title": "Skewer",
+          "instructions": "Weave strips back and forth (accordion), packed tightly, about 33 g per skewer.",
+          "inputs": [
+            "57efc7fc-d1c0-4b9e-af5f-f28bb6359f85",
+            "8a989a5d-da97-4678-82d5-f93e9b5252dd"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Tight packing = crisp outside, juicy inside",
+          "parallel": false
+        },
+        {
+          "id": "8dfa5536-3df2-4ae4-b552-3115f5552955",
+          "title": "Grill",
+          "instructions": "Medium coals, turn often, 8-10 min until fat has rendered and edges are crisp. Brush with tare in the last minute.",
+          "inputs": [
+            "07e51f91-ebbe-4786-a7eb-001741b5133b",
+            "b9aeeee9-cc79-415a-971e-56a8ec65b3a3"
+          ],
+          "minutes": "10",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Fat drips flare up: keep a coal-free zone",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "934b2f6d-7b43-497a-864e-6e770a6e3ee5",
+          "title": "Why simmer before grilling",
+          "body": "Raw skin on the grill flares and stays chewy inside. Simmering first starts the rendering and seasons it, so grilling only crisps."
+        },
+        {
+          "id": "afb1be19-0070-40e7-b3ab-40c21ac96a94",
+          "title": "Estimated cost",
+          "body": "About Rp 1.000 per skewer (kulit ~Rp 20.000/kg assumed). Price Rp 3.000."
+        }
+      ]
+    },
+    {
+      "id": "b6c613e3-82cf-404f-94d0-62c955f38786",
+      "name": "Proposal Sate Babat Bacem",
+      "description": "Beef tripe made tender in a pressure cooker, soaked in bacem and grilled. Beef option that can share the soto's tripe batch.",
+      "eyebrow": "",
+      "baseServings": "25",
+      "yieldUnit": "skewers",
+      "active": "40 min",
+      "total": "1 hr 30 min + soak",
+      "vessel": "Pressure cooker, grill",
+      "prep": [
+        {
+          "id": "1580a167-a661-4325-955e-26b5d677d02d",
+          "title": "Rinse",
+          "text": "cleaned tripe (babat handuk or babat putih) under running water; scrub with salt and rinse until it smells clean.",
+          "tools": ""
+        }
+      ],
+      "finish": [
+        {
+          "id": "f6fd22d7-b1ce-4643-bd18-5e9dc7140aca",
+          "title": "Storage",
+          "text": "In the bacem, 4°C, up to 3 days.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "a2aa892b-ed06-4f8e-a0fc-1a529ce8d9af",
+          "name": "Beef tripe",
+          "description": "Babat sapi, already cleaned. About 700 g after cooking",
+          "quantity": "1",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "342557ea-db7a-46fc-8313-51ce7a3eb336",
+          "name": "Ginger",
+          "description": "Smashed",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ff4c3a6b-9903-469c-82c2-f025e10b9e8d",
+          "name": "Lemongrass",
+          "description": "Bruised",
+          "quantity": "2",
+          "unit": "stalks",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "51b86013-bf8e-4236-8ec8-25fe0d004879",
+          "name": "Daun salam",
+          "description": "",
+          "quantity": "4",
+          "unit": "leaves",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d2031271-ba2d-4139-90f0-7c15615457a8",
+          "name": "Salt",
+          "description": "",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "e684db79-9763-4a5e-b5fd-75785a61ae29",
+          "name": "Water",
+          "description": "",
+          "quantity": "2",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "5fcf7221-8e5d-4a66-8076-61fc5e67b7a5",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "cb87bb12-2721-48f2-be58-5d1ef591ef0a",
+          "name": "Bamboo skewers",
+          "description": "",
+          "quantity": "25",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "c2db8c24-6c6d-4bfb-890f-aa584cf5e345",
+          "name": "Proposal Tare Bacem",
+          "description": "",
+          "quantity": "80",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "2cca3e49-3e62-4067-929d-588b61830a30",
+          "title": "Blanch",
+          "instructions": "Boil 5 min, discard water.",
+          "inputs": [
+            "a2aa892b-ed06-4f8e-a0fc-1a529ce8d9af"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "833ca053-b7ec-46cf-8499-41ad4768187e",
+          "title": "Pressure cook",
+          "instructions": "With aromatics, salt and fresh water, 30 min from full pressure. Tender but still a little bite.",
+          "inputs": [
+            "2cca3e49-3e62-4067-929d-588b61830a30",
+            "342557ea-db7a-46fc-8313-51ce7a3eb336",
+            "ff4c3a6b-9903-469c-82c2-f025e10b9e8d",
+            "51b86013-bf8e-4236-8ec8-25fe0d004879",
+            "d2031271-ba2d-4139-90f0-7c15615457a8",
+            "e684db79-9763-4a5e-b5fd-75785a61ae29"
+          ],
+          "minutes": "30",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Open pot: 2-2.5 hr simmer",
+          "parallel": false
+        },
+        {
+          "id": "b5536e64-298d-415b-9685-8a3058e4d645",
+          "title": "Cut",
+          "instructions": "Cool slightly, cut 2 x 4 cm pieces.",
+          "inputs": [
+            "833ca053-b7ec-46cf-8499-41ad4768187e"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "7308c964-4c5e-435c-ae1c-e437f9f771a0",
+          "title": "Bacem",
+          "instructions": "Simmer in bacem 20 min. Cool and soak at least 2 hr, best overnight.",
+          "inputs": [
+            "b5536e64-298d-415b-9685-8a3058e4d645",
+            "5fcf7221-8e5d-4a66-8076-61fc5e67b7a5"
+          ],
+          "minutes": "20",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "fa2b5001-d543-44fa-92c6-aefe11d91eb3",
+          "title": "Skewer",
+          "instructions": "Fold and pierce 3-4 pieces per skewer.",
+          "inputs": [
+            "7308c964-4c5e-435c-ae1c-e437f9f771a0",
+            "cb87bb12-2721-48f2-be58-5d1ef591ef0a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "e12187b8-bb97-4703-af62-d768f0e7d12e",
+          "title": "Grill",
+          "instructions": "Hot coals 1 min per side, dip in tare, 30 secs more per side.",
+          "inputs": [
+            "fa2b5001-d543-44fa-92c6-aefe11d91eb3",
+            "c2db8c24-6c6d-4bfb-890f-aa584cf5e345"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "abbda767-176d-4499-9b09-b9bd7e55b1a1",
+          "title": "Doneness",
+          "body": "Tripe goes from rubbery to tender, then to mushy. Check at 25 min the first time and note the time for your cooker."
+        },
+        {
+          "id": "0d8964c6-fba9-482a-9805-0f798f9123bf",
+          "title": "Estimated cost",
+          "body": "About Rp 3.400 per skewer (babat ~Rp 75.000/kg assumed). Price Rp 6.000-7.000."
+        }
+      ]
+    },
+    {
+      "id": "d711690d-1e10-4b70-8bf9-7a8f863afda2",
+      "name": "Proposal Sate Brutu",
+      "description": "Chicken tail done like yakitori bonjiri: oil gland removed, bacem-simmered, grilled until the fat crisps.",
+      "eyebrow": "",
+      "baseServings": "20",
+      "yieldUnit": "skewers",
+      "active": "40 min",
+      "total": "1 hr",
+      "vessel": "Pot, charcoal grill",
+      "prep": [],
+      "finish": [
+        {
+          "id": "03658e38-1760-4254-8f67-4de3e177c07c",
+          "title": "Storage",
+          "text": "Braised, skewered brutu keeps 3 days at 4°C.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "a8ecfdae-02bc-4373-a6d1-b62706880d4b",
+          "name": "Chicken tails",
+          "description": "Brutu, about 40 pieces",
+          "quantity": "1",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "63085c92-6276-4fcd-9ff2-cab0d34fd1c2",
+          "name": "Ginger",
+          "description": "Smashed",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "7fcaf4d5-452c-44ee-8e39-a5d6a65b14b8",
+          "name": "Water",
+          "description": "",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1e140697-c68b-491a-a44f-7c4b4a70238e",
+          "name": "Proposal Bumbu Bacem Induk",
+          "description": "",
+          "quantity": "800",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "11282353-1239-4fc9-b0e4-2ceb09b53374",
+          "name": "Bamboo skewers",
+          "description": "",
+          "quantity": "20",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "316802d9-1ab0-4d92-9a92-71f9162fd5e5",
+          "name": "Proposal Tare Bacem",
+          "description": "",
+          "quantity": "80",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "11f092d0-75f1-4e45-b540-a3e4f025b480",
+          "title": "Trim gland",
+          "instructions": "Cut out the yellow oil gland at the tip of each tail with a small V cut. Pluck feather stubs.",
+          "inputs": [
+            "a8ecfdae-02bc-4373-a6d1-b62706880d4b"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "The gland is the source of the 'prengus' smell. Never skip",
+          "parallel": false
+        },
+        {
+          "id": "a9b19c53-ac0c-4044-95e8-4d0d7ce8fb6d",
+          "title": "Blanch",
+          "instructions": "Boil with ginger 5 min. Discard water.",
+          "inputs": [
+            "11f092d0-75f1-4e45-b540-a3e4f025b480",
+            "63085c92-6276-4fcd-9ff2-cab0d34fd1c2",
+            "7fcaf4d5-452c-44ee-8e39-a5d6a65b14b8"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "70ab185d-6544-417f-b7ab-e0e6491448c2",
+          "title": "Bacem",
+          "instructions": "Simmer in bacem 20 min. Drain.",
+          "inputs": [
+            "a9b19c53-ac0c-4044-95e8-4d0d7ce8fb6d",
+            "1e140697-c68b-491a-a44f-7c4b4a70238e"
+          ],
+          "minutes": "20",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "1555bd5c-c067-4504-a88c-6a6d88348e23",
+          "title": "Skewer",
+          "instructions": "2 tails per skewer, through the thickest part.",
+          "inputs": [
+            "70ab185d-6544-417f-b7ab-e0e6491448c2",
+            "11282353-1239-4fc9-b0e4-2ceb09b53374"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "93db495c-56db-4a00-bc4c-236179533ecc",
+          "title": "Grill",
+          "instructions": "Medium coals, 6-8 min, turning, until fat renders and skin blisters. Tare in the last minute.",
+          "inputs": [
+            "1555bd5c-c067-4504-a88c-6a6d88348e23",
+            "316802d9-1ab0-4d92-9a92-71f9162fd5e5"
+          ],
+          "minutes": "8",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "f8521098-50c1-440d-b991-2742707bf280",
+          "title": "Estimated cost",
+          "body": "About Rp 1.600 per skewer (brutu ~Rp 25.000/kg assumed). Price Rp 4.000."
+        }
+      ]
+    },
+    {
+      "id": "86d415d9-9c7e-46d7-9ff5-3f8d250303f4",
+      "name": "Proposal Sate Tsukune Ayam Tahu",
+      "description": "Japanese tsukune made Klaten-style: chicken stretched with tofu, salt-kneaded for a bouncy bite, pre-poached, grilled with tare.",
+      "eyebrow": "",
+      "baseServings": "20",
+      "yieldUnit": "skewers",
+      "active": "45 min",
+      "total": "1 hr",
+      "vessel": "Bowl, wide pot, grill",
+      "prep": [
+        {
+          "id": "2a949436-5f44-4085-9356-07fc41e050a5",
+          "title": "Squeeze",
+          "text": "tofu in a cloth until dry and crumbly. Keep the chicken and tofu cold.",
+          "tools": ""
+        }
+      ],
+      "finish": [
+        {
+          "id": "e58e9825-1ff9-4729-8524-17d9d53cfb5b",
+          "title": "Storage",
+          "text": "Poached skewers keep 3 days at 4°C or 1 month frozen.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "0c796cde-0ae0-4c02-b1c1-b01ddaf9c9b6",
+          "name": "Minced chicken",
+          "description": "Ayam giling: thigh with skin, or trimmings. Very cold",
+          "quantity": "500",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ff7c03ed-fc7d-407e-b9dc-8aae0a0a120e",
+          "name": "Salt",
+          "description": "",
+          "quantity": "8",
+          "unit": "g",
+          "metricQuantity": "1 1/2",
+          "metricUnit": "tsp"
+        },
+        {
+          "id": "b955f43f-5cb0-400a-97f3-610f60444400",
+          "name": "Crushed ice",
+          "description": "",
+          "quantity": "50",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "cc1f8417-3759-4586-9d6e-32eaaac80121",
+          "name": "Firm tofu",
+          "description": "Tahu putih, squeezed dry",
+          "quantity": "250",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d7cad1f5-d095-4481-9d25-c61c39105118",
+          "name": "Tapioca starch",
+          "description": "Tepung kanji",
+          "quantity": "40",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "bc04288a-571b-4b96-b355-91959044e086",
+          "name": "Egg",
+          "description": "",
+          "quantity": "1",
+          "unit": "pc",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "106be6e1-09f1-41d2-937d-da2ef4963bb3",
+          "name": "Garlic",
+          "description": "Grated",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "f24aebbc-6855-4b02-a9ea-0c9cf159fd4d",
+          "name": "White pepper",
+          "description": "",
+          "quantity": "2",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "3e8c957c-0f11-4112-9eed-3dcc2ac333f2",
+          "name": "Sugar",
+          "description": "",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b5974e12-56a3-4ca9-a8a0-345fd767a076",
+          "name": "Spring onion",
+          "description": "Daun bawang, finely chopped",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "27488978-8ae6-4053-9a52-dbdec5dc83fd",
+          "name": "Bamboo skewers",
+          "description": "Thick ones",
+          "quantity": "20",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "42a1dbea-0454-4372-a27e-914e6022076c",
+          "name": "Water",
+          "description": "For poaching",
+          "quantity": "2",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "28fd493e-8d1d-4aaa-8af9-87e6cf3b3b50",
+          "name": "Proposal Tare Bacem",
+          "description": "",
+          "quantity": "100",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "5662faa3-897f-4835-8e19-f7ec6da7b0c0",
+          "title": "Knead",
+          "instructions": "Knead chicken with salt and ice by hand or mixer 3-4 min until sticky and stringy.",
+          "inputs": [
+            "0c796cde-0ae0-4c02-b1c1-b01ddaf9c9b6",
+            "ff7c03ed-fc7d-407e-b9dc-8aae0a0a120e",
+            "b955f43f-5cb0-400a-97f3-610f60444400"
+          ],
+          "minutes": "4",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Salt draws out myosin: the springy bakso bite",
+          "parallel": false
+        },
+        {
+          "id": "34224fbb-6143-4098-ba40-823d6c28d6f4",
+          "title": "Mix",
+          "instructions": "Add the rest, mix just until even. Chill 15 min.",
+          "inputs": [
+            "5662faa3-897f-4835-8e19-f7ec6da7b0c0",
+            "cc1f8417-3759-4586-9d6e-32eaaac80121",
+            "d7cad1f5-d095-4481-9d25-c61c39105118",
+            "bc04288a-571b-4b96-b355-91959044e086",
+            "106be6e1-09f1-41d2-937d-da2ef4963bb3",
+            "f24aebbc-6855-4b02-a9ea-0c9cf159fd4d",
+            "3e8c957c-0f11-4112-9eed-3dcc2ac333f2",
+            "b5974e12-56a3-4ca9-a8a0-345fd767a076"
+          ],
+          "minutes": "15",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "9b5371c3-7813-4bc3-9485-ba773d652ece",
+          "title": "Shape",
+          "instructions": "40 g per skewer: press into a flat 10 cm log with wet hands.",
+          "inputs": [
+            "34224fbb-6143-4098-ba40-823d6c28d6f4",
+            "27488978-8ae6-4053-9a52-dbdec5dc83fd"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "3ad6297a-3cc8-44e7-b965-90e9c5aa23b6",
+          "title": "Poach",
+          "instructions": "Into water at a bare simmer (85-90°C), 6-8 min until firm and they float. Drain, cool.",
+          "inputs": [
+            "9b5371c3-7813-4bc3-9485-ba773d652ece",
+            "42a1dbea-0454-4372-a27e-914e6022076c"
+          ],
+          "minutes": "8",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Pre-cooking = 2 min grill time at service",
+          "parallel": false
+        },
+        {
+          "id": "cafe73b2-7d64-4b51-b5e2-fc4cb47495a4",
+          "title": "Grill",
+          "instructions": "Medium-hot coals 1 min per side, dip in tare twice, grill until glossy and charred at the edges.",
+          "inputs": [
+            "3ad6297a-3cc8-44e7-b965-90e9c5aa23b6",
+            "28fd493e-8d1d-4aaa-8af9-87e6cf3b3b50"
+          ],
+          "minutes": "4",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "5dcde0d6-71da-4f1f-b44d-46b5013e2073",
+          "title": "Shared paste",
+          "body": "The same paste (without spring onion) fills Proposal Tahu Bakso Ayam. Make one batch for both."
+        },
+        {
+          "id": "9513e895-7fb7-40fa-9219-292391603d5f",
+          "title": "Estimated cost",
+          "body": "About Rp 1.800 per skewer (ayam giling ~Rp 45.000/kg assumed; tofu replaces a third of the meat). Price Rp 4.000-5.000."
+        }
+      ]
+    },
+    {
+      "id": "e939bd4a-f0f8-42b7-ada4-0b68763ae252",
+      "name": "Proposal Tempe Goreng Garing",
+      "description": "Thin tempe in a low-gluten rice-flour batter, double-fried Korean-style so it stays crisp on the display for hours.",
+      "eyebrow": "",
+      "baseServings": "20",
+      "yieldUnit": "pcs",
+      "active": "35 min",
+      "total": "45 min",
+      "vessel": "Mortar or blender, wok, rack",
+      "prep": [],
+      "finish": [
+        {
+          "id": "c1121738-b961-425e-9ea4-bf4d7487be91",
+          "title": "Serve",
+          "text": "with green cabe rawit. Do the second fry in small batches through the day.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "b3808689-2a67-49c6-9f98-4d26281bca27",
+          "name": "Garlic",
+          "description": "",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "6af12e88-2249-4eca-9726-97a84fd4c19e",
+          "name": "Coriander",
+          "description": "Ketumbar, toasted",
+          "quantity": "5",
+          "unit": "g",
+          "metricQuantity": "2",
+          "metricUnit": "tsp"
+        },
+        {
+          "id": "a1aa7b55-ce15-46c4-9e88-90ea2eec4620",
+          "name": "Salt",
+          "description": "",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "06798f4c-ce7f-4fcd-9b6f-86876f7a4288",
+          "name": "Water",
+          "description": "For the brine",
+          "quantity": "300",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ed630d13-bcf6-429b-bab7-7335974bcdc8",
+          "name": "Tempe",
+          "description": "About 2 papan",
+          "quantity": "500",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d09dbe30-b20f-440b-bea4-84d5af239522",
+          "name": "Rice flour",
+          "description": "Tepung beras",
+          "quantity": "100",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "03399e02-a4b1-4be2-8902-e5fee9c94aed",
+          "name": "Wheat flour",
+          "description": "Medium protein (Segitiga Biru)",
+          "quantity": "50",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "c547af86-b3f4-462e-9e31-f64660cee9c8",
+          "name": "Tapioca starch",
+          "description": "Tepung kanji",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "dd4e5365-7266-44d1-a281-1f0d0b2463eb",
+          "name": "Baking powder",
+          "description": "",
+          "quantity": "3",
+          "unit": "g",
+          "metricQuantity": "1/2",
+          "metricUnit": "tsp"
+        },
+        {
+          "id": "7bd6f84b-bab9-4269-92db-4ebe9c4863c0",
+          "name": "Ice-cold water",
+          "description": "Or ice-cold soda water for lacier crust",
+          "quantity": "220",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "2daaa804-9c4e-4be1-80e6-de65d97fde33",
+          "name": "Air kapur sirih",
+          "description": "Optional, clear limewater on top only. Classic gorengan crisp trick",
+          "quantity": "1",
+          "unit": "tsp",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b38365bb-03d0-47a2-808e-32897738babd",
+          "name": "Frying oil",
+          "description": "",
+          "quantity": "2",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "fc82c8a6-1087-4961-be75-204cb887f16b",
+          "title": "Grind",
+          "instructions": "Grind to a paste.",
+          "inputs": [
+            "b3808689-2a67-49c6-9f98-4d26281bca27",
+            "6af12e88-2249-4eca-9726-97a84fd4c19e",
+            "a1aa7b55-ce15-46c4-9e88-90ea2eec4620"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "a76df366-22f5-4164-901a-bd296a358ddb",
+          "title": "Slice",
+          "instructions": "Slice 5 mm thick, 20 pieces.",
+          "inputs": [
+            "ed630d13-bcf6-429b-bab7-7335974bcdc8"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Thin = crisp through, cheaper per piece",
+          "parallel": true
+        },
+        {
+          "id": "0218ad7b-da0a-4686-b79b-eb834c069f78",
+          "title": "Brine",
+          "instructions": "Dissolve the paste in the water. Soak tempe 10 min. Drain.",
+          "inputs": [
+            "fc82c8a6-1087-4961-be75-204cb887f16b",
+            "06798f4c-ce7f-4fcd-9b6f-86876f7a4288",
+            "a76df366-22f5-4164-901a-bd296a358ddb"
+          ],
+          "minutes": "10",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "68be6bb3-5ab6-4dd5-a74f-fc4188c8fbc3",
+          "title": "Batter",
+          "instructions": "Whisk flours, baking powder, a pinch of salt, ice water and kapur. Thin like cream. Mix only just before frying; keep cold.",
+          "inputs": [
+            "d09dbe30-b20f-440b-bea4-84d5af239522",
+            "03399e02-a4b1-4be2-8902-e5fee9c94aed",
+            "c547af86-b3f4-462e-9e31-f64660cee9c8",
+            "dd4e5365-7266-44d1-a281-1f0d0b2463eb",
+            "7bd6f84b-bab9-4269-92db-4ebe9c4863c0",
+            "2daaa804-9c4e-4be1-80e6-de65d97fde33"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Cold + little wheat = little gluten = crisp, not bready",
+          "parallel": true
+        },
+        {
+          "id": "92c0884e-df0b-4fca-b3a3-3a077deb310f",
+          "title": "First fry",
+          "instructions": "Dip, let excess drip off. Fry at 160°C, 3 min, pale gold. Drain on a rack.",
+          "inputs": [
+            "0218ad7b-da0a-4686-b79b-eb834c069f78",
+            "68be6bb3-5ab6-4dd5-a74f-fc4188c8fbc3",
+            "b38365bb-03d0-47a2-808e-32897738babd"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "bb81d858-811e-42c8-a374-ce3f5e44a134",
+          "title": "Rest",
+          "instructions": "At least 5 min (can hold up to 4 hr).",
+          "inputs": [
+            "92c0884e-df0b-4fca-b3a3-3a077deb310f"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Moisture moves to the surface",
+          "parallel": false
+        },
+        {
+          "id": "4f0cf919-388b-4771-a397-a66ae9a66d4a",
+          "title": "Second fry",
+          "instructions": "180°C, 60-90 secs until deep gold. Drain upright on a rack, not on paper.",
+          "inputs": [
+            "bb81d858-811e-42c8-a374-ce3f5e44a134"
+          ],
+          "minutes": "2",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Korean double-fry: dries the crust so it stays crisp",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "e1bd86ec-063a-4a89-9071-7291621510df",
+          "title": "Oil life",
+          "body": "Fry tempe and vegetables before meat items, skim crumbs between batches, and filter the oil at the end of the day."
+        },
+        {
+          "id": "e95655d9-42f7-4c9c-8281-a3fae1a6f5d3",
+          "title": "Estimated cost",
+          "body": "About Rp 600 per piece including oil (tempe ~Rp 12.000/kg assumed). Price Rp 2.000."
+        }
+      ]
+    },
+    {
+      "id": "addf5e73-3533-4777-922a-6c94dc57c5ef",
+      "name": "Proposal Bakwan Sayur Garing",
+      "description": "Bakwan built like Japanese kakiage: vegetables dusted first, just enough cold batter to bind, fried thin and lacy.",
+      "eyebrow": "",
+      "baseServings": "20",
+      "yieldUnit": "pcs",
+      "active": "30 min",
+      "total": "40 min",
+      "vessel": "Large bowl, wok, flat ladle",
+      "prep": [],
+      "finish": [
+        {
+          "id": "cd2f581a-ed9d-491a-90ec-0061a13131db",
+          "text": "Display longer than 2 hr?",
+          "options": [
+            {
+              "id": "37136c39-797d-463e-a89d-42793ce13ec5",
+              "answer": "Yes",
+              "label": "Re-crisp",
+              "text": "Fry 30-60 secs at 180°C before serving.",
+              "tools": "",
+              "items": []
+            },
+            {
+              "id": "5f94c2f1-be32-4269-858c-330f6c81db17",
+              "answer": "No",
+              "label": "Serve",
+              "text": "Drain upright on a rack; serve with green cabe rawit.",
+              "tools": "",
+              "items": []
+            }
+          ]
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "8712fdea-e46e-4a82-b9bd-01811b771e56",
+          "name": "Cabbage",
+          "description": "Kol, thinly shredded",
+          "quantity": "200",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "bd9e8943-0b92-42e6-98d3-0f4bdcf9e20a",
+          "name": "Carrot",
+          "description": "Matchsticks",
+          "quantity": "100",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "c56a1c3a-372a-407d-aa7f-2892d65f9f1f",
+          "name": "Bean sprouts",
+          "description": "Tauge, tails off if time allows",
+          "quantity": "100",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "c988c515-cbb9-45aa-8a1d-e924b17f24bb",
+          "name": "Spring onion",
+          "description": "Daun bawang, sliced",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "34808fb0-b822-4a75-b64f-80a6640277d6",
+          "name": "Celery leaves",
+          "description": "Seledri, chopped",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "4d9d1607-1b5c-4f69-a260-b4978741ef5e",
+          "name": "Wheat flour",
+          "description": "For dusting",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "387231f3-d1ce-46d1-8f17-324d5e70366f",
+          "name": "Garlic",
+          "description": "",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ba68a702-b168-411c-80d5-dad418ef3ce1",
+          "name": "Shallots",
+          "description": "",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "4a076ee6-e807-4099-b9e6-09a5ca181e90",
+          "name": "Coriander",
+          "description": "Ketumbar, toasted",
+          "quantity": "3",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "e9bf1bed-164d-4d2e-a9c0-dba763013734",
+          "name": "Salt",
+          "description": "",
+          "quantity": "8",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "c5773238-f85f-4126-9094-c654cfc4e86f",
+          "name": "White pepper",
+          "description": "",
+          "quantity": "1",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "108044f2-5fba-46f6-a2e3-471a9cd61c9a",
+          "name": "Mushroom bouillon",
+          "description": "Or MSG 1 g",
+          "quantity": "3",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d229494a-7485-4abf-9737-05f352c2a896",
+          "name": "Wheat flour",
+          "description": "",
+          "quantity": "100",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "5be34be5-8139-4062-a08d-3ca5300eca31",
+          "name": "Rice flour",
+          "description": "",
+          "quantity": "60",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "e926f283-21a5-4d62-a21c-d386c7af2899",
+          "name": "Cornstarch",
+          "description": "Maizena",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "5146d55f-a04d-4b40-8dfc-7533d7f6e77f",
+          "name": "Baking powder",
+          "description": "",
+          "quantity": "3",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "71aa1633-d07f-4d65-b54d-078b1f9fda94",
+          "name": "Ice-cold water",
+          "description": "",
+          "quantity": "200",
+          "unit": "ml",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "fe0e06a9-a44f-48de-b324-9f40e3aeb05b",
+          "name": "Frying oil",
+          "description": "",
+          "quantity": "2",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "a142586e-1e3d-464d-b3f5-270444dc4e65",
+          "title": "Dust",
+          "instructions": "Toss vegetables with the dusting flour until every strand is coated.",
+          "inputs": [
+            "8712fdea-e46e-4a82-b9bd-01811b771e56",
+            "bd9e8943-0b92-42e6-98d3-0f4bdcf9e20a",
+            "c56a1c3a-372a-407d-aa7f-2892d65f9f1f",
+            "c988c515-cbb9-45aa-8a1d-e924b17f24bb",
+            "34808fb0-b822-4a75-b64f-80a6640277d6",
+            "4d9d1607-1b5c-4f69-a260-b4978741ef5e"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Kakiage trick: dry flour first lets a thin batter grip",
+          "parallel": false
+        },
+        {
+          "id": "5a977036-fd18-47c1-a2dc-4a64fb31351c",
+          "title": "Grind",
+          "instructions": "Grind to a fine paste.",
+          "inputs": [
+            "387231f3-d1ce-46d1-8f17-324d5e70366f",
+            "ba68a702-b168-411c-80d5-dad418ef3ce1",
+            "4a076ee6-e807-4099-b9e6-09a5ca181e90",
+            "e9bf1bed-164d-4d2e-a9c0-dba763013734",
+            "c5773238-f85f-4126-9094-c654cfc4e86f",
+            "108044f2-5fba-46f6-a2e3-471a9cd61c9a"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": true
+        },
+        {
+          "id": "c69efe4a-a816-4375-9b07-05176d579dfc",
+          "title": "Batter",
+          "instructions": "Whisk paste, flours, baking powder and ice water briefly. Lumps are fine.",
+          "inputs": [
+            "5a977036-fd18-47c1-a2dc-4a64fb31351c",
+            "d229494a-7485-4abf-9737-05f352c2a896",
+            "5be34be5-8139-4062-a08d-3ca5300eca31",
+            "e926f283-21a5-4d62-a21c-d386c7af2899",
+            "5146d55f-a04d-4b40-8dfc-7533d7f6e77f",
+            "71aa1633-d07f-4d65-b54d-078b1f9fda94"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "25d59151-869a-4621-8f38-cfdb6e73aa04",
+          "title": "Bind",
+          "instructions": "Fold batter into vegetables just before frying. Use only enough to bind; vegetables should show through.",
+          "inputs": [
+            "a142586e-1e3d-464d-b3f5-270444dc4e65",
+            "c69efe4a-a816-4375-9b07-05176d579dfc"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "40d8f853-d5ea-46bd-9be6-526ff343e259",
+          "title": "Fry",
+          "instructions": "Slide flat ladlefuls (about 50 g) into 170°C oil. Spread thin with a chopstick. 3-4 min, flip once, until golden and lacy.",
+          "inputs": [
+            "25d59151-869a-4621-8f38-cfdb6e73aa04",
+            "fe0e06a9-a44f-48de-b324-9f40e3aeb05b"
+          ],
+          "minutes": "4",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Thin and lacy = crisp and less batter per piece",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "eea97a69-0ce1-4c13-81e7-c4bdd830cd1f",
+          "title": "Estimated cost",
+          "body": "About Rp 750 per piece including oil. Price Rp 2.000."
+        }
+      ]
+    },
+    {
+      "id": "9a99e63c-085d-4591-b91b-d01b8cf158e9",
+      "name": "Proposal Tahu Bakso Ayam",
+      "description": "Tofu pockets filled with springy chicken paste, steamed ahead, fried to order. Same paste as Proposal Sate Tsukune.",
+      "eyebrow": "",
+      "baseServings": "20",
+      "yieldUnit": "pcs",
+      "active": "40 min",
+      "total": "1 hr",
+      "vessel": "Steamer, wok",
+      "prep": [],
+      "finish": [
+        {
+          "id": "83d260ac-5c0c-4458-b06a-d16c199c5e24",
+          "title": "Storage",
+          "text": "Steamed, unfried pieces keep 3 days at 4°C. Fry to order or in small batches.",
+          "tools": ""
+        },
+        {
+          "id": "94e9282a-5114-4d65-bf39-99878bd0d737",
+          "title": "Serve",
+          "text": "with sambal kecap and rawit.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "44cf7532-afe1-448d-9dc1-37bb3eb446c6",
+          "name": "Firm tofu",
+          "description": "Tahu putih or kuning, about 6 x 6 cm",
+          "quantity": "10",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "a7d2b124-7df4-47b7-90ae-7934e6a0c328",
+          "name": "Minced chicken",
+          "description": "Ayam giling, very cold",
+          "quantity": "250",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ec223e85-559a-454f-a896-bc44514646df",
+          "name": "Salt",
+          "description": "",
+          "quantity": "4",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ac517645-b6ce-4d7d-8acc-c245396b2987",
+          "name": "Crushed ice",
+          "description": "",
+          "quantity": "25",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "8f7a8908-d7de-4155-9e1d-a78cecacc45a",
+          "name": "Tapioca starch",
+          "description": "Keep 10 g for dabbing",
+          "quantity": "50",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "5d3e3075-8b5c-40c3-b118-f49ff18f523e",
+          "name": "Garlic",
+          "description": "Grated",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d8369182-1e26-420b-8a1d-c9232f1dc1ea",
+          "name": "White pepper",
+          "description": "",
+          "quantity": "1",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "66c323cc-2063-4027-b14d-9e6975ea753d",
+          "name": "Sugar",
+          "description": "",
+          "quantity": "5",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "913a00dd-dbab-4e70-b751-3dcacb396ec1",
+          "name": "Egg white",
+          "description": "",
+          "quantity": "1",
+          "unit": "pc",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "65d6640a-d862-4a80-baca-dff661bd965d",
+          "name": "Water",
+          "description": "For the steamer",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b232a0e6-42d3-4ca9-aa20-4439b564620a",
+          "name": "Frying oil",
+          "description": "",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "58129136-f3ec-48b9-a0f9-475c133acd9f",
+          "title": "Cut & Hollow",
+          "instructions": "Halve each tofu into 2 triangles. Scoop a pocket from the cut side, 1 cm deep. Keep scraps.",
+          "inputs": [
+            "44cf7532-afe1-448d-9dc1-37bb3eb446c6"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "dcffb223-60e5-4e26-923e-eec2323607c9",
+          "title": "Knead",
+          "instructions": "Knead chicken, salt and ice 3-4 min until sticky.",
+          "inputs": [
+            "a7d2b124-7df4-47b7-90ae-7934e6a0c328",
+            "ec223e85-559a-454f-a896-bc44514646df",
+            "ac517645-b6ce-4d7d-8acc-c245396b2987"
+          ],
+          "minutes": "4",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Salt + cold = bouncy bakso texture",
+          "parallel": true
+        },
+        {
+          "id": "3a4cd900-a626-41d2-8e07-253502283fbe",
+          "title": "Mix",
+          "instructions": "Mix in 40 g tapioca, garlic, pepper, sugar, egg white and tofu scraps.",
+          "inputs": [
+            "dcffb223-60e5-4e26-923e-eec2323607c9",
+            "8f7a8908-d7de-4155-9e1d-a78cecacc45a",
+            "5d3e3075-8b5c-40c3-b118-f49ff18f523e",
+            "d8369182-1e26-420b-8a1d-c9232f1dc1ea",
+            "66c323cc-2063-4027-b14d-9e6975ea753d",
+            "913a00dd-dbab-4e70-b751-3dcacb396ec1"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "d19b96b7-32dd-483a-8a19-c255a8346a84",
+          "title": "Stuff",
+          "instructions": "Dab pockets with the reserved tapioca, then fill with paste (about 15 g), smoothing level with a wet spoon.",
+          "inputs": [
+            "58129136-f3ec-48b9-a0f9-475c133acd9f",
+            "3a4cd900-a626-41d2-8e07-253502283fbe"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Starch glues paste to tofu so it won't pop out",
+          "parallel": false
+        },
+        {
+          "id": "12dcde1a-4382-4638-9a93-d0c465a6ce7b",
+          "title": "Steam",
+          "instructions": "Steam over high heat 15 min until paste is firm. Cool on a rack.",
+          "inputs": [
+            "d19b96b7-32dd-483a-8a19-c255a8346a84",
+            "65d6640a-d862-4a80-baca-dff661bd965d"
+          ],
+          "minutes": "15",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "4b926217-8d5e-449d-b43e-4bc498da48ae",
+          "title": "Fry",
+          "instructions": "170°C, 2-3 min until golden and blistered.",
+          "inputs": [
+            "12dcde1a-4382-4638-9a93-d0c465a6ce7b",
+            "b232a0e6-42d3-4ca9-aa20-4439b564620a"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "790b0128-8ba5-44f6-85d6-4908352eb719",
+          "title": "Estimated cost",
+          "body": "About Rp 1.300 per piece (tahu ~Rp 1.000 each, ayam giling ~Rp 45.000/kg assumed). Price Rp 3.000."
+        }
+      ]
+    },
+    {
+      "id": "df3d148d-50d1-40b9-afb1-5d7775ae18cf",
+      "name": "Proposal Perkedel Kentang",
+      "description": "The soto classic, built not to crumble: steamed and dried potato (Japanese korokke method), chilled before frying, egg-white coat.",
+      "eyebrow": "",
+      "baseServings": "25",
+      "yieldUnit": "pcs",
+      "active": "45 min",
+      "total": "1 hr 30 min",
+      "vessel": "Steamer, wide pan, wok",
+      "prep": [],
+      "finish": [
+        {
+          "id": "eff3f29f-b5b2-4b8b-9c63-2a2b539f1c52",
+          "title": "Storage",
+          "text": "Shaped, uncoated perkedel keep 2 days at 4°C or 1 month frozen. Fry from chilled.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "a4e37857-b9b6-4231-ad1b-88029f51ee12",
+          "name": "Potatoes",
+          "description": "Floury type, peeled, cut 3 cm",
+          "quantity": "1",
+          "unit": "kg",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "a2523508-666c-444b-b434-ce7baf82771b",
+          "name": "Fried shallots",
+          "description": "Bawang goreng, crushed",
+          "quantity": "30",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "da421e35-3733-4299-8d3d-5f8d46b98155",
+          "name": "Garlic",
+          "description": "Grated",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d8984ea5-5d4a-4d59-9907-64418eeb85c4",
+          "name": "Salt",
+          "description": "",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "9b5a45e7-18cd-4224-8bd0-4927a0eb34e8",
+          "name": "White pepper",
+          "description": "",
+          "quantity": "2",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "c8cf4186-973e-45c5-9d91-b917d26a9808",
+          "name": "Nutmeg",
+          "description": "Pala, grated",
+          "quantity": "1",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "f7adb3cc-955a-460d-a2eb-a597bfd6ef96",
+          "name": "Sugar",
+          "description": "",
+          "quantity": "5",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "16aa9c48-fefb-4038-98d0-57c3d403a160",
+          "name": "Mushroom bouillon",
+          "description": "",
+          "quantity": "5",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "baa5d798-6b72-41d5-a550-112476ddb26c",
+          "name": "Celery leaves",
+          "description": "Seledri, chopped",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "5a83b8eb-377f-4f9f-b174-16b86428bdf8",
+          "name": "Cooked beef trimmings",
+          "description": "Optional: shredded soto brisket offcuts. Free flavour",
+          "quantity": "100",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ab5bcc1b-25f5-4449-b01c-515b44c7a263",
+          "name": "Egg",
+          "description": "For the mash",
+          "quantity": "1",
+          "unit": "pc",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "f92c425a-73b8-487a-ad8c-2dbdfe9a6f8f",
+          "name": "Egg whites",
+          "description": "Lightly beaten, for coating",
+          "quantity": "2",
+          "unit": "pcs",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "efc537c8-7a01-4cc9-9a41-9703cf9bc7f1",
+          "name": "Frying oil",
+          "description": "",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "95313919-9f55-4719-9318-05e5603b9ae3",
+          "title": "Steam",
+          "instructions": "Steam until a fork goes in easily, 20 min.",
+          "inputs": [
+            "a4e37857-b9b6-4231-ad1b-88029f51ee12"
+          ],
+          "minutes": "20",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Steaming absorbs less water than boiling",
+          "parallel": false
+        },
+        {
+          "id": "2d8b379e-74aa-44e0-8a33-3151cc17138b",
+          "title": "Dry",
+          "instructions": "Into a dry pan over low heat, shake 2 min until surface turns floury.",
+          "inputs": [
+            "95313919-9f55-4719-9318-05e5603b9ae3"
+          ],
+          "minutes": "2",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Konafuki-imo: dry mash holds its shape",
+          "parallel": false
+        },
+        {
+          "id": "1d30acff-30d5-45e4-9617-dfbbdb6bb5a5",
+          "title": "Mash",
+          "instructions": "Mash while hot with the seasonings, celery and trimmings. Taste: well seasoned, slightly sweet.",
+          "inputs": [
+            "2d8b379e-74aa-44e0-8a33-3151cc17138b",
+            "a2523508-666c-444b-b434-ce7baf82771b",
+            "da421e35-3733-4299-8d3d-5f8d46b98155",
+            "d8984ea5-5d4a-4d59-9907-64418eeb85c4",
+            "9b5a45e7-18cd-4224-8bd0-4927a0eb34e8",
+            "c8cf4186-973e-45c5-9d91-b917d26a9808",
+            "f7adb3cc-955a-460d-a2eb-a597bfd6ef96",
+            "16aa9c48-fefb-4038-98d0-57c3d403a160",
+            "baa5d798-6b72-41d5-a550-112476ddb26c",
+            "5a83b8eb-377f-4f9f-b174-16b86428bdf8"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "ec616440-de28-4c00-8e28-43eaadfb6687",
+          "title": "Bind",
+          "instructions": "Cool 10 min, then mix in the egg.",
+          "inputs": [
+            "1d30acff-30d5-45e4-9617-dfbbdb6bb5a5",
+            "ab5bcc1b-25f5-4449-b01c-515b44c7a263"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "ea532e3c-6d53-4fe3-9d70-fb13d209d4bc",
+          "title": "Shape & Chill",
+          "instructions": "45 g flat ovals, 1.5 cm thick. Chill on a tray at least 30 min.",
+          "inputs": [
+            "ec616440-de28-4c00-8e28-43eaadfb6687"
+          ],
+          "minutes": "30",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Cold perkedel doesn't break in the oil",
+          "parallel": false
+        },
+        {
+          "id": "f617db8f-2fa9-4802-85ab-f897a8bac99a",
+          "title": "Coat",
+          "instructions": "Dip in egg white just before frying.",
+          "inputs": [
+            "ea532e3c-6d53-4fe3-9d70-fb13d209d4bc",
+            "f92c425a-73b8-487a-ad8c-2dbdfe9a6f8f"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "484171eb-7895-4242-96ed-3ebf901d8733",
+          "title": "Fry",
+          "instructions": "170°C, 2-3 min. Don't touch for the first minute; flip once.",
+          "inputs": [
+            "f617db8f-2fa9-4802-85ab-f897a8bac99a",
+            "efc537c8-7a01-4cc9-9a41-9703cf9bc7f1"
+          ],
+          "minutes": "3",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "f60958df-5e17-42aa-a307-5c47305dd86a",
+          "title": "Traditional flavour option",
+          "body": "Javanese perkedel fries the potato cubes before mashing: deeper flavour but uses more oil. Steaming is cheaper and gives a more stable shape."
+        },
+        {
+          "id": "c2c27cf4-5cc1-4e0b-bf30-728b8cedf741",
+          "title": "Estimated cost",
+          "body": "About Rp 900 per piece (kentang ~Rp 15.000/kg assumed). Price Rp 2.500-3.000."
+        }
+      ]
+    },
+    {
+      "id": "07b034e2-8b39-4b7e-9a8d-2d29df906a19",
+      "name": "Proposal Usus Krispi",
+      "description": "Crunchy fried chicken intestine: starch-heavy coating, Korean double-fry, sweet-salty Klaten seasoning dust. Sold by the cup.",
+      "eyebrow": "",
+      "baseServings": "10",
+      "yieldUnit": "cups",
+      "active": "50 min",
+      "total": "1 hr 30 min",
+      "vessel": "Pot, wok, rack",
+      "prep": [],
+      "finish": [
+        {
+          "id": "e24380ec-3f1c-424f-bdba-4688820b182c",
+          "title": "Storage",
+          "text": "Once cool, airtight jar up to 3 days. Re-fry 30 secs at 180°C if it softens.",
+          "tools": ""
+        }
+      ],
+      "credit": "",
+      "monochrome": false,
+      "ingredients": [
+        {
+          "id": "fffd1e67-4399-40f4-8297-a90506a2306f",
+          "name": "Chicken intestine",
+          "description": "Usus ayam",
+          "quantity": "500",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "708d3c2c-314a-4ab5-b846-c3b04ac4f749",
+          "name": "Coarse salt",
+          "description": "",
+          "quantity": "20",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "17b936aa-ab65-4660-a488-e3a63ab5f345",
+          "name": "Tamarind pulp",
+          "description": "Or jeruk nipis",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "d3fff420-c75e-4e08-895c-e7f80a74e664",
+          "name": "Ginger",
+          "description": "Smashed",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "be6b1120-934c-4c52-849e-4af053f91551",
+          "name": "Water",
+          "description": "",
+          "quantity": "1",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "ad730dbb-0faf-419f-886a-3644344372c9",
+          "name": "Garlic",
+          "description": "",
+          "quantity": "15",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "a3d93b00-690d-4b2d-9fef-8c5563f4da88",
+          "name": "Coriander",
+          "description": "Ketumbar, ground",
+          "quantity": "4",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "43e093a2-688c-41c0-bf00-3b8cde93f2d9",
+          "name": "Turmeric",
+          "description": "Kunyit, for colour",
+          "quantity": "5",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "066ce610-b287-4b65-88b1-e4e7425ac685",
+          "name": "Salt",
+          "description": "",
+          "quantity": "6",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "fd04b13d-b041-4d98-b8fc-588a0ad8f89a",
+          "name": "Egg white",
+          "description": "",
+          "quantity": "1",
+          "unit": "pc",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "760482b9-292e-4e99-aa9d-872e3ff10aae",
+          "name": "Tapioca starch",
+          "description": "",
+          "quantity": "80",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "b7057fe3-46d8-4618-864e-3bd541adccd5",
+          "name": "Rice flour",
+          "description": "",
+          "quantity": "80",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "11fd1f59-e8e6-4648-91cf-5cfb5137442c",
+          "name": "Wheat flour",
+          "description": "",
+          "quantity": "40",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1378af44-0085-493a-a885-1e0166f6dfda",
+          "name": "Frying oil",
+          "description": "",
+          "quantity": "1.5",
+          "unit": "L",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "9cd4c701-ffa3-47af-b5ea-9992714fc0d2",
+          "name": "Fine sugar",
+          "description": "Klaten likes it slightly sweet",
+          "quantity": "10",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "cc378866-f6fb-41cb-90bc-2a3c3b1ceb2f",
+          "name": "Garlic powder",
+          "description": "",
+          "quantity": "5",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "1f43c481-84f7-4a9c-adc0-8b75c04457dd",
+          "name": "Fine salt",
+          "description": "",
+          "quantity": "3",
+          "unit": "g",
+          "metricQuantity": "",
+          "metricUnit": ""
+        },
+        {
+          "id": "4ce52903-ebda-40f8-8687-f2229250c5b8",
+          "name": "Chili powder",
+          "description": "Optional, for a pedas variant",
+          "quantity": "to taste",
+          "unit": "",
+          "metricQuantity": "",
+          "metricUnit": ""
+        }
+      ],
+      "procedures": [
+        {
+          "id": "e5f3e0c6-1af6-4608-82b2-96954b4773f4",
+          "title": "Clean",
+          "instructions": "Flush inside, scrub with salt and tamarind 2 min, rinse.",
+          "inputs": [
+            "fffd1e67-4399-40f4-8297-a90506a2306f",
+            "708d3c2c-314a-4ab5-b846-c3b04ac4f749",
+            "17b936aa-ab65-4660-a488-e3a63ab5f345"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "74f797c4-35e2-4239-8081-95f4abcb491d",
+          "title": "Blanch",
+          "instructions": "Boil with ginger 5 min, discard water. Cut into 5 cm pieces.",
+          "inputs": [
+            "e5f3e0c6-1af6-4608-82b2-96954b4773f4",
+            "d3fff420-c75e-4e08-895c-e7f80a74e664",
+            "be6b1120-934c-4c52-849e-4af053f91551"
+          ],
+          "minutes": "5",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "537c4608-ec0c-4597-b7e6-ed59510df79b",
+          "title": "Marinate",
+          "instructions": "Grind garlic, coriander, turmeric and salt; rub in. 30 min.",
+          "inputs": [
+            "74f797c4-35e2-4239-8081-95f4abcb491d",
+            "ad730dbb-0faf-419f-886a-3644344372c9",
+            "a3d93b00-690d-4b2d-9fef-8c5563f4da88",
+            "43e093a2-688c-41c0-bf00-3b8cde93f2d9",
+            "066ce610-b287-4b65-88b1-e4e7425ac685"
+          ],
+          "minutes": "30",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "3dcc1bd1-710f-4160-9ebe-4c47ad7156e0",
+          "title": "Coat",
+          "instructions": "Toss with egg white, then press into the mixed flours. Shake off excess; rest 5 min so the coating hydrates.",
+          "inputs": [
+            "537c4608-ec0c-4597-b7e6-ed59510df79b",
+            "fd04b13d-b041-4d98-b8fc-588a0ad8f89a",
+            "760482b9-292e-4e99-aa9d-872e3ff10aae",
+            "b7057fe3-46d8-4618-864e-3bd541adccd5",
+            "11fd1f59-e8e6-4648-91cf-5cfb5137442c"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Starch-heavy = glassy crunch",
+          "parallel": false
+        },
+        {
+          "id": "7470f070-b8e7-4a98-8266-cafeb2a8f76c",
+          "title": "First fry",
+          "instructions": "160°C, 4 min, stirring to separate. Drain, rest 5 min.",
+          "inputs": [
+            "3dcc1bd1-710f-4160-9ebe-4c47ad7156e0",
+            "1378af44-0085-493a-a885-1e0166f6dfda"
+          ],
+          "minutes": "4",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        },
+        {
+          "id": "6bf7975b-7a43-4657-aed8-2fc05f551b13",
+          "title": "Second fry",
+          "instructions": "180°C, 1-2 min until deep golden and dry-sounding.",
+          "inputs": [
+            "7470f070-b8e7-4a98-8266-cafeb2a8f76c"
+          ],
+          "minutes": "2",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "Korean double-fry",
+          "parallel": false
+        },
+        {
+          "id": "7c440d20-fe64-4e8b-94fd-aa2e1f91546c",
+          "title": "Season",
+          "instructions": "Toss hot with the seasoning dust. 50 g per cup.",
+          "inputs": [
+            "6bf7975b-7a43-4657-aed8-2fc05f551b13",
+            "9cd4c701-ffa3-47af-b5ea-9992714fc0d2",
+            "cc378866-f6fb-41cb-90bc-2a3c3b1ceb2f",
+            "1f43c481-84f7-4a9c-adc0-8b75c04457dd",
+            "4ce52903-ebda-40f8-8687-f2229250c5b8"
+          ],
+          "minutes": "",
+          "outputName": "",
+          "outputDescription": "",
+          "outputQuantity": "",
+          "outputUnit": "",
+          "tools": "",
+          "parallel": false
+        }
+      ],
+      "notes": [
+        {
+          "id": "fab39ba0-6e6f-48e9-b29f-6e1a5dcc9361",
+          "title": "Use the same supply",
+          "body": "Buy usus once for both Proposal Sate Usus Gulung and this; the thinner, broken pieces go here."
+        },
+        {
+          "id": "1f318ca7-a23b-4253-bf6d-401b9d00e01b",
+          "title": "Estimated cost",
+          "body": "About Rp 1.800 per 50 g cup including oil. Price Rp 5.000."
+        }
+      ]
     }
   ]
 }
